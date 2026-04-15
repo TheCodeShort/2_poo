@@ -35,7 +35,7 @@ El acoplamiento mide la dependencia entre clases. Buscamos siempre un **Bajo Aco
 
 - **La Analogía:** Imagina los audífonos de un avión antiguo que tenían dos entradas raras. Si se rompen, solo puedes comprar esos. Eso es **Alto Acoplamiento**. En cambio, los audífonos con entrada USB o Bluetooth tienen **Bajo Acoplamiento**: puedes conectarlos a cualquier dispositivo porque usan un estándar (una interfaz).
 
-- **Mucho Acoplamiento = MALO:** Significa que las clases dependen demasiado entre sí. Si mueves un cable en la clase A, explota la clase B. Es como la **Composición** [[1_Conceptos#^947696]] si el "dueño" muere, la "parte" muere. Eso hace que el código sea rígido y difícil de cambiar
+- **Mucho Acoplamiento = MALO:** Significa que las clases dependen demasiado entre sí. Si mueves un cable en la clase A, explota la clase B. Es como la **Composición** [[1_conceptos#^947696]] si el "dueño" muere, la "parte" muere. Eso hace que el código sea rígido y difícil de cambiar
 	- Aquí la clase `Impresora` depende **específicamente** de un `DocumentoPDF`. Si mañana quieres imprimir un `Excel`, tienes que modificar la clase `Impresora`.
 		- ```java
 			class Impresora {
@@ -62,7 +62,7 @@ El acoplamiento mide la dependencia entre clases. Buscamos siempre un **Bajo Aco
 	- ###### Qué tiene que ver con el Acoplamiento?
 		- **Sin Interfaces (Alto Acoplamiento):** Tu clase `Tienda` tiene una variable de tipo `TarjetaVisa`. Si mañana quieres aceptar `PayPal`, tienes que romper el código de la `Tienda` para cambiarlo. ¡Están pegadas con pegamento fuerte!
 		
-		- **Con Interfaces (Bajo Acoplamiento): [[1_Conceptos#^77d6df]]** Tu clase `Tienda` tiene una variable de tipo `MetodoDePago` (la interface). A la tienda no le importa si el pago es con Visa, PayPal o Bitcoin; ella solo llama a `pagar()`.
+		- **Con Interfaces (Bajo Acoplamiento): [[1_conceptos#^77d6df]]** Tu clase `Tienda` tiene una variable de tipo `MetodoDePago` (la interface). A la tienda no le importa si el pago es con Visa, PayPal o Bitcoin; ella solo llama a `pagar()`.
 		
 		- **Resultado:** Puedes cambiar el banco o la moneda sin tocar una sola línea de la clase `Tienda`. El código es flexible como un cable USB.
 		
@@ -146,7 +146,7 @@ public void realizarRetiro(double cantidad) throws SaldoInsuficienteException {
 El documento menciona que, aunque no están en el sílabo detallado, los **Principios SOLID** son la base teórica para lograr esa alta cohesión y bajo acoplamiento  Son 5 reglas de oro:
 
 - **SOLID:** No es "Qué" escribir, sino "Cómo" organizar
-	1. **S ingle Responsibility (Responsabilidad Única)** Una clase, una sola tarea como la [[2_Conceptos#^86881c]] .
+	1. **S ingle Responsibility (Responsabilidad Única)** Una clase, una sola tarea como la [[2_conceptos#^86881c]] .
 		 - Una clase debe tener una, y solo una, razón para cambiar". Esto significa que si mañana cambias el formato de tus reportes, no deberías tener que tocar la clase que calcula los salarios.
 		 
 	2. **O pen/Closed (Abierto a extensión, cerrado a modificación)**  El código debe estar **abierto** para extenderse (añadir funciones) pero **cerrado** para modificarse (no romper lo que ya sirve).
