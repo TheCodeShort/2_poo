@@ -27,7 +27,7 @@
       {
         "id": "193f0b83fe9da8e4",
         "type": "tabs",
-        "dimension": 61.24733475479744,
+        "dimension": 61.247334754797436,
         "children": [
           {
             "id": "83114c41055932a1",
@@ -38,8 +38,8 @@
                 "file": "2_1_archivos/1_poo.pdf",
                 "page": 36,
                 "left": -13,
-                "top": 410,
-                "zoom": 1.1948529411764706
+                "top": 29,
+                "zoom": 1.1948529411764708
               },
               "icon": "lucide-file-text",
               "title": "1_poo"
