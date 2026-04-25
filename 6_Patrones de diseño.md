@@ -9,7 +9,7 @@ Publicaron el libro _Design Patterns: Elements of Reusable Object-Oriented Softw
 
 existen patrones para otros estilos (como programación funcional), cuando la gente dice "Patrones de Diseño" casi siempre se refiere a los **Patrones de Diseño Orientados a Objetos (POO)** son soluciones estandarizadas para problemas comunes que surgen al crear objetos y hacer que interactúen entre sí
 
-1. **Patrones Creacionales: "El Taller de Fabricación"**
+1. ==**Patrones Creacionales: "El Taller de Fabricación"**==
 
 	**Objetivo:** Controlar **cómo se crean** los objetos.
 	
@@ -41,7 +41,7 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 			3. **Ejemplo en Java: Un Gestor de Configuración**
 			
 				- Imagina que quieres guardar el idioma y la moneda de tu app de IMC.
-					- ```java
+					```java
 						public class Configuracion {
 					    // 1. Atributo estático privado (aquí vive el único objeto)
 					    private static Configuracion instancia;
@@ -64,8 +64,8 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 					        return instancia;
 					    }
 					}
-						```
-						
+					```
+							
 				- **¿Cómo se usa en el `Main`?**
 
 					```java
@@ -204,90 +204,82 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 			1. Ejemplo en Java: Creando un Paciente "Pro"
 			
 				La Clase con su Builder interno		
-			```java
-			public class Paciente {
-			    // Atributos privados (sin setters para que sea inmutable)
-			    private final String nombre;
-			    private final double peso;
-			    private final double altura;
-			    private final String email; // Opcional
-			
-			    // El constructor es privado: solo el Builder puede usarlo
-			    private Paciente(PacienteBuilder builder) {
-			        this.nombre = builder.nombre;
-			        this.peso = builder.peso;
-			        this.altura = builder.altura;
-			        this.email = builder.email;
-			    }
-			    // Clase interna Builder
-			    public static class PacienteBuilder {
-			        private String nombre;
-			        private double peso;
-			        private double altura;
-			        private String email;
-			
-			        // Métodos para configurar cada atributo (retornan el mismo builder)
-			        public PacienteBuilder conNombre(String nombre) {
-			            this.nombre = nombre;
-			            return this;
-			        }
-			
-			        public PacienteBuilder conMedidas(double peso, double altura) {
-			            this.peso = peso;
-			            this.altura = altura;
-			            return this;
-			        }
-			
-			        public PacienteBuilder conEmail(String email) {
-			            this.email = email;
-			            return this;
-			        }
-			
-			        // El método final que entrega el objeto real
-			        public Paciente build() {
-			            return new Paciente(this);
-			        }
-			    }
-			}
-			```
-			
-			Usa el código con precaución.
-			
-			---
-			
+				```java
+				public class Paciente {
+				    // Atributos privados (sin setters para que sea inmutable)
+				    private final String nombre;
+				    private final double peso;
+				    private final double altura;
+				    private final String email; // Opcional
+				
+				    // El constructor es privado: solo el Builder puede usarlo
+				    private Paciente(PacienteBuilder builder) {
+				        this.nombre = builder.nombre;
+				        this.peso = builder.peso;
+				        this.altura = builder.altura;
+				        this.email = builder.email;
+				    }
+				    // Clase interna Builder
+				    public static class PacienteBuilder {
+				        private String nombre;
+				        private double peso;
+				        private double altura;
+				        private String email;
+				
+				        // Métodos para configurar cada atributo (retornan el mismo builder)
+				        public PacienteBuilder conNombre(String nombre) {
+				            this.nombre = nombre;
+				            return this;
+				        }
+				
+				        public PacienteBuilder conMedidas(double peso, double altura) {
+				            this.peso = peso;
+				            this.altura = altura;
+				            return this;
+				        }
+				
+				        public PacienteBuilder conEmail(String email) {
+				            this.email = email;
+				            return this;
+				        }
+				
+				        // El método final que entrega el objeto real
+				        public Paciente build() {
+				            return new Paciente(this);
+				        }
+				    }
+				}
+				```
+				
 			2. ¿Cómo se usa en el `Main`? (Sintaxis Encadenada)
 			
-			Esta es la parte más elegante. Se lee casi como lenguaje natural:
-			
-			java
-			
-			```
-			public class Main {
-			    public static void main(String[] args) {
-			        
-			        // Creamos un paciente paso a paso
-			        Paciente p1 = new Paciente.PacienteBuilder()
-			                        .conNombre("Alex")
-			                        .conMedidas(75.0, 1.75)
-			                        .conEmail("alex@correo.com")
-			                        .build();
-			
-			        // Si otro paciente no tiene email, simplemente no llamas al método
-			        Paciente p2 = new Paciente.PacienteBuilder()
-			                        .conNombre("Juan")
-			                        .conMedidas(80.0, 1.85)
-			                        .build();
-			    }
-			}
-			```
-			
-			Usa el código con precaución.
+				Esta es la parte más elegante. Se lee casi como lenguaje natural:
+	
+				```java
+				public class Main {
+				    public static void main(String[] args) {
+				        
+				        // Creamos un paciente paso a paso
+				        Paciente p1 = new Paciente.PacienteBuilder()
+				                        .conNombre("Alex")
+				                        .conMedidas(75.0, 1.75)
+				                        .conEmail("alex@correo.com")
+				                        .build();
+				
+				        // Si otro paciente no tiene email, simplemente no llamas al método
+				        Paciente p2 = new Paciente.PacienteBuilder()
+				                        .conNombre("Juan")
+				                        .conMedidas(80.0, 1.85)
+				                        .build();
+				    }
+				}
+				```
 			
 			3. ¿Por qué es "Buenísimo"?
 			
-			4. **Legibilidad:** Sabes exactamente qué valor es el peso y cuál es el nombre porque el método lo dice (`conMedidas`).
-			5. **Inmutabilidad:** Como el objeto se crea de un solo golpe al final (`build()`) y no tiene setters, nadie puede cambiarle el peso a "Alex" por error después de creado.
-			6. **Flexibilidad:** No necesitas 10 constructores para diferentes combinaciones de datos opcionales.
+				1. **Legibilidad:** Sabes exactamente qué valor es el peso y cuál es el nombre porque el método lo dice (`conMedidas`).
+				2. **Inmutabilidad:** Como el objeto se crea de un solo golpe al final (`build()`) y no tiene setters, nadie puede cambiarle el peso a "Alex" por error después de creado.
+				3. **Flexibilidad:** No necesitas 10 constructores para diferentes combinaciones de datos opcionales.
 		
 		4. ==**Abstract Factory (La "Fábrica de Fábricas")**==
 
@@ -349,7 +341,7 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 			// En el Main:
 			ReporteIMC reporteOriginal = new ReporteIMC();
 			// Cargamos datos pesados una sola vez...
-			
+		/	
 			// Creamos otro reporte igual en un milisegundo
 			ReporteIMC reporteCopia = reporteOriginal.clone();
 			```
@@ -372,4 +364,5 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 	
 	- **Por qué se usan:** Para evitar que los objetos estén "demasiado pegados" (acoplados). Si un objeto cambia, no debería obligar a todos los demás a cambiar.
 	- **En palabras simples:** Es como un árbitro en un partido (Mediador) o como una fila de personas pasándose un mensaje (Cadena de responsabilidad).
+
 

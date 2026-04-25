@@ -9,20 +9,6 @@
         "dimension": 50.266524520255864,
         "children": [
           {
-            "id": "fb7a5444f586f558",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "5_estructuras de datos avanzadas.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "5_estructuras de datos avanzadas"
-            }
-          },
-          {
             "id": "feb9d85d8b54987d",
             "type": "leaf",
             "state": {
@@ -36,8 +22,7 @@
               "title": "6_Patrones de diseño"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "4212b2b10e3b88dc",
@@ -51,10 +36,10 @@
               "type": "pdf",
               "state": {
                 "file": "2_1_archivos/1_poo.pdf",
-                "page": 43,
+                "page": 42,
                 "left": -16,
-                "top": 635,
-                "zoom": 0.9583333333333335
+                "top": 584,
+                "zoom": 0.9583333333333333
               },
               "icon": "lucide-file-text",
               "title": "1_poo"
@@ -133,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1_poo.pdf",
+                "file": "6_Patrones de diseño.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +128,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Enlaces entrantes de 1_poo"
+              "title": "Enlaces entrantes de 6_Patrones de diseño"
             }
           },
           {
@@ -227,12 +212,14 @@
   },
   "active": "feb9d85d8b54987d",
   "lastOpenFiles": [
-    "2_1_archivos/1_poo.pdf",
+    "Pasted image 20260425015949.png",
     "6_Patrones de diseño.md",
+    "2_1_archivos/1_poo.pdf",
+    "2_Conceptos.md",
+    "Sin título.base",
     "5_estructuras de datos avanzadas.md",
     "4_consepto.md",
     "3_Concepto.md",
-    "2_Conceptos.md",
     "1_Conceptos.md",
     "1_imagenes/1_poo_1.png",
     "0_0_conseptos_de_codigo.md",
@@ -247,7 +234,6 @@
     "2_2_informacion_ayuda/G6 - Programación Orientada a Objetos 2.pdf",
     "2_2_informacion_ayuda/G7 - Programación Orientada a Objetos 2.pdf",
     "2_2_informacion_ayuda/G5 - Programación Orientada a Objetos 2.pdf",
-    "2_2_informacion_ayuda",
     "3_UML/14_1_composicion.png",
     "3_imagen_tenica/Captura de pantalla 2026-04-16 124412.png",
     "3_UML/17_estereotipos.png",
@@ -256,7 +242,6 @@
     "Captura de pantalla 2026-04-16 123705 1.png",
     "3_imagen_tenica/Captura de pantalla 2026-04-16 123513.png",
     "3_UML/15_dependencia.png",
-    "3_imagen_tenica/Captura de pantalla 2026-04-16 123628.png",
     "Bienvenido.md"
   ]
 }
