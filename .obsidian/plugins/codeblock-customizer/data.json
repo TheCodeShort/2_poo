@@ -938,7 +938,7 @@
           "alternateHighlightColors": {},
           "languageBorderColors": {},
           "textColor": "#c0caf5",
-          "bracketHighlightColorMatch": "#9ece6a",
+          "bracketHighlightColorMatch": "#79F900",
           "bracketHighlightColorNoMatch": "#f7768e",
           "bracketHighlightBackgroundColorMatch": "#292e42",
           "bracketHighlightBackgroundColorNoMatch": "#292e42",
@@ -1066,7 +1066,7 @@
   "newThemeName": "",
   "newPromptName": "",
   "alternateHighlightColorName": "",
-  "settingsType": "behavior",
+  "settingsType": "highlighting",
   "langSpecificSettingsType": "",
   "languageSpecificLanguageName": "",
   "SyntaxThemes": {

@@ -38,7 +38,7 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 				2. **Atributo estático privado:** Una variable de la misma clase que guardará la única instancia.
 				3. **Método estático público:** El que entrega la instancia (normalmente llamado `getInstance()`).
 			
-			3. **Ejemplo en Java: Un Gestor de Configuración**
+			1. **Ejemplo en Java: Un Gestor de Configuración**
 			
 				- Imagina que quieres guardar el idioma y la moneda de tu app de IMC.
 					```java
@@ -86,7 +86,7 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 					    }
 					}
 					```
-			4. En el ejemplo, si cambias el idioma en `otraConfig`, automáticamente cambia en `config`, porque **son el mismo objeto en memoria**. Es como tener un solo control remoto para un televisor: no importa quién lo agarre, todos operan la misma TV.
+			2. En el ejemplo, si cambias el idioma en `otraConfig`, automáticamente cambia en `config`, porque **son el mismo objeto en memoria**. Es como tener un solo control remoto para un televisor: no importa quién lo agarre, todos operan la misma TV.
 				
 				**Dato extra:** Muchos lo consideran un "Antipatrón" si se usa demasiado, porque actúa como una variable global y puede ocultar dependencias. ¡Úsalo solo cuando realmente necesites unidad absoluta!
 
@@ -348,21 +348,578 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 			```
 
 ---
-3. ==**Patrones Estructurales: "El Plano de Montaje"**==
-
-	**Objetivo:** Organizar **cómo se unen** las clases y los objetos para formar estructuras más grandes.
+2. ==**Patrones Estructurales: "El Plano de Montaje"**==
+	- en el catálogo oficial de la _Gang of Four_ hay **7 patrones estructurales**, pero así como en los creacionales, hay **3 que son los pilares** que verás en todos lados. 
 	
-	Se aseguran de que, si el sistema crece, las piezas sigan encajando bien sin romperse.
-	
-	- **Por qué se usan:** Para que clases que no fueron diseñadas para trabajar juntas puedan hacerlo, o para agrupar objetos de forma que parezcan uno solo.
-	- **En palabras simples:** Es como usar adaptadores de enchufes para un viaje o usar piezas de Lego para armar una pared sólida.
+	- **Objetivo:** Organizar **cómo se unen** las clases y los objetos para formar estructuras más grandes se aseguran de que, si el sistema crece, las piezas sigan encajando bien sin romperse.
 
-4. **Patrones de Comportamiento: "El Manual de Comunicación"**
-
-	**Objetivo:** Gestionar **cómo se comunican** y qué responsabilidades tiene cada objeto.
+		- **Por qué se usan:** Para que clases que no fueron diseñadas para trabajar juntas puedan hacerlo, o para agrupar objetos de forma que parezcan uno solo.
+		- **En palabras simples:** Es como usar adaptadores de enchufes para un viaje o usar piezas de Lego para armar una pared sólida.
 	
-	No se trata de cómo están armados, sino de cómo "hablan" entre ellos y cómo se reparten el trabajo.
+	- ==**ADAPTER (Adaptador):**== Su objetivo es hacer que dos interfaces que no tienen nada que ver entre sí puedan trabajar juntas. (Como un convertidor de enchufe).
+		
+		1. La Idea Central
+
+			Imagina que tienes una aplicación de IMC que funciona con **Kilogramos y Metros**. De repente, te piden integrar una librería externa (o una báscula importada) que solo entrega el peso en **Libras** y la altura en **Pulgadas**.
+			
+			Tu código no entiende esas medidas. Tienes dos opciones: o cambias todo tu código (mala idea), o creas un **Adapter** que reciba los datos en libras/pulgadas y se los entregue a tu sistema convertidos a kg/metros.
+
+		2. Objetivos
+		
+			- **Compatibilidad:** Permitir que clases con interfaces incompatibles colaboren.
+			- **Reutilización:** Usar clases viejas o externas sin tener que modificar su código original.
+
+
+		3. Ejemplo en Java: El Adaptador de Medidas
+
+			- **Paso A: Lo que tu sistema espera (La Interfaz)**
+
+			```java
+			public interface SistemaLocal {
+			    void registrarPesoKG(double peso);
+			}
+			```
+
+
+			- **Paso B: La clase "Vieja" o "Externa" (Lo que no encaja)**
+
+			```java
+			public class BasculaAmericana {
+			    public void setWeightLbs(double weight) {
+			        System.out.println("Peso recibido en Libras: " + weight);
+			    }
+			}
+			```
+
+
+			- **Paso C: EL ADAPTER (El puente)**  
+				El adaptador implementa tu interfaz pero por dentro usa la clase que no encaja.
+
+			```JAVA
+			public class BasculaAdapter implements SistemaLocal {
+			    private BasculaAmericana bascula;
+			
+			    public BasculaAdapter(BasculaAmericana bascula) {
+			        this.bascula = bascula;
+			    }
+			
+			    @Override
+			    public void registrarPesoKG(double pesoKG) {
+			        // Convertimos KG a Libras para que la bascula americana entienda
+			        double libras = pesoKG * 2.20462;
+			        bascula.setWeightLbs(libras);
+			    }
+			}
+			```
+
+			- ¿Cómo se usa en el `Main`?
+
+			```JAVA
+			public class Main {
+			    public static void main(String[] args) {
+			        // Tenemos el objeto que no encaja
+			        BasculaAmericana viejaBascula = new BasculaAmericana();
+			
+			        // Usamos el adaptador para que parezca un "SistemaLocal"
+			        SistemaLocal miSistema = new BasculaAdapter(viejaBascula);
+			
+			        // Ahora puedo usar mis métodos de siempre, y el adaptador hace la magia
+			        miSistema.registrarPesoKG(70.0); 
+			    }
+			}
+			```
+
+
+
+		4. ¿Por qué es "Modularidad Perfecta"?
+
+			Porque tu programa principal sigue creyendo que habla con un sistema de Kilogramos. Si mañana cambias la báscula por una de **Piedras** (medida antigua), solo creas otro Adaptador y el resto de tu código no se mueve ni una coma.
+			
+			**Diferencia clave con otros:**
+			
+			- El **Adapter** cambia la interfaz de un objeto para que se vea como otra.
+			- El **Decorator**  no cambia la interfaz, sino que le agrega "capas" de funcionalid
+
+
+	- ==**DECORATOR (Decorador):**== Su objetivo es añadirle funciones a un objeto de forma dinámica sin cambiar su clase original. (Como ponerle accesorios a un personaje de un juego).
+	
+		1. **La Idea Central**
+
+			Imagina que tienes un café básico. Si quieres añadirle leche, no creas una clase nueva llamada `CafeConLeche`. Si luego quieres azúcar, no creas otra llamada `CafeConLecheYAzucar`. ¡Terminarías con mil clases!
+			
+			El patrón **Decorator** te permite "envolver" tu objeto original en "capas" de funcionalidades nuevas. Es como una cebolla: el núcleo es el objeto básico y cada capa añade algo especial.
+		
+		2. **El Objetivo**
+		
+			- **Añadir responsabilidades dinámicamente:** Puedes poner y quitar funciones en tiempo de ejecución.
+			- **Evitar la "Explosión de Clases":** En lugar de tener una clase para cada combinación posible, tienes piezas pequeñas que se combinan entre sí.
+
+		3. Ejemplo en Java: Reporte de IMC con "Extras"
+
+			Imagina que tu sistema genera un reporte de texto simple, pero a veces quieres que ese reporte tenga un **Borde** elegante o una **Firma Digital**.
+			
+			- **Paso A: La Interfaz (El componente base)**
+
+			```JAVA
+			public interface Reporte {
+				String leerContenido();
+			}
+			```
+
+			- **Paso B: El Objeto Básico (Lo que vamos a decorar)**
+
+			```JAVA
+			public class ReporteSimple implements Reporte {
+			    @Override
+			    public String leerContenido() {
+			        return "Informe de IMC: 24.5 - Saludable.";
+			    }
+			}
+			```
+
+			- **Paso C: El Decorador Maestro (La base para los adornos)**  
+				Esta clase es clave: implementa la interfaz y _contiene_ un objeto de la interfaz.
+
+			```JAVA
+			public abstract class ReporteDecorator implements Reporte {
+			    protected Reporte reporteDecorado; // El reporte que estamos envolviendo
+			
+			    public ReporteDecorator(Reporte reporte) {
+			        this.reporteDecorado = reporte;
+			    }
+			}
+			```
+
+			- **Paso D: Decoradores Concretos (Los adornos reales)**
+
+			```JAVA
+			public class ReporteConBorde extends ReporteDecorator {
+			    public ReporteConBorde(Reporte reporte) { super(reporte); }
+			
+			    @Override
+			    public String leerContenido() {
+			        return "**********\n" + reporteDecorado.leerContenido() + "\n**********";
+			    }
+			}
+			
+			public class ReporteConFirma extends ReporteDecorator {
+			    public ReporteConFirma(Reporte reporte) { super(reporte); }
+			
+			    @Override
+			    public String leerContenido() {
+			        return reporteDecorado.leerContenido() + "\nFirmado por: Dr. Alex";
+			    }
+			}
+			```
+
+
+			- ¿Cómo se usa en el `Main`?
+			
+				Aquí es donde ocurre la "magia de las capas":
+			
+			```JAVA
+			public class Main {
+			    public static void main(String[] args) {
+			        // 1. Empezamos con el reporte básico
+			        Reporte reporte = new ReporteSimple();
+			
+			        // 2. Lo envolvemos en un borde
+			        reporte = new ReporteConBorde(reporte);
+			
+			        // 3. ¡Lo envolvemos TAMBIÉN en una firma!
+			        reporte = new ReporteConFirma(reporte);
+			
+			        // Al ejecutar, tiene todas las capas
+			        System.out.println(reporte.leerContenido());
+			    }
+			}
+			```
+			
+
+		4. ¿Por qué es "Buenísimo"?
+		
+			- **Combinaciones infinitas:** Puedes crear un reporte con firma pero sin borde, o con dos bordes, simplemente cambiando el orden de los `new`.
+			- **Cumple el Principio Open/Closed:** Tu clase `ReporteSimple` nunca se toca, pero su comportamiento cambia totalmente.
+		
+		- **Diferencia clave con la Herencia:**  
+			En la herencia, el comportamiento se define al programar (estático). Con el **Decorator**, el comportamiento se define al ejecutar el programa (dinámico).
+
+	- ==**COMPOSITE (El Compuesto)**==
+
+		1. **La Idea Central**
+		
+			Imagina que en tu sistema de salud tienes **Médicos individuales** y también **Equipos de Médicos**. Quieres poder darles una orden (por ejemplo: "Atender Emergencia") sin importar si se la das a un solo doctor o a todo un equipo.
+		
+			El patrón **Composite** permite tratar a los objetos individuales y a las agrupaciones de esos objetos de la **misma manera**.
+		
+		2. **El Objetivo**
+		
+			- **Estructuras de árbol:** Representar jerarquías `parte-todo`.
+			- **Uniformidad:** Que el cliente (tu `Main`) no tenga que preguntar: "¿Eres un objeto solo o eres una lista?" simplemente llama al método y ya.
+
+		3. Ejemplo en Java: Organización del Hospital
+
+			- **Paso A: La Interfaz Común (El Componente)**
+
+			```JAVA
+			public interface Empleado {
+			    void mostrarDetalles();
+			}
+			```
+
+			- **Paso B: El Objeto Simple (La Hoja)**
+
+			```JAVA
+			public class Medico implements Empleado {
+			    private String nombre;
+			    public Medico(String nombre) { this.nombre = nombre; }
+			
+			    @Override
+			    public void mostrarDetalles() {
+			        System.out.println("Médico: " + nombre);
+			    }
+			}
+			```
+
+
+			- **Paso C: El Objeto Compuesto (El Contenedor)**  
+				Este objeto contiene una lista de `Empleado` (que pueden ser otros Médicos u otros Equipos).
+			
+			```JAVA
+			import java.util.ArrayList;
+			import java.util.List;
+			
+			public class EquipoMedico implements Empleado {
+			    private List<Empleado> subordinados = new ArrayList<>();
+			    private String nombreEquipo;
+			
+			    public EquipoMedico(String nombre) { this.nombreEquipo = nombre; }
+			
+			    public void agregar(Empleado e) { subordinados.add(e); }
+			
+			    @Override
+			    public void mostrarDetalles() {
+			        System.out.println("Equipo: " + nombreEquipo);
+			        for (Empleado e : subordinados) {
+			            e.mostrarDetalles(); // ¡Aquí ocurre la magia de la recursividad!
+			        }
+			    }
+			}
+			```
+			
+			- ¿Cómo se usa en el `Main`?
+		
+			```JAVA
+			public class Main {
+				public static void main(String[] args) {
+					// Médicos individuales
+					Medico med1 = new Medico("Dr. Casa");
+					Medico med2 = new Medico("Dra. Grey");
+			
+					// Formamos un equipo
+					EquipoMedico equipoCirugia = new EquipoMedico("Unidad de Cirugía");
+					equipoCirugia.agregar(med1);
+					equipoCirugia.agregar(med2);
+			
+					// Podemos crear un equipo de equipos
+					EquipoMedico hospitalCentral = new EquipoMedico("Hospital General");
+					hospitalCentral.agregar(equipoCirugia); 
+					hospitalCentral.agregar(new Medico("Dr. Strange")); // Un médico suelto
+			
+					// Tratamos a todos por igual
+					hospitalCentral.mostrarDetalles();
+				}	
+			}
+			```
+			
+			
+		4. ¿Por qué es "Buenísimo"?
+		
+			- **Recursividad:** Puedes meter equipos dentro de equipos infinitamente.
+			- **Simplicidad para el cliente:** Si quieres que todo el hospital se "muestre", solo llamas a un método en el objeto raíz y él se encarga de bajar por todas las ramas.
+		
+			- Diferencia con el Facade (Fachada):
+		
+				- **Composite:** Une objetos similares para que parezcan uno solo en una jerarquía.
+				- **Facade:** Crea un objeto nuevo que "manda" sobre clases que son totalmente diferentes entre sí para que sea más fácil usarlas.
+
+
+	- ==**FACADE (Fachada):**== Su objetivo es esconder la complejidad de un sistema gigante detrás de una sola clase simple. (Como el botón de "Encender" de una PC que hace mil procesos internos pero tú solo ves un botón).
+	
+		1. **La Idea Central**
+
+			Imagina que quieres ver una película en tu sistema de cine en casa. Para hacerlo "a mano" tendrías que:
+			
+			1. Encender las luces y bajarlas al 10%.
+			2. Encender el televisor.
+			3. Encender el sonido envolvente.
+			4. Poner el reproductor en modo "Cine".
+			5. Darle a "Play".
+			
+			¡Es demasiado trabajo! Lo ideal es tener un solo botón que diga **"Modo Cine"** y que él haga todo lo demás por ti. Eso es una **Fachada**: una cara simple que oculta un desorden complejo.
+			
+		2. **El Objetivo**
+			
+			- **Simplificar el uso:** Proporcionar una interfaz única de alto nivel para un conjunto de interfaces en un subsistema.
+			- **Desacoplar:** Que el usuario no tenga que conocer cómo funcionan las 10 clases internas del sistema, solo la Fachada.
+
+		3. **Ejemplo en Java: El "Botón de Inicio" del Chequeo Médico**
+
+			Imagina que para registrar a un paciente en tu app de IMC necesitas interactuar con tres sistemas distintos: el de **Validación de Identidad**, el de **Historial Clínico** y el de **Notificaciones**.
+			
+			- **Paso A: Las clases complejas (El "desorden" interno)**
+
+			```java
+			class SistemaIdentidad {
+			    public void validar(String id) { System.out.println("DNI " + id + " validado."); }
+			}
+			
+			class SistemaHistorial {
+			    public void crearRegistro(String id) { System.out.println("Espacio en nube creado para " + id); }
+			}
+			
+			class SistemaNotificacion {
+			    public void enviarBienvenida() { System.out.println("Email de bienvenida enviado."); }
+			}
+			```
+
+
+			- **Paso B: LA FACHADA (La cara simple)**
+
+			```JAVA
+			public class RegistroPacienteFacade {
+			    private SistemaIdentidad identidad = new SistemaIdentidad();
+			    private SistemaHistorial historial = new SistemaHistorial();
+			    private SistemaNotificacion notificacion = new SistemaNotificacion();
+			
+			    // Este es el único método que el Main necesita conocer
+			    public void registrarPacienteCompleto(String nombre, String id) {
+			        System.out.println("Iniciando proceso para: " + nombre);
+			        identidad.validar(id);
+			        historial.crearRegistro(id);
+			        notificacion.enviarBienvenida();
+			        System.out.println("¡Paciente registrado con éxito!");
+			    }
+			}
+			```
+
+			- **¿Cómo se usa en el `Main`?**
+			
+				Mira qué limpio queda el código ahora:
+				
+				```javA
+				public class Main {
+			    public static void main(String[] args) {
+			        // En lugar de llamar a 3 sistemas, solo llamamos a la Fachada
+			        RegistroPacienteFacade registro = new RegistroPacienteFacade();
+			        
+			        registro.registrarPacienteCompleto("Alex", "102030");
+			    }
+			}
+				```
+
+		4. **¿Por qué es "Modularidad Perfecta"?**
+		
+			- **Encapsulamiento:** Si mañana cambias el sistema de correos por uno de WhatsApp, solo cambias la Fachada. El `Main` no tiene que enterarse.
+			- **Orden:** Evitas que tu `Main` parezca una lista de mercado llena de pasos técnicos.
+		
+3. ==**Patrones de Comportamiento: "El Manual de Comunicación"**==
+
+	- **Objetivo:** Gestionar **cómo se comunican** y qué responsabilidades tiene cada objeto.
+	
+	- No se trata de cómo están armados, sino de cómo "hablan" entre ellos y cómo se reparten el trabajo.
 	
 	- **Por qué se usan:** Para evitar que los objetos estén "demasiado pegados" (acoplados). Si un objeto cambia, no debería obligar a todos los demás a cambiar.
 	- **En palabras simples:** Es como un árbitro en un partido (Mediador) o como una fila de personas pasándose un mensaje (Cadena de responsabilidad)
+	
+	1. ==EL STRATEGY (La Estrategia)==
+
+		- **La Idea Central**
 		
+			Imagina que estás programando tu calculadora de IMC. Hoy usas la fórmula estándar, pero mañana quieres aplicar una fórmula para deportistas, y otra para niños.  
+			Normalmente harías un `if (tipo == "deportista") { ... } else if ...`. ¡Eso es mala práctica!
+			
+			El patrón **Strategy** te permite definir una familia de algoritmos, poner cada uno en una clase separada y hacer que sean **intercambiables**. El objeto principal no sabe _cómo_ se calcula, solo sabe que tiene una "Estrategia" que lo hace.
+		
+		- **Objetivos**
+		 
+			- **Eliminar condicionales complejos:** Menos `if/else` y más polimorfismo.
+			- **Cambiar de opinión en el camino:** Puedes cambiar la lógica de un objeto mientras el programa está corriendo.
+
+		1. **Ejemplo en Java: Diferentes fórmulas de IMC**
+	
+			- **Paso A: La Interfaz (El contrato de la estrategia)**
+			
+				```java
+				public interface FormulaIMC {
+				    double calcular(double peso, double altura);
+				}
+				```
+			
+			- **Paso B: Las Estrategias Concretas (Las fórmulas reales)**
+			
+				```java
+				public class FormulaEstandar implements FormulaIMC {
+				    public double calcular(double peso, double altura) {
+				        return peso / (altura * altura);
+				    }
+				}
+				
+				public class FormulaAtleta implements FormulaIMC {
+				    public double calcular(double peso, double altura) {
+				        // Una fórmula hipotética que ajusta un 10% por masa muscular
+				        return (peso / (altura * altura)) * 0.9;
+				    }
+				}
+				```
+			
+			- **Paso C: El Contexto (La clase que usa la estrategia)**
+			
+				```java
+				public class CalculadoraContexto {
+				    private 
+	 estrategia;
+				
+				    // Permitimos cambiar la estrategia en cualquier momento
+				    public void setEstrategia(FormulaIMC nuevaEstrategia) {
+				        this.estrategia = nuevaEstrategia;
+				    }
+				
+				    public void ejecutarCalculo(double p, double a) {
+				        double resultado = estrategia.calcular(p, a);
+				        System.out.println("Resultado con esta estrategia: " + resultado);
+				    }
+				}
+				```
+			
+			- ¿Cómo se usa en el `Main`?
+			
+				```java
+				public class Main {
+				    public static void main(String[] args) {
+				        CalculadoraContexto calculadora = new CalculadoraContexto();
+				
+				        // 1. Usamos la estándar
+				        calculadora.setEstrategia(new FormulaEstandar());
+				        calculadora.ejecutarCalculo(80, 1.80);
+				
+				        // 2. ¡Cambiamos la estrategia al vuelo!
+				        calculadora.setEstrategia(new FormulaAtleta());
+				        calculadora.ejecutarCalculo(80, 1.80);
+				    }
+				}
+				```
+	
+	
+		2. **¿Por qué es "Buenísimo"?**
+		
+			- **Modularidad total:** Si quieres crear una "FormulaParaAncianos", solo creas una clase nueva que implemente la interfaz. No tienes que tocar ni una línea de la clase `CalculadoraContexto`.
+			- **Limpieza:** Tu código deja de ser un laberinto de decisiones y se vuelve una serie de piezas intercambiables.
+
+	2. ==**OBSERVER** (El Observador)==
+
+		1. Define una relación de dependencia uno-a-muchos para que, cuando un objeto cambie de estado, sus dependientes sean notificados.
+		
+		2. **La Idea Central**
+
+			Imagina que eres un fanático de una banda. Tienes dos opciones para saber si lanzan un nuevo disco:
+
+			1. Ir todos los días a la tienda a preguntar (esto en programación se llama _Polling_ y gasta muchos recursos).
+			2. **Suscribirte** a su boletín. En cuanto hay algo nuevo, ellos te avisan a ti.
+
+			El **Observer** permite que un objeto (el **Sujeto**) notifique automáticamente a otros objetos (**Observadores**) cuando su estado cambia.
+
+		3. **El Objetivo**
+		
+			- **Desacoplamiento:** El objeto principal no necesita saber quiénes lo están mirando ni qué van a hacer con la información.
+			- **Reacción en tiempo real:** Ideal para sistemas de notificaciones, alarmas o interfaces que se actualizan solas.
+
+
+		4. **Ejemplo en Java: El Paciente y sus Monitores**
+		
+			- Imagina que cuando el IMC de un paciente cambia, queremos avisar automáticamente al **Médico** y enviar una **Notificación al celular** del paciente.
+			
+			- Paso A: La Interfaz Observador (El contrato de los que escuchan)
+			
+			```java
+			public interface Observador {
+			    void actualizar(double nuevoIMC);
+			}
+			```
+			
+			- Paso B: El Sujeto (El objeto que es observado)
+			
+			```java
+			import java.util.ArrayList;
+			import java.util.List;
+			
+			public class Paciente {
+			    private List<Observador> observadores = new ArrayList<>();
+			    private double imc;
+			
+			    public void suscribir(Observador o) { observadores.add(o); }
+			    
+			    public void setIMC(double nuevoIMC) {
+			        this.imc = nuevoIMC;
+			        notificar(); // En cuanto cambia el dato, avisamos a todos
+			    }
+			
+			    private void notificar() {
+			        for (Observador o : observadores) {
+			            o.actualizar(this.imc);
+			        }
+			    }
+			}
+			```
+			
+			- Paso C: Los Observadores Concretos (Los que reaccionan)
+			
+			```java
+			public class MonitorMedico implements Observador {
+			    public void actualizar(double imc) {
+			        System.out.println("Médico alerta: El paciente tiene un nuevo IMC de " + imc);
+			    }
+			}
+			
+			public class AppPaciente implements Observador {
+			    public void actualizar(double imc) {
+			        System.out.println("Celular: ¡Tu nuevo IMC ha sido registrado!");
+			    }
+			}
+			```
+			
+			- ¿Cómo se usa en el `Main`?
+			
+			```java
+			public class Main {
+			    public static void main(String[] args) {
+			        Paciente paciente = new Paciente();
+			
+			        // Creamos los interesados
+			        MonitorMedico medico = new MonitorMedico();
+			        AppPaciente app = new AppPaciente();
+			
+			        // Los suscribimos (los ponemos a observar)
+			        paciente.suscribir(medico);
+			        paciente.suscribir(app);
+			
+			        // Cambiamos el dato y ¡BOOM!, todos se enteran solos
+			        paciente.setIMC(26.5);
+			    }
+			}
+			```
+			
+
+		5. ¿Por qué es "Buenísimo"?
+		
+			- **Flexibilidad:** Si mañana quieres que también se entere la **Aseguradora**, solo creas la clase `MonitorAseguradora`, la suscribes y listo. No tocaste ni una sola letra de la clase `Paciente`.
+			- **Orden:** Cada observador hace lo que le toca (el médico analiza, la app muestra) sin mezclar el código.
+				
+		
+Conclusión de tu viaje por los Patrones
+
+¡Lo has logrado! Hemos recorrido los pilares de la arquitectura de software:
+
+1. **Creacionales:** (Singleton, Factory, Builder...) - _¿Cómo nazco?_
+2. **Estructurales:** (Adapter, Decorator, Facade...) - _¿Cómo me armo?_
+3. **Comportamiento:** (Strategy, Observer...) - _¿Cómo me comunico?_

@@ -6,7 +6,7 @@
       {
         "id": "dd9113e6e497cd2a",
         "type": "tabs",
-        "dimension": 50.266524520255864,
+        "dimension": 50.65632458233891,
         "children": [
           {
             "id": "feb9d85d8b54987d",
@@ -27,7 +27,7 @@
       {
         "id": "4212b2b10e3b88dc",
         "type": "tabs",
-        "dimension": 49.733475479744136,
+        "dimension": 49.343675417661096,
         "children": [
           {
             "id": "d1200ee23894f81d",
@@ -36,10 +36,10 @@
               "type": "pdf",
               "state": {
                 "file": "2_1_archivos/1_poo.pdf",
-                "page": 42,
-                "left": -16,
-                "top": 208,
-                "zoom": 0.9583333333333334
+                "page": 45,
+                "left": 59,
+                "top": 573,
+                "zoom": 1.1
               },
               "icon": "lucide-file-text",
               "title": "1_poo"
@@ -210,10 +210,10 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "feb9d85d8b54987d",
+  "active": "d1200ee23894f81d",
   "lastOpenFiles": [
-    "2_1_archivos/1_poo.pdf",
     "6_Patrones de diseño.md",
+    "2_1_archivos/1_poo.pdf",
     "Pasted image 20260425015949.png",
     "2_Conceptos.md",
     "Sin título.base",
