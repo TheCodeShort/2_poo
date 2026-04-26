@@ -38,8 +38,8 @@
                 "file": "2_1_archivos/1_poo.pdf",
                 "page": 42,
                 "left": -16,
-                "top": 584,
-                "zoom": 0.9583333333333333
+                "top": 208,
+                "zoom": 0.9583333333333334
               },
               "icon": "lucide-file-text",
               "title": "1_poo"
@@ -212,9 +212,9 @@
   },
   "active": "feb9d85d8b54987d",
   "lastOpenFiles": [
-    "Pasted image 20260425015949.png",
-    "6_Patrones de diseño.md",
     "2_1_archivos/1_poo.pdf",
+    "6_Patrones de diseño.md",
+    "Pasted image 20260425015949.png",
     "2_Conceptos.md",
     "Sin título.base",
     "5_estructuras de datos avanzadas.md",

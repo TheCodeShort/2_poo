@@ -829,7 +829,7 @@
       "hiddenLinesStyle": "zigzag",
       "buttons": {
         "alwaysShowButtons": true,
-        "alwaysShowCopyCodeButton": false,
+        "alwaysShowCopyCodeButton": true,
         "enableSelectCodeButton": true,
         "enableDeleteCodeButton": false,
         "enableWrapCodeButton": true,
@@ -1066,7 +1066,7 @@
   "newThemeName": "",
   "newPromptName": "",
   "alternateHighlightColorName": "",
-  "settingsType": "appearance",
+  "settingsType": "behavior",
   "langSpecificSettingsType": "",
   "languageSpecificLanguageName": "",
   "SyntaxThemes": {

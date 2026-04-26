@@ -115,8 +115,8 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 						 public interface Notificacion {
 						     void enviar(String mensaje);
 						}
-					 ```
-
+						```
+    
 				- **Paso B: Las Clases Concretas**
 
 					```java
@@ -341,13 +341,14 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 			// En el Main:
 			ReporteIMC reporteOriginal = new ReporteIMC();
 			// Cargamos datos pesados una sola vez...
-		/	
+			
+		
 			// Creamos otro reporte igual en un milisegundo
 			ReporteIMC reporteCopia = reporteOriginal.clone();
 			```
 
 ---
-3. **Patrones Estructurales: "El Plano de Montaje"**
+3. ==**Patrones Estructurales: "El Plano de Montaje"**==
 
 	**Objetivo:** Organizar **cómo se unen** las clases y los objetos para formar estructuras más grandes.
 	
@@ -363,6 +364,5 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 	No se trata de cómo están armados, sino de cómo "hablan" entre ellos y cómo se reparten el trabajo.
 	
 	- **Por qué se usan:** Para evitar que los objetos estén "demasiado pegados" (acoplados). Si un objeto cambia, no debería obligar a todos los demás a cambiar.
-	- **En palabras simples:** Es como un árbitro en un partido (Mediador) o como una fila de personas pasándose un mensaje (Cadena de responsabilidad).
-
-
+	- **En palabras simples:** Es como un árbitro en un partido (Mediador) o como una fila de personas pasándose un mensaje (Cadena de responsabilidad)
+		
