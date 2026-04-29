@@ -4,23 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "4212b2b10e3b88dc",
+        "id": "8299c776ca8ea06d",
         "type": "tabs",
         "children": [
           {
-            "id": "d1200ee23894f81d",
+            "id": "343b80ad0d323466",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "2_1_archivos/1_poo.pdf",
-                "page": 45,
-                "left": -8,
-                "top": 611,
-                "zoom": 1.9901960784313726
+                "file": "3_UML.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "1_poo"
+              "icon": "lucide-file",
+              "title": "3_UML"
+            }
+          }
+        ]
+      },
+      {
+        "id": "f08df295d531a6e8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca78feec86c1eb5f",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "3_UML/18_modelo_analisis.png"
+              },
+              "icon": "lucide-image",
+              "title": "18_modelo_analisis"
             }
           }
         ]
@@ -80,7 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 265.5
   },
   "right": {
     "id": "437685b2ded1e5ae",
@@ -96,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6_Patrones de diseño.md",
+                "file": "3_UML.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +122,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Enlaces entrantes de 6_Patrones de diseño"
+              "title": "Enlaces entrantes de 3_UML"
             }
           },
           {
@@ -188,20 +204,28 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "d1200ee23894f81d",
+  "active": "343b80ad0d323466",
   "lastOpenFiles": [
-    "2_2_informacion_ayuda/G5 - Programación Orientada a Objetos 2.pdf",
-    "2_2_informacion_ayuda/G4 - Programación Orientada a Objetos 2.pdf",
+    "3_UML/18_modelo_analisis.png",
+    "3_UML.md",
+    "3_UML/19_diagr_actividad.png",
+    "3_UML/19_caso_uso.png",
+    "3_UML/31.png",
+    "3_UML/30.png",
+    "3_UML/29.png",
+    "3_UML/28_diagr_secuen.png",
+    "3_UML/27_diag_estado.png",
+    "3_UML/26_diagr_stad_secuen.png",
+    "3_UML/25_diagr_colaboracion.png",
+    "4_consepto.md",
+    "5_estructuras de datos avanzadas.md",
     "6_Patrones de diseño.md",
     "2_1_archivos/1_poo.pdf",
-    "Pasted image 20260425015949.png",
+    "2_2_informacion_ayuda/G5 - Programación Orientada a Objetos 2.pdf",
+    "2_2_informacion_ayuda/G4 - Programación Orientada a Objetos 2.pdf",
     "2_Conceptos.md",
     "Sin título.base",
-    "5_estructuras de datos avanzadas.md",
-    "4_consepto.md",
-    "3_Concepto.md",
     "1_Conceptos.md",
-    "1_imagenes/1_poo_1.png",
     "0_0_conseptos_de_codigo.md",
     "0_codigo_practica.md",
     "2_2_informacion_ayuda/G3 - Programación Orientada a Objetos 2.pdf",
@@ -212,14 +236,6 @@
     "2_2_informacion_ayuda/G8 - Programación Orientada a Objetos 2.pdf",
     "2_2_informacion_ayuda/G6 - Programación Orientada a Objetos 2.pdf",
     "2_2_informacion_ayuda/G7 - Programación Orientada a Objetos 2.pdf",
-    "3_UML/14_1_composicion.png",
-    "3_imagen_tenica/Captura de pantalla 2026-04-16 124412.png",
-    "3_UML/17_estereotipos.png",
-    "3_imagen_tenica/Captura de pantalla 2026-04-16 123842.png",
-    "3_UML/16_herencia.png",
-    "Captura de pantalla 2026-04-16 123705 1.png",
-    "3_imagen_tenica/Captura de pantalla 2026-04-16 123513.png",
-    "3_UML/15_dependencia.png",
     "Bienvenido.md"
   ]
 }

@@ -71,9 +71,8 @@ cómo se conectan las entidades y cuántas instancias pueden interactuar entre s
 |**0..***|De cero a muchos (opcional)|Un `Cliente` puede tener 0 o muchas `Compras`.|
 |**1..***|Uno o muchos (obligatorio)|Un `Pedido` debe tener al menos 1 `Producto`.|
 |*****|Muchos (abreviación de 0..*)|Una `Materia` puede tener muchos `Estudiantes`.|
-**¿Qué nos dice este diagrama?**
-
-	Al ver tantas relaciones de **1..*** y *****,estamos ante un sistema complejo con muchas dependencias. Por ejemplo, la clase central parece ser un "corazón" del sistema, ya que tiene múltiples conexiones de tipo "uno a muchos", lo que sugiere que es una entidad que coordina o agrupa a varias otras.
+- **¿Qué nos dice este diagrama?**
+	- Al ver tantas relaciones de **1..*** y *****,estamos ante un sistema complejo con muchas dependencias. Por ejemplo, la clase central parece ser un "corazón" del sistema, ya que tiene múltiples conexiones de tipo "uno a muchos", lo que sugiere que es una entidad que coordina o agrupa a varias otras.
 	
 > 	**Nota técnica:** Las líneas que forman ángulos rectos (estilo ortogonal) son un estándar visual para mantener el diagrama limpio y legible cuando hay muchas conexiones cruzadas.
 
@@ -419,3 +418,7 @@ Cuando se diseña la arquitectura de un sistema, se usan tres tipos específicos
 |**`<<control>>`**|Círculo con flecha arriba|**Control:** El "cerebro" que procesa la lógica entre la pantalla y los datos.|
 ||Círculo con línea abajo|**Entidad:** El objeto que guarda la información (como la Base de Datos).|
 
+
+# 6_Modelo de análisis 
+	
+- ![[18_modelo_analisis.png]]
