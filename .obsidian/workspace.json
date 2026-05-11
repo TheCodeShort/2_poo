@@ -4,39 +4,45 @@
     "type": "split",
     "children": [
       {
-        "id": "8299c776ca8ea06d",
+        "id": "f5d282e488b8d073",
         "type": "tabs",
+        "dimension": 51.33262260127932,
         "children": [
           {
-            "id": "343b80ad0d323466",
+            "id": "2498ea8456cc0265",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3_UML.md",
+                "file": "7_SDLC.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3_UML"
+              "title": "7_SDLC"
             }
           }
         ]
       },
       {
-        "id": "f08df295d531a6e8",
+        "id": "950da0124b2a3d12",
         "type": "tabs",
+        "dimension": 48.66737739872068,
         "children": [
           {
-            "id": "ca78feec86c1eb5f",
+            "id": "d0b96e2654881ee5",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "pdf",
               "state": {
-                "file": "3_UML/18_modelo_analisis.png"
+                "file": "2_1_archivos/SDLC_sofware.pdf",
+                "page": 195,
+                "left": -15,
+                "top": 518,
+                "zoom": 1.0551470588235294
               },
-              "icon": "lucide-image",
-              "title": "18_modelo_analisis"
+              "icon": "lucide-file-text",
+              "title": "SDLC_sofware"
             }
           }
         ]
@@ -96,7 +102,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.5
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "437685b2ded1e5ae",
@@ -204,38 +211,40 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "343b80ad0d323466",
+  "active": "2498ea8456cc0265",
   "lastOpenFiles": [
-    "3_UML/18_modelo_analisis.png",
+    "2_1_archivos/SDLC_sofware.pdf",
+    "7_SDLC.md",
+    "Pasted image 20260511002126.png",
     "3_UML.md",
-    "3_UML/19_diagr_actividad.png",
-    "3_UML/19_caso_uso.png",
-    "3_UML/31.png",
-    "3_UML/30.png",
-    "3_UML/29.png",
-    "3_UML/28_diagr_secuen.png",
-    "3_UML/27_diag_estado.png",
-    "3_UML/26_diagr_stad_secuen.png",
-    "3_UML/25_diagr_colaboracion.png",
+    "Pasted image 20260510230834.png",
+    "Pasted image 20260510225852.png",
+    "Pasted image 20260510223638.png",
+    "1_imagenes/16_herrami_captura.png",
+    "1_imagenes/ChatGPT Image 10 may 2026, 12_55_32.png.crdownload",
+    "1_imagenes/15_caos_uso.png",
+    "1_imagenes/14_tipo_observar.png",
+    "1_imagenes/12_requisitos.png",
+    "1_imagenes/13_roles_en_requisitos.png",
+    "Pasted image 20260509234411.png",
+    "1_imagenes/unnamed.png.crdownload",
+    "8_proyecto.md",
+    "0_0_conseptos_de_codigo.md",
+    "2_1_archivos/1_poo.pdf",
     "4_consepto.md",
     "5_estructuras de datos avanzadas.md",
     "6_Patrones de diseño.md",
-    "2_1_archivos/1_poo.pdf",
     "2_2_informacion_ayuda/G5 - Programación Orientada a Objetos 2.pdf",
     "2_2_informacion_ayuda/G4 - Programación Orientada a Objetos 2.pdf",
     "2_Conceptos.md",
     "Sin título.base",
     "1_Conceptos.md",
-    "0_0_conseptos_de_codigo.md",
     "0_codigo_practica.md",
     "2_2_informacion_ayuda/G3 - Programación Orientada a Objetos 2.pdf",
     "2_2_informacion_ayuda/G2 - Programación Orientada a Objetos 2.pdf",
     "1_conceptos.md",
     "2_conceptos.md",
     "2_2_informacion_ayuda/G1 - Programación Orientada a Objetos 2.pdf",
-    "2_2_informacion_ayuda/G8 - Programación Orientada a Objetos 2.pdf",
-    "2_2_informacion_ayuda/G6 - Programación Orientada a Objetos 2.pdf",
-    "2_2_informacion_ayuda/G7 - Programación Orientada a Objetos 2.pdf",
     "Bienvenido.md"
   ]
 }
