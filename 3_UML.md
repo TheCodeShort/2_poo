@@ -1,5 +1,5 @@
 [[1_poo.pdf#search=tema: Interfaces y Clases Abstractas|1_poo, p.36]]
-
+|columna 1| clumna 2|
 # 1_**Clasificación y Taxonomía de los Diagramas UML**
 ![[1_clasi_diagram.png|697]]
 
@@ -7,7 +7,8 @@
 
 Representan la parte estática del sistema. Se centran en qué elementos existen y cómo se organizan físicamente o lógicamente.
 
-- **Diagrama de clases:** El más común; muestra las clases (plantillas), sus atributos, métodos y cómo se relacionan entre sí.
+- **Diagrama de clases:[[SDLC_sofware.pdf#search=Diagramas de clase|SDLC_sofware, p.214]]** El más común; muestra las clases (plantillas), sus atributos, métodos y cómo se relacionan entre sí, es una abstracción de un objeto de la vida real. Se representa como un rectángulo dividido en **tres partes**:
+
 - **Diagrama de objetos:** Una "foto" del sistema en un momento específico, mostrando instancias reales de las clases.
 - **Diagrama de componentes:** Describe cómo se divide el sistema en módulos físicos (archivos, librerías) y sus dependencias.
 - **Diagrama de implementación (despliegue):** Muestra el hardware donde se instalará el software (servidores, nodos, redes).
@@ -17,7 +18,25 @@ Representan la parte estática del sistema. Se centran en qué elementos existen
 Describen las funciones del sistema y cómo cambian los datos o el estado con el tiempo.
 
 - **Casos de uso:** Representan las funciones del sistema desde el punto de vista del usuario (el "qué", no el "cómo").
+
 - **Diagrama de actividades:** Similar a un diagrama de flujo; muestra los pasos de un proceso de negocio o algoritmo.
+	- ![[33_diagr_actividad.png]]
+	
+	- 2. Los Componentes (Lo que verás en los dibujos)
+
+		Para entender los diagramas de esas páginas, debes conocer estos símbolos básicos:
+		
+		- **Círculo Sólido (●):** El Inicio. Solo hay uno por diagrama.
+		- **Rectángulo Redondeado:** Representa una **Actividad** (una tarea que el sistema o el usuario hace). Ej: "Validar tarjeta".
+		- **Flechas:** Indican el orden o la dirección del flujo.
+		- **Rombo (♦):** Un punto de **Decisión**. De aquí salen dos flechas (ejemplo: ¿Hay stock? Sí / No).
+		- **Barras Gruesas (Sincronización):** Se usan para mostrar tareas que pasan al mismo tiempo (Paralelismo). se llaman técnicamente **Fork** (Bifurcación) y **Join** (Unión).
+		- **Círculo con borde (○):** El Final del proceso	
+		
+		- **Ejemplo =>** [[SDLC_sofware.pdf#search=Ejemplo de diagrama de actividades|SDLC_sofware, p.212]]
+		
+
+
 - **Diagrama de estado:** Describe los diferentes ciclos de vida de un objeto (por ejemplo, un pedido que pasa de "Pendiente" a "Pagado").
 
 **3. Diagramas de Interacción (Cómo se "comunican")**
@@ -43,42 +62,183 @@ Son una subcategoría del comportamiento, pero se enfocan específicamente en el
 
 > **Dato clave:** En la práctica profesional, no se usan todos a la vez. El **Diagrama de Clases**, el de **Casos de Uso** y el de **Secuencia** suelen ser el "núcleo duro" de cualquier desarrollo.
 
-# 2_ **Estructura de Relaciones y Multiplicidad en Diagramas de Clases**
+# 2_ **Diagramas de Clases Estructura de Relaciones y Multiplicidad**
 
 cómo se conectan las entidades y cuántas instancias pueden interactuar entre sí.
-![[2_relaciones_multiplicidad.png]]
 
-1. ** La Anatomía de la Clase (Los rectángulos)**
+![[2_diagra_clases.png]]
 
-	- **Superior:** Nombre de la clase (ej. `Usuario`, `Factura`).
-	- **Media:** Atributos (características como `nombre`, `precio`).
-	- **Inferior:** Métodos o funciones (acciones como `guardar()`, `calcularTotal()`).
-
-2. ** Las Líneas de Conexión (Asociaciones)**
-
-	Las líneas que unen los cuadros no son simples adornos; representan que una clase "conoce" a la otra.
 	
-	- **Asociación simple:** Una línea recta indica una relación bidireccional.
-	- **Navegabilidad:** La línea con una **punta de flecha** (como se ve en la parte inferior derecha) indica que una clase conoce a la otra, pero no necesariamente al revés.
+## ==**1_Relaciones entre clases**==
+- Las relaciones entre las diferentes clases indican cómo interactúan los objetos pertenecientes a esas clases
+### **2_Asociacion (Las Líneas de Conexión)**
 
-3. **El concepto crítico: Multiplicidad (Los números)**
+| Elemento      | Qué significa           |
+| ------------- | ----------------------- |
+| Nombre        | contexto de la relación |
+| Rol           | función de cada clase   |
+| Navegabilidad | dirección               |
+| Multiplicidad | cantidad                |
+- Las líneas que unen los cuadros no son simples adornos; representan que una clase "conoce" a la otra.
 
-	Indica cuántos objetos de una clase pueden estar vinculados a un objeto de la otra también le dicen cardinalidad a los números:
+	- **Asociación:[[SDLC_sofware.pdf#search=Asociaciones|SDLC_sofware, p.217]]** Una línea recta indica una relación bidireccional, las conexiones entre clases
+		- ![[34_clases_asociacion.png]]
+		- ![[34_1_clases_asociacion.png]]
 
-|Notación|Significado|Ejemplo|
+
+
+**Multiplicidad:** Indica cuántos objetos de una clase pueden estar vinculados a un objeto de la otra también le dicen cardinalidad a los números
+
+| Notación | Significado                  | Ejemplo                                         |
+| -------- | ---------------------------- | ----------------------------------------------- |
+| **1**    | Exactamente uno              | Un `DNI` pertenece a exactamente 1 `Persona`.   |
+| **0..*** | De cero a muchos (opcional)  | Un `Cliente` puede tener 0 o muchas `Compras`.  |
+| **1..*** | Uno o muchos (obligatorio)   | Un `Pedido` debe tener al menos 1 `Producto`.   |
+| *****    | Muchos (abreviación de 0..*) | Una `Materia` puede tener muchos `Estudiantes`. |
+
+**Nota técnica:** Las líneas que forman ángulos rectos (estilo ortogonal) son un estándar visual para mantener el diagrama limpio y legible cuando hay muchas conexiones cruzadas.
+
+### **3_Herencia** [[SDLC_sofware.pdf#search=Herencia|SDLC_sofware, p.221]]
+va de lo **general** a lo **específico**, o sea, de **superclase** a **subclase**. La define como una relación especial de asociación donde la subclase hereda **atributos** y **comportamientos** de la superclase. También aclara que esta relación lleva implícito el sentido **“es un / es una”**, por lo que no se le asigna nombre ni multiplicidad.
+
+- Para qué sirve en un diagrama de clases
+
+	Sirve para **evitar repetir información** y para mostrar una jerarquía clara del dominio. En vez de dibujar varias clases casi iguales, el modelo coloca lo común en una clase más general y deja en las subclases solo lo particular. El libro dice que en herencia pueden existir varios niveles y que cada nivel tiene su superclase y sus subclases. [[SDLC_sofware.pdf#search=Ejemplo de herencia múltiple|SDLC_sofware, p.224]]
+
+### 4_Agregación
+es una relación del diagrama de clases que expresa un **todo formado por partes**, pero con una diferencia clave: **las partes pueden existir por separado**. No es una unión fuerte; es una relación de pertenencia “suave”. El texto la presenta como un tipo de asociación donde la clase agregada representa el todo y las ot1ras clases son sus componentes.
+
+- ### Qué está diciendo el libro, en limpio
+
+| Punto                              | Explicación                                                                                                     |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Qué es**                         | Una relación entre una clase “todo” y varias clases “parte”.                                                    |
+| **Qué significa**                  | El todo contiene componentes, pero esos componentes no dependen totalmente de él para existir.                  |
+| **Cómo se dibuja**                 | Línea con un **rombo vacío** en el lado de la clase agregada.                                                   |
+| **Dónde se pone la multiplicidad** | En el lado de los componentes.                                                                                  |
+| **Qué tan fuerte es**              | Más débil que la composición.                                                                                   |
+| **Para qué sirve**                 | Modelar estructuras donde algo está formado por otras cosas, pero esas cosas pueden cambiar o sobrevivir solas. |
+
+| Computador de Escritorio clase agregada                              | **Torre** puede contener                                               |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| - monitor,<br>- torre,<br>- teclado,<br>- ratón,<br>- dos parlantes. | - discos duros,<br>- memorias,<br>- procesador,<br>- tarjeta de video. |
+
+Lo importante aquí es que esos componentes **pueden ser parte de otras clases** y pueden **sustituirse fácilmente**, por eso la relación no es muy fuerte.
+
+#### Cómo entenderlo de verdad
+
+Piensa así:
+
+```
+Computador de escritorio   
+		├── Monitor   
+		├── Torre   
+		├── Teclado   
+		├── Ratón   
+		└── Parlantes
+```
+
+La relación dice:
+
+- el computador **tiene** partes,
+- pero si cambias el teclado o el monitor, el computador sigue siendo el mismo tipo de objeto,
+- y esas partes pueden existir en otro contexto.
+
+Eso es lo que la hace **agregación** y no composición.
+
+#### ¿Para qué sirve en un diagrama de clases?
+
+Sirve para representar un modelo del mundo real donde:
+
+- una entidad agrupa otras,
+- las partes no están “atadas de por vida” al todo,
+- y el sistema necesita mostrar esa relación sin exagerarla como si fuera dependencia total.
+[[SDLC_sofware.pdf#search=jemplo de relación de Agregación|SDLC_sofware, p.226]]
+
+### 5_Composición
+**Composición** es la versión **más fuerte** de la relación todo-parte dentro del diagrama de clases un tipo particular de agregación donde los componentes **no pueden pertenecer a más de una composición**; es decir, son **exclusivos** del todo al que pertenecen. Además, señala que se representa con un **rombo negro relleno** en el lado de la clase que hace de “todo”. [[SDLC_sofware.pdf#search=Ejemplo de relación de Composición|SDLC_sofware, p.227]]
+
+- ### Qué significa realmente
+
+La idea central es esta:
+
+```
+si destruyes el todo,las partes dejan de existir como parte de ese todo
+```
+
+Eso la diferencia totalmente de la agregación.
+
+
+- ### Lo que dice el libro, traducido a lenguaje claro
+
+|Aspecto|Composición|
+|---|---|
+|**Tipo de relación**|Todo-parte fuerte|
+|**Dependencia**|Muy alta|
+|**Existencia de las partes**|Dependen del todo|
+|**Pertenencia**|Exclusiva|
+|**Símbolo UML**|Rombo negro relleno|
+|**Idea mental**|“Si el todo desaparece, la parte también”|
+
+---
+
+- ### Ejemplo simple
+
+Piensa en una **Casa** y sus **Habitaciones**.
+
+```
+Casa ├── Habitación 1 ├── Habitación 2 └── Habitación 3
+```
+
+Aquí la relación es de composición porque:
+
+- una habitación forma parte de esa casa,
+- no tiene sentido modelarla como parte viva de otra casa al mismo tiempo,
+- si la casa se elimina, esas habitaciones dejan de existir dentro de ese modelo.
+
+Eso encaja con la definición del libro: componentes exclusivos de la composición.
+
+---
+
+- ### Ejemplo más cercano a software
+
+Un **Pedido** y sus **Detalles de pedido**.
+
+- El pedido es el todo.
+- Los detalles son las partes.
+- Si eliminas el pedido, los detalles ya no tienen sentido por sí solos dentro del sistema.
+
+Eso es composición.
+
+---
+
+- ### Cómo no confundirla con agregación
+
+|Relación|¿La parte puede vivir sola?|Ejemplo|
 |---|---|---|
-|**1**|Exactamente uno|Un `DNI` pertenece a exactamente 1 `Persona`.|
-|**0..***|De cero a muchos (opcional)|Un `Cliente` puede tener 0 o muchas `Compras`.|
-|**1..***|Uno o muchos (obligatorio)|Un `Pedido` debe tener al menos 1 `Producto`.|
-|*****|Muchos (abreviación de 0..*)|Una `Materia` puede tener muchos `Estudiantes`.|
-- **¿Qué nos dice este diagrama?**
-	- Al ver tantas relaciones de **1..*** y *****,estamos ante un sistema complejo con muchas dependencias. Por ejemplo, la clase central parece ser un "corazón" del sistema, ya que tiene múltiples conexiones de tipo "uno a muchos", lo que sugiere que es una entidad que coordina o agrupa a varias otras.
-	
-> 	**Nota técnica:** Las líneas que forman ángulos rectos (estilo ortogonal) son un estándar visual para mantener el diagrama limpio y legible cuando hay muchas conexiones cruzadas.
+|**Agregación**|Sí|Computador y teclado|
+|**Composición**|No|Casa y habitaciones|
 
+La agregación es más flexible; la composición es más estricta. El libro presenta justamente esta diferencia al decir que en agregación los componentes pueden sustituirse con facilidad, mientras que en composición la exclusividad de pertenencia es la característica distintiva.
 
-4. **Componentes Atómicos del Modelado Estático**. 
-	![[3_componentes_atómicos.png]]
+---
+
+- ### Qué está intentando enseñarte el documento
+
+No está solo enseñando símbolos UML. Está enseñándote a pensar así:
+
+```
+¿Esta parte depende de ese todo?¿Puede existir sola?¿Puede pertenecer a varios todos?
+```
+
+Si la respuesta es:
+
+- **sí puede existir sola** → agregación,
+- **no puede existir sola** → composición.
+
+Ese es el filtro mental correcto.
+## 2_**Componentes Atómicos del Modelado Estático**. 
+- ![[3_componentes_atómicos.png]]
 
 
 - **1. Clases:**  
@@ -93,14 +253,21 @@ cómo se conectan las entidades y cuántas instancias pueden interactuar entre s
 **Diferencia Clave**
 En la imagen anterior vimos **clases y relaciones**, pero las **interfaces** suelen graficarse de forma distinta (a veces como un círculo o con la palabra clave `<<interface>>`). Son fundamentales para que el software sea flexible y fácil de actualizar.
 
-5. **Anatomía Interna y Estructura de una Clase en UML**
+### **Anatomía Interna y Estructura de una Clase en UML**
 explicando qué debe ir dentro para que un programador pueda entenderlo y convertirlo en código real.
+
+ - **Superior:** Nombre de la clase (ej. `Usuario`, `Factura`).
+ - **Media:** Atributos (características como `nombre`, `precio`).
+- **Inferior:** Métodos o funciones (acciones como `guardar()`, `calcularTotal()`).
+
 
 ![[4_estructura_clase.png]]
 
+![[2_1_diagra_clases.png]]
+
 Una clase en UML es un compartimento estandarizado. Cada sección tiene una regla específica:
 
-1. **Nombre de la Clase (Sección Superior)**
+1. ==**Nombre de la Clase (Sección Superior)**==
 
 	- Es el identificador único.
 	- **Regla de oro:** Siempre se escribe en **Sustantivo** y en **Singular** (ej. `Factura`, no `Facturas` ni `ImprimirFactura`).
@@ -120,7 +287,7 @@ Una clase en UML es un compartimento estandarizado. Cada sección tiene una regl
 		
 			En casos muy específicos, se puede indicar si la clase es **Abstracta** (poniendo el nombre en _cursiva_). Una clase abstracta es una que no se puede "crear" directamente, sino que sirve de base para otras (por ejemplo, `Personal` podría ser abstracta y de ella derivan `Medico` y `Enfermero`).
 
-2. **Atributos de la Clase (Sección Media)**
+2. ==**Atributos de la Clase (Sección Media)**==
 
 	- Son las características o datos que definen al objeto (su estado).
 	- **Ejemplo:** Si la clase es `Coche`, los atributos serían `color`, `marca`, `modelo`, `velocidadActual`.
@@ -162,7 +329,7 @@ Una clase en UML es un compartimento estandarizado. Cada sección tiene una regl
 		4. Recuerda siempre este orden: **¿Quién lo ve?  Nombre : ¿Qué es?**  
 			`- stock : Integer`
 	
-3. **Operaciones o Métodos de la Clase (Sección Inferior)**
+3. ==**Operaciones o Métodos de la Clase (Sección Inferior)**==
 	
 	- También llamados **Métodos**. Es el comportamiento del objeto (lo que puede hacer).
 	- **Ejemplo:** Para el `Coche`, las operaciones serían `acelerar()`, `frenar()`, `encender()`.
@@ -420,5 +587,55 @@ Cuando se diseña la arquitectura de un sistema, se usan tres tipos específicos
 
 
 # 6_Modelo de análisis 
-	
 - ![[18_modelo_analisis.png]]
+
+# 7_Herramientas CASE
+significa **Computer Aided Software Engineering**, o sea, **Ingeniería de Software Asistida por Computadora**. El texto dice que son un conjunto de herramientas que automatizan tareas de desarrollo y buscan ofrecer un sistema integrado que conecte y automatice las fases del ciclo de vida del software.
+
+## 1) Qué es CASE, en limpio
+
+CASE no es un diagrama ni una metodología. Es un **ecosistema de herramientas** para apoyar el desarrollo de software. El documento insiste en que antes muchas tareas eran manuales, pero que la ingeniería de software moderna necesita herramientas más sofisticadas para responder a las exigencias actuales. Además, resalta que CASE ayuda a integrar la calidad desde la fase de diseño, antes de construir el producto.
+
+|Tipo|Nombre|Para qué se usan|
+|---|---|---|
+|**Integradas**|**I-CASE**|Cubren todo el ciclo de vida; también las llaman CASE de trabajo en equipo|
+|**Alto nivel**|**U-CASE / Front-end**|Apoyan análisis y diseño|
+|**Bajo nivel**|**L-CASE / Back-end**|Apoyan construcción e implementación|
+|**Juegos de herramientas**|**Tools-Case**|Automatizan una tarea específica; son herramientas independientes|
+## 4) Qué significa cada categoría
+
+### I-CASE
+
+El libro dice que son las más completas: abarcan **todos los aspectos del ciclo de vida**. O sea, sirven para acompañar el proyecto desde lo inicial hasta lo final.
+
+### U-CASE
+
+Son las de **alto nivel** y se usan en las etapas tempranas: **análisis y diseño**. Aquí encajan los diagramas, el modelado y la especificación.
+
+### L-CASE
+
+Son las de **bajo nivel** y ayudan en construcción e implementación, cuando ya se está programando o armando el sistema.
+
+### Tools-Case
+
+Son herramientas más específicas, una sola actividad o tarea. El libro las describe como el tipo más simple, útil para automatizar un trabajo puntual.
+
+## 5) Qué herramientas menciona el libro
+
+El material lista varias herramientas CASE usadas en distintos ámbitos. Entre las más citadas están:
+
+- **ERwin**
+- **ArgoUML**
+- **Easy Case**
+- **Oracle Designer**
+- **Power Designer**
+- **System Architect**
+- **SNAP**
+- **Gliffy**
+- **MagicDraw**
+- **Lucidchart**
+- **Papyrus UML**
+- **Modelio**
+- **StarUML**
+- **Dia**
+- **MonoUML**

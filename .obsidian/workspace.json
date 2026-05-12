@@ -4,12 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "f5d282e488b8d073",
+        "id": "950da0124b2a3d12",
         "type": "tabs",
-        "dimension": 51.33262260127932,
         "children": [
           {
-            "id": "2498ea8456cc0265",
+            "id": "d0b96e2654881ee5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,29 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "7_SDLC"
-            }
-          }
-        ]
-      },
-      {
-        "id": "950da0124b2a3d12",
-        "type": "tabs",
-        "dimension": 48.66737739872068,
-        "children": [
-          {
-            "id": "d0b96e2654881ee5",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "2_1_archivos/SDLC_sofware.pdf",
-                "page": 195,
-                "left": -15,
-                "top": 518,
-                "zoom": 1.0551470588235294
-              },
-              "icon": "lucide-file-text",
-              "title": "SDLC_sofware"
             }
           }
         ]
@@ -65,7 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "Explorador de archivos"
@@ -77,8 +53,8 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
-                "matchingCase": false,
+                "query": "Pasted image 20260510230834.png",
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -102,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 286.5
   },
   "right": {
     "id": "437685b2ded1e5ae",
@@ -211,26 +186,30 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "2498ea8456cc0265",
+  "active": "d0b96e2654881ee5",
   "lastOpenFiles": [
+    "Pasted image 20260510230834.png.md",
     "2_1_archivos/SDLC_sofware.pdf",
     "7_SDLC.md",
-    "Pasted image 20260511002126.png",
+    "Pasted image 20260510223638.png.md",
+    "Pasted image 20260510225852.png.md",
+    "Pasted image 20260511222242.png",
+    "Pasted image 20260511222122.png",
     "3_UML.md",
-    "Pasted image 20260510230834.png",
-    "Pasted image 20260510225852.png",
-    "Pasted image 20260510223638.png",
-    "1_imagenes/16_herrami_captura.png",
+    "1_Conceptos.md",
+    "3_UML/34_1_clases_asociacion.png",
+    "3_UML/34_clases_asociacion.png",
+    "2_1_archivos/1_poo.pdf",
+    "3_UML/2_diagra_clases.png",
+    "3_UML/2_1_diagra_clases.png",
+    "3_UML/22_flujo.png",
+    "3_UML/23_flujo.png",
+    "3_UML/1_clasi_diagram.png",
+    "3_UML/3_componentes_atómicos.png",
     "1_imagenes/ChatGPT Image 10 may 2026, 12_55_32.png.crdownload",
-    "1_imagenes/15_caos_uso.png",
-    "1_imagenes/14_tipo_observar.png",
-    "1_imagenes/12_requisitos.png",
-    "1_imagenes/13_roles_en_requisitos.png",
-    "Pasted image 20260509234411.png",
     "1_imagenes/unnamed.png.crdownload",
     "8_proyecto.md",
     "0_0_conseptos_de_codigo.md",
-    "2_1_archivos/1_poo.pdf",
     "4_consepto.md",
     "5_estructuras de datos avanzadas.md",
     "6_Patrones de diseño.md",
@@ -238,7 +217,6 @@
     "2_2_informacion_ayuda/G4 - Programación Orientada a Objetos 2.pdf",
     "2_Conceptos.md",
     "Sin título.base",
-    "1_Conceptos.md",
     "0_codigo_practica.md",
     "2_2_informacion_ayuda/G3 - Programación Orientada a Objetos 2.pdf",
     "2_2_informacion_ayuda/G2 - Programación Orientada a Objetos 2.pdf",

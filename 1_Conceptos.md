@@ -1,6 +1,7 @@
 ![[1_poo_1.png]]
 
 
+
 # 5_Clases (plano)
 son los planos del objeto el molde si fuera un balón tendríamos todo lo que hace posible fabricar este balón dentro de esta clase  
 ```java

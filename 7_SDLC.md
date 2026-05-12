@@ -520,7 +520,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 		
 	- ![[15_caos_uso.png]]
 
-2. **Historias de usuario**
+2. **Historias de usuario** [[SDLC_sofware.pdf#search=Historias de usuario|SDLC_sofware, p.202]]
 
 	El documento dice que las historias de usuario se usan en métodos ágiles y son una **descripción breve de una funcionalidad tal como la percibe el usuario**. La estructura que propone Scrum es:
 	
@@ -536,17 +536,57 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 	
 	- Ejemplo
 		“Como cliente, quiero consultar productos para encontrar el que deseo comprar. 
-		
-| Elemento                         | Contenido                                                                                                               | Explicación                           |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| **Rol (Como...)**                | Operario                                                                                                                | Quién necesita la funcionalidad       |
-| **Necesidad (Quiero...)**        | Registrar una falla en el sistema                                                                                       | Acción que desea realizar             |
-| **Beneficio (Para...)**          | Dejar trazabilidad del problema y notificar al técnico                                                                  | Valor o propósito de la funcionalidad |
-| **Historia de usuario completa** | “Como operario, quiero registrar una falla en el sistema, para dejar trazabilidad del problema y notificar al técnico.” | Historia redactada correctamente      |
-| **Criterio de aceptación 1**     | El sistema debe permitir ingresar tipo de falla                                                                         | Regla verificable                     |
-| **Criterio de aceptación 2**     | El sistema debe guardar fecha y hora automáticamente                                                                    | Validación funcional                  |
-| **Criterio de aceptación 3**     | El sistema debe generar un número de reporte                                                                            | Evidencia de registro exitoso         |
-| **Criterio de aceptación 4**     | El técnico debe recibir una notificación                                                                                | Resultado esperado del flujo          |
+
+|             Elemento             |                                                        Contenido                                                        |              Explicación              |
+| :------------------------------: | :---------------------------------------------------------------------------------------------------------------------: | :-----------------------------------: |
+|        **Rol (Como...)**         |                                                        Operario                                                         |    Quién necesita la funcionalidad    |
+|    **Necesidad (Quiero...)**     |                                            Registrar una falla en el sistema                                            |       Acción que desea realizar       |
+|     **Beneficio (Para...)**      |                                 Dejar trazabilidad del problema y notificar al técnico                                  | Valor o propósito de la funcionalidad |
+| **Historia de usuario completa** | “Como operario, quiero registrar una falla en el sistema, para dejar trazabilidad del problema y notificar al técnico.” |   Historia redactada correctamente    |
+|   **Criterio de aceptación 1**   |                                     El sistema debe permitir ingresar tipo de falla                                     |           Regla verificable           |
+|   **Criterio de aceptación 2**   |                                  El sistema debe guardar fecha y hora automáticamente                                   |         Validación funcional          |
+|   **Criterio de aceptación 3**   |                                      El sistema debe generar un número de reporte                                       |     Evidencia de registro exitoso     |
+|   **Criterio de aceptación 4**   |                                        El técnico debe recibir una notificación                                         |     Resultado esperado del flujo      |
+![[17_histo_ejemplo.png]]
+
+1. **¿Qué es realmente una Historia de Usuario?**
+
+	No es un "requisito técnico". Es una **descripción breve y simple** de una funcionalidad, contada desde la perspectiva de la persona que necesita esa mejora.
+	
+	El documento resalta que deben seguir la estructura de las **"3 C"**:
+	
+	- **Card (Tarjeta):** La frase escrita en una tarjeta física o digital.
+	- **Conversation (Conversación):** Lo más importante. La tarjeta es solo una excusa para que el equipo hable con el cliente y entienda el "por qué".
+	- **Confirmation (Confirmación):** Los criterios de aceptación (¿Cómo sabemos que ya quedó bien?).
+
+2. **La estructura estándar (El "Cómo se escribe")**
+
+	Para evitar confusiones, se usa siempre esta fórmula:
+	 	
+ - `Como (ROL), quiero (ACCIÓN) para (BENEFICIO)`
+	
+	- **Ejemplo práctico:**
+	    - _Como_ Cliente de la tienda.
+	    - _Quiero_ poder guardar productos en una "lista de deseos".
+	    - _Para_ comprarlos después cuando tenga dinero.
+
+3. **Los Criterios de Aceptación (La parte "confusa")**
+
+	A menudo se confunden con la historia misma. Piensa en ellos como la **lista de verificación** del control de calidad.
+	
+	- _Historia:_ "Quiero una maleta para viajar".
+	- _Criterios de Aceptación:_ Debe ser de color negro, tener 4 ruedas, pesar menos de 2kg y tener candado de seguridad. **Si no cumple todo eso, la historia no está terminada.**
+
+4. **¿Cómo saber si una historia es buena? (Regla INVEST)**
+	
+	1. **I**ndependiente (que no dependa de otra para empezar).
+	2. **N**egociable (se puede discutir el alcance).
+	3. **V**aliosa (debe servirle de algo al usuario).
+	4. **E**stimable (el programador debe saber cuánto tardará).
+	5. **S**mall (Pequeña, que quepa en un ciclo de trabajo o Sprint).
+	6. **T**estable (que se pueda probar).
+
+---
 
 3. **Storyboard**
 
@@ -721,7 +761,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 |**A. Catálogo de fotos**|100|5|**20** (¡Hazlo ya!)|
 |**B. Pasarela de pagos**|100|20|**5** (Importante, pero costoso)|
 |**C. Chat de ayuda**|20|2|**10** (Es barato y da valor, hazlo pronto)|
-- ![[Pasted image 20260510223638.png]]
+
 
 **¿Qué nos dice esto?** Que aunque la pasarela de pagos es vital, el catálogo de fotos da el mismo valor y es mucho más fácil de hacer. Por lo tanto, el catálogo va de primero porque el **ROI** es mayor.
 
@@ -774,7 +814,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 	- **Urgencia:** Tiene que ver con el **TIEMPO** (¿Se vence mañana? ¿Hay una feria de plantas el lunes y la web debe estar lista?).
 
 	- ### **técnica llamada Matriz de Priorización por Puntos**
-	- ![[Pasted image 20260510225852.png]]
+	
 	
 	- 1. El Cruce de Coordenadas (Multiplicación)
 
@@ -811,7 +851,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 		
 			Porque te permite **comparar requisitos muy parecidos**. Si tienes dos cosas urgentes, esta tabla te ayuda a ver cuál de las dos da más dinero (valor) para decidir a cuál le dedicas tu primera hora de café.
 
-	- ![[Pasted image 20260510230834.png]]
+
 
 
 - ## Matriz de trazabilidad
@@ -878,7 +918,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 	
 	Y dice que **IEEE 29148:2018** reemplaza estándares anteriores y contiene disposiciones para procesos y productos relacionados con ingeniería de requisitos durante todo el ciclo de vida. También orienta sobre cómo construir buenos requisitos y gestionar el proceso de forma iterativa.
 
-- ## Scrum y Kanban en la especificación
+- ## Scrum y Kanban en la especificación [[SDLC_sofware.pdf#search=Historias de usuario|SDLC_sofware, p.202]]
 
 	En Scrum, los requisitos se describen normalmente como **historias de usuario** dentro del **product backlog**, y el equipo selecciona las historias prioritarias para cada sprint.
 	
@@ -1727,3 +1767,5 @@ En otras palabras: **modelar es pensar el software como estructura, no solo como
 ## Resumen en una sola línea
 
 **Herramientas de modelado** = recursos para representar visualmente el sistema, entenderlo mejor, comunicarlo y prepararlo antes de construirlo.
+
+# 4_
