@@ -289,9 +289,121 @@ Partes clave que debes considerar de la TGS antes de empezar a crear tu app:
 		- **Actores:** Los usuarios reales (Técnico, Jefe, Cliente).
 		- **Tiempos:** ¿Cuánto tarda un reporte en ser aprobado?
 		- **Costos:** ¿Cuánto se gasta la empresa hoy por no tener tu sistema?
+## 1_Mas del TGS [[SDLC_sofware.pdf#search=Teoría de sistemas|SDLC_sofware, p.242]]
+
+entra en **tres ideas encadenadas**: **diagnóstico tecnológico**, **búsqueda de soluciones** y **licencias de software**. Es como un pipeline de análisis: primero miras el estado del sistema, luego propones salidas, y después revisas qué tan legal y reutilizable es el software que vas a usar o crear.
+
+| Sección                   | Qué dice el libro                                                                                                                                                                                  | Para qué sirve                                                    |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| **Diagnósticos**          | El diagnóstico tecnológico es una observación colaborativa entre empresa y expertos para definir necesidades y potencial tecnológico; revisa fortalezas, debilidades, brechas internas y externas. | Saber en qué estado está la empresa antes de proponer mejoras.    |
+| **Soluciones**            | Propone una técnica creativa basada en preguntas para analizar el problema: describir la situación, definir el problema, analizar opciones y tomar decisiones.                                     | Generar alternativas reales en vez de quedarse con una sola idea. |
+| **Licencias de software** | Explica que una licencia regula el uso y distribución del software, y empieza a clasificar tipos como copyleft, software libre, shareware y propietario.                                           | Entender qué se puede hacer legalmente con un programa.           |
+
+### 1) Diagnósticos
+
+El libro define el **diagnóstico tecnológico** como una actividad de observación colaborativa entre la empresa y expertos internos o externos. Su meta es identificar las **necesidades** y el **potencial tecnológico** de la empresa, viendo tanto el lado **interno** como el **externo**. Internamente se inventarían y evalúan recursos tecnológicos; externamente se revisa a competidores y la brecha frente a líderes del sector.
+
+La idea de fondo es detectar **capacidades que ya existen** y **capacidades que faltan**. En términos simples, el diagnóstico responde:  
+**“¿Qué tengo hoy y qué me hace falta para mejorar?”**
+
+### 2) Soluciones
+
+Después el libro pasa a una técnica de **solución creativa de problemas**. La estructura que propone es muy clara:
+
+- describir la situación,
+- definir el problema,
+- analizar el problema con preguntas tipo “¿qué se puede sustituir?”, “¿combinar?”, “adaptar?”, “modificar?”, “eliminar?”, “invertir?”,
+- y finalmente tomar decisiones con criterios de evaluación.
+
+Esto no es teoría decorativa: el libro está enseñando a **abrir el problema** antes de cerrarlo con una solución. Es como cuando en programación no te lanzas a escribir una función sin antes definir entradas, salida y casos límite. Primero entiendes el problema, luego diseñas la respuesta.
+
+### 3) Licencias de software
+
+Luego inicia el bloque de **licencias de software**, donde el texto dice que una licencia es un **acuerdo esencial** que regula el uso y la distribución de obras intelectuales en tecnología.
+
+Ahí aparecen varias categorías:
+
+|              Tipo               |                                                Qué permite                                                |
+| :-----------------------------: | :-------------------------------------------------------------------------------------------------------: |
+|          **Copyleft**           | Protege las libertades del software libre y exige que las modificaciones mantengan condiciones similares. |
+| **Software libre sin copyleft** |                           Permite modificar y redistribuir bajo otros términos.                           |
+| **Software libre con copyleft** |                          Obliga a conservar las mismas condiciones de licencia.                           |
+|          **Shareware**          |                          Deja usar una versión limitada o temporalmente gratis.                           |
+|         **Propietario**         |                              Restringe copia, redistribución y modificación.                              |
+
+### Lo más importante de esas páginas
+
+El capítulo te está preparando para pensar como analista o gestor de proyectos:
+
+```
+diagnóstico → problema → alternativas → decisión → licencia correcta
+```
+
+No basta con “hacer software”; hay que saber **qué necesita la empresa**, **cómo resolverlo**, y **bajo qué condiciones legales se puede usar o distribuir el resultado**.
+
+### 4_Normativa (**normas legales**)
+
+Regulan el uso del software para evitar sanciones, multas y problemas de propiedad intelectual. El texto abre esa sección diciendo precisamente que, cuando se implementa un software, su uso debe regirse por una normativa que previene futuras sanciones o multas.
+
+- ### Qué quiere decir “normativa” aquí
+
+En este contexto, **normativa = reglas legales que debes cumplir al usar, instalar, distribuir o comercializar software**.  
+O sea, el libro te está diciendo: no basta con que el software funcione; también debe ser **legal**.
+
+- ## La idea central de la sección
+
+El documento se enfoca en Colombia y menciona la 
+**. Según el texto, esta ley obliga a las empresas a presentar un **informe de gestión** con información sobre el progreso del negocio y su estado financiero, administrativo y jurídico, y ese informe debe demostrar cumplimiento de normas relacionadas con **propiedad intelectual** y **derechos de autor**.
+
+- ## Quién vigila eso
+
+El libro dice que la **DIAN** puede realizar auditorías durante visitas a las empresas para verificar que el software instalado en los equipos cumpla legalmente.
+
+- ## Qué pasa si no se cumple
+
+La sección enumera consecuencias fuertes por incumplir la Ley 603 de 2000:
+
+| Consecuencia                                  | Qué significa                                                                         |
+| --------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Sanciones a administradores                   | Multas de hasta **200 SMMLV**                                                         |
+| Delito patrimonial                            | Posible prisión de **2 a 5 años**                                                     |
+| Infracción de derechos patrimoniales de autor | Posible prisión de **4 a 8 años**                                                     |
+| Sanciones por evasión                         | La DIAN puede sancionar por evasión de impuestos derivados del uso de software ilegal |
+
+- ## Entonces, ¿por qué está en el capítulo de licencias?
+
+Porque la licencia de software no es solo un texto técnico: es también una **forma legal de autorizar uso, distribución o modificación**. El libro más adelante explica que una licencia es un contrato entre desarrollador y usuario donde se definen derechos y obligaciones, y que el autor decide qué permite hacer con el software.
+
+- ## Cómo entenderlo en una frase
+
+La sección 2.1 te está diciendo:
+
+```
+Antes de elegir o instalar software,verifica si su uso es legal,qué licencia tieney si tu empresa cumple la normativa colombiana.
+```
+
+- ## Ejemplo simple
+
+Si una empresa instala programas sin licencia:
+
+- puede estar violando derechos de autor,
+- puede quedar expuesta a auditorías,
+- y puede enfrentar sanciones legales y tributarias.
+
+- ## Lo que el libro quiere que aprendas
+
+No solo quiere que sepas qué es freeware, shareware o software propietario. Primero te coloca esta advertencia legal para que entiendas que **la gestión de software también tiene una dimensión jurídica**. Después de eso, ya sí entra a los tipos de licencia.
+
+Si lo quieres resumir en una línea brutalmente clara:
+
+**“Normativa” aquí significa las leyes que obligan a usar software con licencias válidas y a responder legalmente por su cumplimiento.**
 
 
-# 2_Ingenieria de Requisitos
+
+
+
+
+# 2_Ingenieria de Requisitos [[SDLC_sofware.pdf#search=Validación de requisitos|SDLC_sofware, p.285]]
 
 1. **¿Qué es la Ingeniería de Requisitos?**
 
@@ -1082,7 +1194,7 @@ y luego el cliente dice:
 
 Catástrofe.
 
-- ## Modelos asociados
+- ## Modelos asociados [[SDLC_sofware.pdf#search=Marcos de trabajos tradicionales|SDLC_sofware, p.312]]
 
 	- ## Cascada/Waterfall (Modelo totalmente secuencial.)
 		
@@ -1329,9 +1441,10 @@ Se entregan partes funcionales rápidamente.
 | Resultados anticipados    | Se ven avances rápido         |
 | Flexibilidad              | Cambios constantes            |
 | Gestión de riesgos        | Problemas detectados temprano |
-- # Modelos ágiles
 
-	- **1. Scrum (El modelo de los "Sprints")**
+- # Modelos ágiles [[SDLC_sofware.pdf#search=Marcos de trabajo ágiles|SDLC_sofware, p.321]]
+
+	- **Scrum (El modelo de los "Sprints")**
 
 		Es el más famoso. No se ve como una línea, sino como un círculo que se repite cada 2 o 4 semanas.
 		
@@ -1697,7 +1810,7 @@ La tabla está mostrando que el software no nace del código, sino de una **cola
 Pregunta diagnóstica: ¿quieres que ahora te explique **cada rol con un ejemplo real aplicado a un sistema de inventario o de reportes técnicos**?
 
 
-# 3.1_Herramientas de modelado [[3_UML]]
+# 3.1_Herramientas de modelado [[4_UML]]
 
 es la parte donde el documento pasa de “capturar requisitos” a **representar el sistema de forma visual y formal**. El texto dice que estas herramientas se usan para crear modelos de sistemas que ya existen o que se van a desarrollar, como un **“simulacro”** del sistema, con **bajo costo y riesgo mínimo** porque se trabaja con gráficos y textos antes de construir el software real.
 
@@ -1768,4 +1881,4 @@ En otras palabras: **modelar es pensar el software como estructura, no solo como
 
 **Herramientas de modelado** = recursos para representar visualmente el sistema, entenderlo mejor, comunicarlo y prepararlo antes de construirlo.
 
-# 4_
+# 4_Metodologías de desarrollo de software

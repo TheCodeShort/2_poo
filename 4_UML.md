@@ -1,10 +1,9 @@
 [[1_poo.pdf#search=tema: Interfaces y Clases Abstractas|1_poo, p.36]]
-|columna 1| clumna 2|
+# Para tener un ejemplo de diagrama de flujo pagina => 352
 # 1_**Clasificación y Taxonomía de los Diagramas UML**
 ![[1_clasi_diagram.png|697]]
 
-**1. Diagramas de Estructura (Lo que "es")**
-
+**1. Diagramas de Estructura (Lo que "es")** [Pagina 351 ejemplo]
 Representan la parte estática del sistema. Se centran en qué elementos existen y cómo se organizan físicamente o lógicamente.
 
 - **Diagrama de clases:[[SDLC_sofware.pdf#search=Diagramas de clase|SDLC_sofware, p.214]]** El más común; muestra las clases (plantillas), sus atributos, métodos y cómo se relacionan entre sí, es una abstracción de un objeto de la vida real. Se representa como un rectángulo dividido en **tres partes**:
@@ -246,7 +245,7 @@ Ese es el filtro mental correcto.
 - **2. Relaciones:**  
     Son las líneas que conectan los rectángulos en la imagen previa. Sin ellas, solo tendrías elementos aislados. Las relaciones explican cómo colaboran los objetos entre sí (por ejemplo: un "Cliente" _posee_ una "Cuenta", o un "Gato" _es un_ "Animal").
 - **3. Interfaces:**  
-    Este es un concepto más avanzado que no se distinguía a simple vista en la imagen anterior. Una interfaz es un "contrato". No dice _quién_ es el objeto, sino _qué es capaz de hacer_.[[1_conceptos#19_Abstracción y Interfaz]]
+    Este es un concepto más avanzado que no se distinguía a simple vista en la imagen anterior. Una interfaz es un "contrato". No dice _quién_ es el objeto, sino _qué es capaz de hacer_.[[1_Conceptos_poo#19_Abstracción y Interfaz]]
     - _Ejemplo:_ Una interfaz llamada `Volador` puede ser aplicada a una clase `Avión` y a una clase `Pájaro`. Ambas son cosas distintas, pero ambas "firman el contrato" de que saben volar.
 
 ---

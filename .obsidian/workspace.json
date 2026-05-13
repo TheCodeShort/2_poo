@@ -13,12 +13,34 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "7_SDLC.md",
+                "file": "7_bases_de_datos.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7_SDLC"
+              "title": "7_bases_de_datos"
+            }
+          }
+        ]
+      },
+      {
+        "id": "317cf3e75bafb280",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dfa89d58334a203e",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "2_1_archivos/SDLC_sofware.pdf",
+                "page": 365,
+                "left": 40,
+                "top": 337,
+                "zoom": 0.9105392156862745
+              },
+              "icon": "lucide-file-text",
+              "title": "SDLC_sofware"
             }
           }
         ]
@@ -188,34 +210,35 @@
   },
   "active": "d0b96e2654881ee5",
   "lastOpenFiles": [
-    "Pasted image 20260510230834.png.md",
+    "1_imagenes/22_db_poo.png",
+    "7_bases_de_datos.md",
+    "1_imagenes/21_db_multidim.png",
     "2_1_archivos/SDLC_sofware.pdf",
-    "7_SDLC.md",
+    "1_imagenes/20_db_relacional.png",
+    "1_imagenes/19_db_red.png",
+    "1_imagenes/18_db_jerarquica.png",
+    "2_Conceptos_poo.md",
+    "3_conseptos_poo.md",
+    "4_UML.md",
+    "1_Conceptos_poo.md",
+    "50_proyecto.md",
+    "8_SDLC.md",
+    "2_1_archivos/1_poo.pdf",
+    "Pasted image 20260510230834.png.md",
     "Pasted image 20260510223638.png.md",
     "Pasted image 20260510225852.png.md",
     "Pasted image 20260511222242.png",
     "Pasted image 20260511222122.png",
-    "3_UML.md",
-    "1_Conceptos.md",
     "3_UML/34_1_clases_asociacion.png",
     "3_UML/34_clases_asociacion.png",
-    "2_1_archivos/1_poo.pdf",
     "3_UML/2_diagra_clases.png",
-    "3_UML/2_1_diagra_clases.png",
-    "3_UML/22_flujo.png",
-    "3_UML/23_flujo.png",
-    "3_UML/1_clasi_diagram.png",
-    "3_UML/3_componentes_atómicos.png",
     "1_imagenes/ChatGPT Image 10 may 2026, 12_55_32.png.crdownload",
     "1_imagenes/unnamed.png.crdownload",
-    "8_proyecto.md",
     "0_0_conseptos_de_codigo.md",
-    "4_consepto.md",
     "5_estructuras de datos avanzadas.md",
     "6_Patrones de diseño.md",
     "2_2_informacion_ayuda/G5 - Programación Orientada a Objetos 2.pdf",
     "2_2_informacion_ayuda/G4 - Programación Orientada a Objetos 2.pdf",
-    "2_Conceptos.md",
     "Sin título.base",
     "0_codigo_practica.md",
     "2_2_informacion_ayuda/G3 - Programación Orientada a Objetos 2.pdf",
