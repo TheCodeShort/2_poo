@@ -34,10 +34,10 @@
               "type": "pdf",
               "state": {
                 "file": "2_1_archivos/SDLC_sofware.pdf",
-                "page": 365,
-                "left": 40,
-                "top": 337,
-                "zoom": 0.9105392156862745
+                "page": 369,
+                "left": -16,
+                "top": 774,
+                "zoom": 0.9105392156862746
               },
               "icon": "lucide-file-text",
               "title": "SDLC_sofware"
@@ -100,7 +100,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 286.5
+    "width": 286.5,
+    "collapsed": true
   },
   "right": {
     "id": "437685b2ded1e5ae",
