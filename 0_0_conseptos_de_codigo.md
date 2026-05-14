@@ -1,3 +1,4 @@
+[[2_SDLC_sofware.pdf#search=Sintaxis del lenguaje JavaScrip|SDLC_sofware, p.540]]
 # 1_¿Cómo se nombran las clases? (Reglas de Oro)
 
 En Java existe una convención estándar llamada **PascalCase** para las clases:

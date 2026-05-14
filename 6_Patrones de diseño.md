@@ -1,4 +1,5 @@
 [[1_poo.pdf#search=Patrones de Diseño Orientados a Objeto|1_poo, p.42]]
+[[2_SDLC_sofware.pdf#search=Diseño de patrones de “software”|SDLC_sofware, p.422]]
 Los patrones de diseño son soluciones reutilizables y probadas a problemas comunes que surgen durante el desarrollo de software orientado a objetos. Un patrón de diseño no es un fragmento de código específico, sino una guía o esquema para estructurar las clases y objetos de una manera que resuelva un problema recurrente dentro de un contexto determinado (Vázquez, 2020).
 
 Estos patrones encapsulan las mejores prácticas de ingenieros experimentados y promueven principios fundamentales como la reutilización, el bajo acoplamiento, la cohesión y la mantenibilidad. Existen diversas clasificaciones, pero las más difundidas son las de ==creacionales, estructurales y de comportamiento==, propuestas inicialmente por el grupo conocido como los "Gang of Four" (GoF) (Ruiz & López, 2023).
@@ -347,7 +348,6 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 			ReporteIMC reporteCopia = reporteOriginal.clone();
 			```
 
----
 2. ==**Patrones Estructurales: "El Plano de Montaje"**==
 	- en el catálogo oficial de la _Gang of Four_ hay **7 patrones estructurales**, pero así como en los creacionales, hay **3 que son los pilares** que verás en todos lados. 
 	
@@ -914,7 +914,18 @@ existen patrones para otros estilos (como programación funcional), cuando la ge
 		
 			- **Flexibilidad:** Si mañana quieres que también se entere la **Aseguradora**, solo creas la clase `MonitorAseguradora`, la suscribes y listo. No tocaste ni una sola letra de la clase `Paciente`.
 			- **Orden:** Cada observador hace lo que le toca (el médico analiza, la app muestra) sin mezclar el código.
-				
+	
+	3. ==Comando==
+		1. El patrón **Comando** separa a quien **pide** una acción de quien **la ejecuta**. El texto dice que esto permite enviar peticiones a distintos receptores y, si se gestiona el estado, incluso soportar acciones como **Undo** y **Redo**. En el ejemplo del televisor, la persona es el cliente, el control remoto es el _Invoker_ y el televisor es el receptor.
+
+			La intención real del autor es que entiendas la desacoplación: el cliente no necesita saber cómo se hace la acción, solo que existe un comando que la manda a ejecutar. En otras palabras, el comando actúa como **puente** entre la intención y la ejecución.
+			
+			```
+			Cliente → Invoker → Comando → Receptor → Acción
+			```
+			
+			Piensa en ello como una capa intermedia que evita que el usuario hable directo con el “motor” del sistema.
+							
 		
 Conclusión de tu viaje por los Patrones
 
@@ -923,3 +934,4 @@ Conclusión de tu viaje por los Patrones
 1. **Creacionales:** (Singleton, Factory, Builder...) - _¿Cómo nazco?_
 2. **Estructurales:** (Adapter, Decorator, Facade...) - _¿Cómo me armo?_
 3. **Comportamiento:** (Strategy, Observer...) - _¿Cómo me comunico?_
+4. ![[25_patrones_diseño.png]]

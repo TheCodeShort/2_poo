@@ -1,27 +1,121 @@
 [[1_poo.pdf#search=tema: Interfaces y Clases Abstractas|1_poo, p.36]]
 # Para tener un ejemplo de diagrama de flujo pagina => 352
+
+[[2_SDLC_sofware.pdf#search=Diagramas de flujo|SDLC_sofware, p.497]]
+
+[[2_SDLC_sofware.pdf#search=Ejemplo estructura de control secuencial|SDLC_sofware, p.511]]
 # 1_**Clasificación y Taxonomía de los Diagramas UML**
 ![[1_clasi_diagram.png|697]]
 
-**1. Diagramas de Estructura (Lo que "es")** [Pagina 351 ejemplo]
-Representan la parte estática del sistema. Se centran en qué elementos existen y cómo se organizan físicamente o lógicamente.
-
-- **Diagrama de clases:[[SDLC_sofware.pdf#search=Diagramas de clase|SDLC_sofware, p.214]]** El más común; muestra las clases (plantillas), sus atributos, métodos y cómo se relacionan entre sí, es una abstracción de un objeto de la vida real. Se representa como un rectángulo dividido en **tres partes**:
-
-- **Diagrama de objetos:** Una "foto" del sistema en un momento específico, mostrando instancias reales de las clases.
-- **Diagrama de componentes:** Describe cómo se divide el sistema en módulos físicos (archivos, librerías) y sus dependencias.
-- **Diagrama de implementación (despliegue):** Muestra el hardware donde se instalará el software (servidores, nodos, redes).
-
-**2. Diagramas de Comportamiento (Lo que "hace")**
-
-Describen las funciones del sistema y cómo cambian los datos o el estado con el tiempo.
-
-- **Casos de uso:** Representan las funciones del sistema desde el punto de vista del usuario (el "qué", no el "cómo").
-
-- **Diagrama de actividades:** Similar a un diagrama de flujo; muestra los pasos de un proceso de negocio o algoritmo.
-	- ![[33_diagr_actividad.png]]
+1. ==**Diagramas de Estructura (Lo que "es")**== [Pagina 351 ejemplo] [[2_SDLC_sofware.pdf#search=Vistas estáticas|SDLC_sofware, p.446]]
+	Representan la parte estática del sistema. Se centran en qué elementos existen y cómo se organizan físicamente o lógicamente.
 	
-	- 2. Los Componentes (Lo que verás en los dibujos)
+	- **Diagrama de clases:[[2_SDLC_sofware.pdf#search=Diagramas de clase|SDLC_sofware, p.214]]** El más común; muestra las clases (plantillas), sus atributos, métodos y cómo se relacionan entre sí, es una abstracción de un objeto de la vida real. Se representa como un rectángulo dividido en **tres partes**:
+	
+	- **Diagrama de objetos:** Una "foto" del sistema en un momento específico, mostrando instancias reales de las clases.
+	
+	- **Diagrama de componentes:** Describe cómo se divide el sistema en módulos físicos (archivos, librerías) y sus dependencias. [[2_SDLC_sofware.pdf#search=Diagrama de componentes|SDLC_sofware, p.450]]
+		
+		- El documento dice que el diagrama de componentes muestra una **perspectiva estática** del sistema y pertenece a los diagramas estructurales. Representa cómo se organiza el software en términos de componentes lógicos o físicos, como bibliotecas, módulos, paquetes y capas. Además aclara que normalmente se construye después del diagrama de clases.
+
+		 **Qué elementos usa**
+		
+		```
+		COMPONENTE
+		→ unidad lógica del sistema
+		→ está por encima de las clases
+		
+		INTERFAZ
+		→ punto de comunicación entre componentes
+		
+		DEPENDENCIA
+		→ un componente necesita a otro para trabajar
+		
+		PAQUETE
+		→ agrupa componentes relacionados
+		```
+		
+		La idea central aquí no es infraestructura física, sino **arquitectura interna del software**. Este diagrama te dice cómo se reparte el sistema en partes y qué parte depende de cuál.
+		
+		### Cómo entenderlo rápido
+		
+		```
+		Sistema
+		 ├─ interfaz de usuario
+		 ├─ lógica de negocio
+		 ├─ base de datos
+		 └─ servicios externos
+		```
+		
+		Eso te ayuda a ver el software como módulos que cooperan, no como un bloque gigante.
+		
+
+		## Lo que el autor quiere que aprendas con esta sección
+		
+		No quiere que memorices iconos. Quiere que aprendas a leer el sistema en dos niveles:
+		
+		```
+		nivel 1: infraestructura
+		nivel 2: arquitectura interna
+		```
+		
+		Ese salto es muy importante porque un sistema bien hecho no solo tiene código; también tiene una forma clara de distribuirse y de separarse en partes.
+	
+	- **Diagrama de despliegue (implementación):** Muestra el hardware donde se instalará el software (servidores, nodos, redes).[[2_SDLC_sofware.pdf#search=Diagrama de despliegue|SDLC_sofware, p.447]]
+		
+		- un diagrama de UML que representa la **arquitectura física** del sistema, tanto en hardware como en software, junto con sus conexiones. O sea: aquí ya no estás mirando “qué hace el sistema”, sino **dónde se ejecuta** y **qué piezas físicas o lógicas participan en su ejecución**.
+
+		  **Qué elementos usa**
+			
+			```
+			NODO
+			→ puede ser hardware o software
+			→ se dibuja como un cubo
+			
+			ARTEFACTO
+			→ cosas producidas por el desarrollo
+			→ bibliotecas, archivos, ejecutables
+			
+			ASOCIACIÓN DE COMUNICACIÓN
+			→ línea que une nodos
+			→ muestra por dónde se conectan
+			
+			DISPOSITIVO
+			→ nodo especial
+			→ por ejemplo, un servidor
+			
+			ESPECIFICACIÓN DE DESPLIEGUE
+			→ reglas o configuración para poner un artefacto dentro de un nodo
+			```
+			
+			La idea profunda es esta: el diagrama de despliegue te ayuda a responder preguntas como **“¿en qué servidor corre esto?”, “¿qué archivo se instala ahí?”, “¿cómo se conectan los nodos?”**. Es un mapa de infraestructura del sistema.
+
+		 **Cómo entenderlo rápido**
+		
+		```
+		Aplicación   
+		↓
+		se instala en   
+		↓
+		Servidor / nodo   
+		↓
+		se conecta con   
+		↓
+		otros nodos o dispositivos
+		```
+		
+		En analogía simple: es como mirar un edificio y ver en qué piso está cada cosa, qué cable va a dónde y qué máquina hace qué trabajo.
+
+2. ==**Diagramas de Comportamiento (Lo que "hace")**==
+
+	Describen las funciones del sistema y cómo cambian los datos o el estado con el tiempo.
+	
+	- **Casos de uso:** Representan las funciones del sistema desde el punto de vista del usuario (el "qué", no el "cómo").
+	
+	- **Diagrama de actividades:** Similar a un diagrama de flujo; muestra los pasos de un proceso de negocio o algoritmo.
+		- ![[33_diagr_actividad.png]]
+	
+	- Los Componentes (Lo que verás en los dibujos)
 
 		Para entender los diagramas de esas páginas, debes conocer estos símbolos básicos:
 		
@@ -32,19 +126,18 @@ Describen las funciones del sistema y cómo cambian los datos o el estado con el
 		- **Barras Gruesas (Sincronización):** Se usan para mostrar tareas que pasan al mismo tiempo (Paralelismo). se llaman técnicamente **Fork** (Bifurcación) y **Join** (Unión).
 		- **Círculo con borde (○):** El Final del proceso	
 		
-		- **Ejemplo =>** [[SDLC_sofware.pdf#search=Ejemplo de diagrama de actividades|SDLC_sofware, p.212]]
+		- **Ejemplo =>** [[2_SDLC_sofware.pdf#search=Ejemplo de diagrama de actividades|SDLC_sofware, p.212]]
 		
 
+	- **Diagrama de estado:** Describe los diferentes ciclos de vida de un objeto (por ejemplo, un pedido que pasa de "Pendiente" a "Pagado").
 
-- **Diagrama de estado:** Describe los diferentes ciclos de vida de un objeto (por ejemplo, un pedido que pasa de "Pendiente" a "Pagado").
+3.  **Diagramas de Interacción (Cómo se "comunican")**
 
-**3. Diagramas de Interacción (Cómo se "comunican")**
-
-Son una subcategoría del comportamiento, pero se enfocan específicamente en el intercambio de mensajes entre objetos.
-
-- **Diagrama de secuencia:** Se centra en el orden cronológico de los mensajes (el tiempo fluye de arriba hacia abajo).
-- **Diagrama de colaboración/comunicación:** Similar al de secuencia, pero se organiza alrededor de los objetos y sus enlaces, no del tiempo.
-- **Diagrama de tiempo:** Analiza el comportamiento de los objetos en periodos de tiempo muy precisos (crítico en sistemas de tiempo real).
+	Son una subcategoría del comportamiento, pero se enfocan específicamente en el intercambio de mensajes entre objetos.
+	
+	- **Diagrama de secuencia:** Se centra en el orden cronológico de los mensajes (el tiempo fluye de arriba hacia abajo).
+	- **Diagrama de colaboración/comunicación:** Similar al de secuencia, pero se organiza alrededor de los objetos y sus enlaces, no del tiempo.
+	- **Diagrama de tiempo:** Analiza el comportamiento de los objetos en periodos de tiempo muy precisos (crítico en sistemas de tiempo real).
 
 **4. En la columna de Estructura (Faltan 3)**
 
@@ -80,7 +173,7 @@ cómo se conectan las entidades y cuántas instancias pueden interactuar entre s
 | Multiplicidad | cantidad                |
 - Las líneas que unen los cuadros no son simples adornos; representan que una clase "conoce" a la otra.
 
-	- **Asociación:[[SDLC_sofware.pdf#search=Asociaciones|SDLC_sofware, p.217]]** Una línea recta indica una relación bidireccional, las conexiones entre clases
+	- **Asociación:[[2_SDLC_sofware.pdf#search=Asociaciones|SDLC_sofware, p.217]]** Una línea recta indica una relación bidireccional, las conexiones entre clases
 		- ![[34_clases_asociacion.png]]
 		- ![[34_1_clases_asociacion.png]]
 
@@ -97,12 +190,12 @@ cómo se conectan las entidades y cuántas instancias pueden interactuar entre s
 
 **Nota técnica:** Las líneas que forman ángulos rectos (estilo ortogonal) son un estándar visual para mantener el diagrama limpio y legible cuando hay muchas conexiones cruzadas.
 
-### **3_Herencia** [[SDLC_sofware.pdf#search=Herencia|SDLC_sofware, p.221]]
+### **3_Herencia** [[2_SDLC_sofware.pdf#search=Herencia|SDLC_sofware, p.221]]
 va de lo **general** a lo **específico**, o sea, de **superclase** a **subclase**. La define como una relación especial de asociación donde la subclase hereda **atributos** y **comportamientos** de la superclase. También aclara que esta relación lleva implícito el sentido **“es un / es una”**, por lo que no se le asigna nombre ni multiplicidad.
 
 - Para qué sirve en un diagrama de clases
 
-	Sirve para **evitar repetir información** y para mostrar una jerarquía clara del dominio. En vez de dibujar varias clases casi iguales, el modelo coloca lo común en una clase más general y deja en las subclases solo lo particular. El libro dice que en herencia pueden existir varios niveles y que cada nivel tiene su superclase y sus subclases. [[SDLC_sofware.pdf#search=Ejemplo de herencia múltiple|SDLC_sofware, p.224]]
+	Sirve para **evitar repetir información** y para mostrar una jerarquía clara del dominio. En vez de dibujar varias clases casi iguales, el modelo coloca lo común en una clase más general y deja en las subclases solo lo particular. El libro dice que en herencia pueden existir varios niveles y que cada nivel tiene su superclase y sus subclases. [[2_SDLC_sofware.pdf#search=Ejemplo de herencia múltiple|SDLC_sofware, p.224]]
 
 ### 4_Agregación
 es una relación del diagrama de clases que expresa un **todo formado por partes**, pero con una diferencia clave: **las partes pueden existir por separado**. No es una unión fuerte; es una relación de pertenencia “suave”. El texto la presenta como un tipo de asociación donde la clase agregada representa el todo y las ot1ras clases son sus componentes.
@@ -152,10 +245,10 @@ Sirve para representar un modelo del mundo real donde:
 - una entidad agrupa otras,
 - las partes no están “atadas de por vida” al todo,
 - y el sistema necesita mostrar esa relación sin exagerarla como si fuera dependencia total.
-[[SDLC_sofware.pdf#search=jemplo de relación de Agregación|SDLC_sofware, p.226]]
+[[2_SDLC_sofware.pdf#search=jemplo de relación de Agregación|SDLC_sofware, p.226]]
 
 ### 5_Composición
-**Composición** es la versión **más fuerte** de la relación todo-parte dentro del diagrama de clases un tipo particular de agregación donde los componentes **no pueden pertenecer a más de una composición**; es decir, son **exclusivos** del todo al que pertenecen. Además, señala que se representa con un **rombo negro relleno** en el lado de la clase que hace de “todo”. [[SDLC_sofware.pdf#search=Ejemplo de relación de Composición|SDLC_sofware, p.227]]
+**Composición** es la versión **más fuerte** de la relación todo-parte dentro del diagrama de clases un tipo particular de agregación donde los componentes **no pueden pertenecer a más de una composición**; es decir, son **exclusivos** del todo al que pertenecen. Además, señala que se representa con un **rombo negro relleno** en el lado de la clase que hace de “todo”. [[2_SDLC_sofware.pdf#search=Ejemplo de relación de Composición|SDLC_sofware, p.227]]
 
 - ### Qué significa realmente
 

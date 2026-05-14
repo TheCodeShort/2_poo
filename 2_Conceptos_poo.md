@@ -91,7 +91,7 @@ El acoplamiento mide la dependencia entre clases. Buscamos siempre un **Bajo Aco
 | **Polimorfismo** | Permite usar un mismo método para diferentes tipos de objetos.           |
 | **Interfaces**   | Permite que diferentes clases compartan el mismo "diseño" o contrato.    |
 
-# 4_Manejo de Excepciones (Atrapar los errores con elegancia) [[1_poo.pdf#search=2) Conceptos Clave|1_poo, p.22]]
+# 4_Manejo de Excepciones (Atrapar los errores con elegancia) [[1_poo.pdf#search=2) Conceptos Clave|1_poo, p.22]] [[2_SDLC_sofware.pdf#search=Manejo de errores y excepciones|SDLC_sofware, p.584]]
 
 **¿Qué es?** Es capturar los errores para que el programa no se estrelle o se cierre de golpe.
 

@@ -1,7 +1,7 @@
 ![[1_poo_1.png]]
 
 
-
+[[2_SDLC_sofware.pdf#search=Conceptos básicos programación orientada a objetos|SDLC_sofware, p.596]]
 # 5_Clases (plano)
 son los planos del objeto el molde si fuera un balón tendríamos todo lo que hace posible fabricar este balón dentro de esta clase  
 ```java

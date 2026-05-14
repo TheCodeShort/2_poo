@@ -1,5 +1,7 @@
 ![[2_sdlc.png|697]]
 # 1_**Teoría General de Sistemas (TGS)**
+[[2_SDLC_sofware.pdf#search=Análisis|SDLC_sofware, p.488]]
+[[2_SDLC_sofware.pdf#search=Diseño|SDLC_sofware, p.489]]
 
 es la base "invisible" de cualquier software. Antes de escribir una sola línea de código en tu app, la TGS te obliga a pensar en **cómo encaja tu app en el mundo real.**
 
@@ -37,7 +39,7 @@ Partes clave que debes considerar de la TGS antes de empezar a crear tu app:
 	
 		- **Consideración:** Puedes generar el reporte en PDF desde el navegador o enviarlo por correo. La TGS te dice que no te cases con una sola forma; lo importante es que el **Output** (la salida) llegue a quien la necesita.
 		
-6. **Enfoque de Sistemas**[[SDLC_sofware.pdf#search=Enfoque de sistemas|SDLC_sofware, p.8]]
+6. **Enfoque de Sistemas**[[2_SDLC_sofware.pdf#search=Enfoque de sistemas|SDLC_sofware, p.8]]
 	- es dejar de mirar solo "el botón" y mirar "para qué sirve el botón en el mundo real".
 	
 	- Para que tu app no sea "una más", el **Enfoque de Sistemas** te hace analizar estos tres puntos (que están en el PDF):
@@ -289,7 +291,7 @@ Partes clave que debes considerar de la TGS antes de empezar a crear tu app:
 		- **Actores:** Los usuarios reales (Técnico, Jefe, Cliente).
 		- **Tiempos:** ¿Cuánto tarda un reporte en ser aprobado?
 		- **Costos:** ¿Cuánto se gasta la empresa hoy por no tener tu sistema?
-## 1_Mas del TGS [[SDLC_sofware.pdf#search=Teoría de sistemas|SDLC_sofware, p.242]]
+## 1_Mas del TGS [[2_SDLC_sofware.pdf#search=Teoría de sistemas|SDLC_sofware, p.242]]
 
 entra en **tres ideas encadenadas**: **diagnóstico tecnológico**, **búsqueda de soluciones** y **licencias de software**. Es como un pipeline de análisis: primero miras el estado del sistema, luego propones salidas, y después revisas qué tan legal y reutilizable es el software que vas a usar o crear.
 
@@ -403,7 +405,7 @@ Si lo quieres resumir en una línea brutalmente clara:
 
 
 
-# 2_Ingenieria de Requisitos [[SDLC_sofware.pdf#search=Validación de requisitos|SDLC_sofware, p.285]]
+# 2_Ingenieria de Requisitos [[2_SDLC_sofware.pdf#search=Validación de requisitos|SDLC_sofware, p.285]]
 
 1. **¿Qué es la Ingeniería de Requisitos?**
 
@@ -413,7 +415,7 @@ Si lo quieres resumir en una línea brutalmente clara:
 	
 	- **Como gestión del cambio:** Los sistemas vivos cambian. La IR se encarga de que esos cambios no vuelvan loco al equipo, manteniendo la **trazabilidad** (saber de dónde viene cada idea).
 
-> **El toque TGS:** La IR busca que el "Sistema Software" se integre con éxito en su "Supersistema" (el entorno de negocio o la empresa) [[SDLC_sofware.pdf#search=IR|SDLC_sofware, p.25]].
+> **El toque TGS:** La IR busca que el "Sistema Software" se integre con éxito en su "Supersistema" (el entorno de negocio o la empresa) [[2_SDLC_sofware.pdf#search=IR|SDLC_sofware, p.25]].
 
 2. **Las 4 Etapas Clave**
 
@@ -451,7 +453,7 @@ Conexión con el Ciclo de Vida (SDLC)
 
 La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro del ciclo de vida del software (p. 41). Es la que "dirige" todo el proyecto. Si fallas aquí, el diseño, la programación y las pruebas también fallarán, porque estarás construyendo la cosa equivocada.
 
-- ## Técnicas e instrumentos para elicitar requisitos [[SDLC_sofware.pdf#search=Técnicas e instrumentos para elicitar requisitos|SDLC_sofware, p.56]]
+- ## Técnicas e instrumentos para elicitar requisitos [[2_SDLC_sofware.pdf#search=Técnicas e instrumentos para elicitar requisitos|SDLC_sofware, p.56]]
 
 	- La elicitación de requisitos implica usar técnicas clave como la entrevista estructurada o no estructurada y la encuesta mediante cuestionarios para recopilar información detallada del cliente. Además, técnicas como la observación directa y sesiones grupales permiten identificar necesidades reales y alcanzar consensos entre los interesados. 
 		
@@ -461,11 +463,11 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 			
 				- El analista debe elegir el formato según lo que necesite descubrir:
 	
-					- **Estructuradas:** [[SDLC_sofware.pdf#search=Entrevista estructurada|SDLC_sofware, p.59]]Tienen un cuestionario rígido y definido. Son ideales para confirmar datos específicos o cuando el tiempo es muy limitado. [[SDLC_sofware.pdf#search=Entrevista Estructurada|SDLC_sofware, p.112]]
+					- **Estructuradas:** [[2_SDLC_sofware.pdf#search=Entrevista estructurada|SDLC_sofware, p.59]]Tienen un cuestionario rígido y definido. Son ideales para confirmar datos específicos o cuando el tiempo es muy limitado. [[2_SDLC_sofware.pdf#search=Entrevista Estructurada|SDLC_sofware, p.112]]
 					
-					- **Semiestructurada:** [[SDLC_sofware.pdf#search=Entrevista semiestructurada|SDLC_sofware, p.59]] Es un encuentro que tiene una **guía temática** (un guion base de preguntas), pero que permite al entrevistador desviarse del camino si surge un dato interesante o una necesidad que no estaba prevista.
+					- **Semiestructurada:** [[2_SDLC_sofware.pdf#search=Entrevista semiestructurada|SDLC_sofware, p.59]] Es un encuentro que tiene una **guía temática** (un guion base de preguntas), pero que permite al entrevistador desviarse del camino si surge un dato interesante o una necesidad que no estaba prevista.
 					
-					- **No estructuradas:** [[SDLC_sofware.pdf#search=Entrevista no estructurada|SDLC_sofware, p.60]] Son conversaciones abiertas. Sirven al inicio del proyecto para que el usuario hable libremente y así descubrir problemas u oportunidades que tú no habías imaginado.
+					- **No estructuradas:** [[2_SDLC_sofware.pdf#search=Entrevista no estructurada|SDLC_sofware, p.60]] Son conversaciones abiertas. Sirven al inicio del proyecto para que el usuario hable libremente y así descubrir problemas u oportunidades que tú no habías imaginado.
 
 				1. **El Proceso Profesional (Paso a Paso)**
 				
@@ -534,7 +536,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 				
 					El texto sugiere que los cuestionarios deben ser **anónimos** para que la gente responda con total honestidad, especialmente si estás evaluando un sistema que ya existe y que a los empleados les molesta usar.
 						
-			2. **Observación** [[SDLC_sofware.pdf#search=Ficha de Observación|SDLC_sofware, p.114]]
+			2. **Observación** [[2_SDLC_sofware.pdf#search=Ficha de Observación|SDLC_sofware, p.114]]
 			
 				1. La **observación** es, quizás, la técnica más reveladora de todas porque, como dice el dicho: _"La gente dice una cosa, pero hace otra"_. En el documento (páginas 62-63), se describe como la técnica donde el analista se convierte en un "detective" para ver el proceso en vivo.
 
@@ -609,7 +611,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 |**Historias de usuario**|Necesidades breves vistas desde el usuario|Capturar requisitos de forma simple y ágil|
 |**Storyboard**|Secuencia visual de interacción o proceso|Mostrar cómo se usará el sistema paso a paso|
 
-1. **Diagrama de casos de uso**[[SDLC_sofware.pdf#search=Diagrama de casos de uso|SDLC_sofware, p.66]] [[SDLC_sofware.pdf#search=Diagrama de casos de uso|SDLC_sofware, p.129]]
+1. **Diagrama de casos de uso**[[2_SDLC_sofware.pdf#search=Diagrama de casos de uso|SDLC_sofware, p.66]] [[2_SDLC_sofware.pdf#search=Diagrama de casos de uso|SDLC_sofware, p.129]]
 
 	- El documento explica que este diagrama se usa al inicio del proyecto para visualizar **qué funcionalidades debe permitir el software** y **quiénes podrán ejecutarlas**. Sus componentes básicos son el **actor** y el **caso de uso**; el actor representa al usuario o rol, y el caso de uso representa una función del sistema. Además, no basta con dibujarlo: también debe incluirse la **documentación del caso de uso**, donde se detalla el flujo entre actor y sistema.
 
@@ -632,7 +634,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 		
 	- ![[15_caos_uso.png]]
 
-2. **Historias de usuario** [[SDLC_sofware.pdf#search=Historias de usuario|SDLC_sofware, p.202]]
+2. **Historias de usuario** [[2_SDLC_sofware.pdf#search=Historias de usuario|SDLC_sofware, p.202]]
 
 	El documento dice que las historias de usuario se usan en métodos ágiles y son una **descripción breve de una funcionalidad tal como la percibe el usuario**. La estructura que propone Scrum es:
 	
@@ -754,7 +756,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 
 
 
-- ## Técnicas de análisis y especificación de requisitos [[SDLC_sofware.pdf#search=Especificación y análisis de requisitos|SDLC_sofware, p.129]]
+- ## Técnicas de análisis y especificación de requisitos [[2_SDLC_sofware.pdf#search=Especificación y análisis de requisitos|SDLC_sofware, p.129]]
 	
 	- es **ingeniería de requisitos pura**, y es la parte donde el documento deja de “capturar información” y empieza a **ordenarla, priorizarla y dejarla lista para especificarla formalmente**. El propio material la ubica después de la elicitación y antes de la especificación, y dice que aquí se trabaja el análisis de requisitos: **priorización, descomposición funcional y matriz de trazabilidad**, además de estándares para redactarlos bien.
 
@@ -983,7 +985,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 		2. **Análisis de impacto:** Si el cliente dice: _"Ya no quiero que las materas se paguen con tarjeta, sino solo con transferencia"_, tú miras la matriz y ves rápidamente qué otros requisitos, diseños y pruebas se ven afectados por ese cambio.
 		3. **Verificación:** Sirve para demostrarle al cliente al final del proyecto que cumpliste con el 100% de lo pactado.
 	
-	2. ¿Cómo es la estructura de la matriz? [[SDLC_sofware.pdf#search=matriz de correlación dividida por secciones|SDLC_sofware, p.86]]
+	2. ¿Cómo es la estructura de la matriz? [[2_SDLC_sofware.pdf#search=matriz de correlación dividida por secciones|SDLC_sofware, p.86]]
 	
 		Imagina una tabla de Excel muy extensa donde cada fila es un requisito. Las columnas suelen incluir:
 		
@@ -1030,7 +1032,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 	
 	Y dice que **IEEE 29148:2018** reemplaza estándares anteriores y contiene disposiciones para procesos y productos relacionados con ingeniería de requisitos durante todo el ciclo de vida. También orienta sobre cómo construir buenos requisitos y gestionar el proceso de forma iterativa.
 
-- ## Scrum y Kanban en la especificación [[SDLC_sofware.pdf#search=Historias de usuario|SDLC_sofware, p.202]]
+- ## Scrum y Kanban en la especificación [[2_SDLC_sofware.pdf#search=Historias de usuario|SDLC_sofware, p.202]]
 
 	En Scrum, los requisitos se describen normalmente como **historias de usuario** dentro del **product backlog**, y el equipo selecciona las historias prioritarias para cada sprint.
 	
@@ -1194,7 +1196,7 @@ y luego el cliente dice:
 
 Catástrofe.
 
-- ## Modelos asociados [[SDLC_sofware.pdf#search=Marcos de trabajos tradicionales|SDLC_sofware, p.312]]
+- ## Modelos asociados [[2_SDLC_sofware.pdf#search=Marcos de trabajos tradicionales|SDLC_sofware, p.312]]
 
 	- ## Cascada/Waterfall (Modelo totalmente secuencial.)
 		
@@ -1442,7 +1444,7 @@ Se entregan partes funcionales rápidamente.
 | Flexibilidad              | Cambios constantes            |
 | Gestión de riesgos        | Problemas detectados temprano |
 
-- # Modelos ágiles [[SDLC_sofware.pdf#search=Marcos de trabajo ágiles|SDLC_sofware, p.321]]
+- # Modelos ágiles [[2_SDLC_sofware.pdf#search=Marcos de trabajo ágiles|SDLC_sofware, p.321]]
 
 	- **Scrum (El modelo de los "Sprints")**
 
@@ -1624,7 +1626,7 @@ Si elegiste un **Paradigma Ágil**, este cuadro se repite muchas veces (en cada 
 
 En resumen: **La tabla te dice que por cada cosa que hagas (Actividad), debes dejar una prueba física de que lo hiciste (Artefacto).**
 
-## Requisitos [[SDLC_sofware.pdf#search=Importancia de los requisitos|SDLC_sofware, p.42]]
+## Requisitos [[2_SDLC_sofware.pdf#search=Importancia de los requisitos|SDLC_sofware, p.42]]
 
 1. **El requisito como "Capacidad"**
 
@@ -1847,7 +1849,7 @@ O sea, la elicitación te da información; el modelado la convierte en una repre
 
 El texto habla de dos grandes familias:
 
-1. **UML (Unified Modeling Language, UML):**  [[SDLC_sofware.pdf#search=Características del Lenguaje Unificado de Modelado UML|SDLC_sofware, p.125]] Es el lenguaje gráfico de modelado más difundido. Se usa para representar sistemas orientados a objetos y sus elementos con diagramas.
+1. **UML (Unified Modeling Language, UML):**  [[2_SDLC_sofware.pdf#search=Características del Lenguaje Unificado de Modelado UML|SDLC_sofware, p.125]] Es el lenguaje gráfico de modelado más difundido. Se usa para representar sistemas orientados a objetos y sus elementos con diagramas.
 
 2. **CASE:** Son programas y procesos guiados que ayudan a analistas, desarrolladores y diseñadores a automatizar o apoyar fases del ciclo de vida del software. Su objetivo general es **acelerar** el proceso, **automatizar** partes del trabajo y **reducir el costo** de desarrollo.
 

@@ -4,43 +4,45 @@
     "type": "split",
     "children": [
       {
-        "id": "950da0124b2a3d12",
+        "id": "317cf3e75bafb280",
         "type": "tabs",
+        "dimension": 45.34591194968554,
         "children": [
           {
-            "id": "d0b96e2654881ee5",
+            "id": "7e48ae02f6024522",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "7_bases_de_datos.md",
+                "file": "11_pruebas.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7_bases_de_datos"
+              "title": "11_pruebas"
             }
           }
         ]
       },
       {
-        "id": "317cf3e75bafb280",
+        "id": "611b800ab657c67d",
         "type": "tabs",
+        "dimension": 54.65408805031446,
         "children": [
           {
-            "id": "dfa89d58334a203e",
+            "id": "9af41fbdb86bf1da",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
-                "file": "2_1_archivos/SDLC_sofware.pdf",
-                "page": 365,
-                "left": 40,
-                "top": 337,
-                "zoom": 0.9105392156862745
+                "file": "2_1_archivos/2_SDLC_sofware.pdf",
+                "page": 794,
+                "left": -15,
+                "top": 136,
+                "zoom": 1.0012254901960784
               },
               "icon": "lucide-file-text",
-              "title": "SDLC_sofware"
+              "title": "2_SDLC_sofware"
             }
           }
         ]
@@ -208,44 +210,48 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "d0b96e2654881ee5",
+  "active": "9af41fbdb86bf1da",
   "lastOpenFiles": [
-    "1_imagenes/22_db_poo.png",
+    "11_pruebas.md",
+    "2_1_archivos/2_SDLC_sofware.pdf",
+    "10_Internet y la web.md",
+    "2_Conceptos_poo.md",
+    "1_Conceptos_poo.md",
+    "5_estructuras de datos avanzadas.md",
+    "0_0_conseptos_de_codigo.md",
+    "9_Programación y algoritmia básica.md",
+    "4_UML.md",
+    "8_SDLC.md",
+    "51_ayudas.md",
+    "6_Patrones de diseño.md",
+    "1_imagenes/image_7c8f91ea.png.crdownload",
+    "1_imagenes/25_patrones_diseño.png",
+    "1_imagenes/image_6066d275.png.crdownload",
     "7_bases_de_datos.md",
+    "1_imagenes/24_db_reglas_sql.png",
+    "1_imagenes/image_715c4f61.png.crdownload",
+    "1_imagenes/23_db_normalizacion.png",
+    "1_imagenes/image_101e2c7.png.crdownload",
+    "1_imagenes/22_db_poo.png",
     "1_imagenes/21_db_multidim.png",
-    "2_1_archivos/SDLC_sofware.pdf",
     "1_imagenes/20_db_relacional.png",
     "1_imagenes/19_db_red.png",
     "1_imagenes/18_db_jerarquica.png",
-    "2_Conceptos_poo.md",
     "3_conseptos_poo.md",
-    "4_UML.md",
-    "1_Conceptos_poo.md",
     "50_proyecto.md",
-    "8_SDLC.md",
     "2_1_archivos/1_poo.pdf",
     "Pasted image 20260510230834.png.md",
     "Pasted image 20260510223638.png.md",
     "Pasted image 20260510225852.png.md",
     "Pasted image 20260511222242.png",
     "Pasted image 20260511222122.png",
-    "3_UML/34_1_clases_asociacion.png",
-    "3_UML/34_clases_asociacion.png",
-    "3_UML/2_diagra_clases.png",
     "1_imagenes/ChatGPT Image 10 may 2026, 12_55_32.png.crdownload",
     "1_imagenes/unnamed.png.crdownload",
-    "0_0_conseptos_de_codigo.md",
-    "5_estructuras de datos avanzadas.md",
-    "6_Patrones de diseño.md",
     "2_2_informacion_ayuda/G5 - Programación Orientada a Objetos 2.pdf",
     "2_2_informacion_ayuda/G4 - Programación Orientada a Objetos 2.pdf",
-    "Sin título.base",
     "0_codigo_practica.md",
-    "2_2_informacion_ayuda/G3 - Programación Orientada a Objetos 2.pdf",
-    "2_2_informacion_ayuda/G2 - Programación Orientada a Objetos 2.pdf",
     "1_conceptos.md",
     "2_conceptos.md",
-    "2_2_informacion_ayuda/G1 - Programación Orientada a Objetos 2.pdf",
     "Bienvenido.md"
   ]
 }

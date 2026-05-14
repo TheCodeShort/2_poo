@@ -1,7 +1,88 @@
-1. **Listas:** Colecciones lineales de elementos en las que el orden de inserción se respeta. En POO, se implementan mediante clases como ArrayList o LinkedList, cada una con características particulares (García & Mendoza, 2022).
-	- Es la estructura más común. Funcionan como una fila de sillas numeradas donde el orden importa.
+[[2_SDLC_sofware.pdf#search=Estructura de datos|SDLC_sofware, p.527]]
+# Qué es 
 
-		- _Ejemplo en el código:_ `ArrayList` (muy usada en JAVA) o `LinkedList`.
+El texto llama a estas estructuras también **arreglos** y explica que sirven para organizar información de forma ordenada. La idea base es simple pero poderosa: en vez de tener datos sueltos, los agrupas para poder recorrerlos, buscarlos, ordenarlos o filtrarlos después. En lógica de programación, esto es como pasar de tener variables aisladas a tener una lista o diccionario bien pensado.
+
+# Vectores
+
+Un **vector** es un arreglo **finito, ordenado y homogéneo**; es decir, todos sus elementos son del mismo tipo y se accede a ellos por posición. El documento remarca algo clave: los índices empiezan en **0**, no en 1. Por eso el primer elemento es `vector[0]` y el último es `vector[length - 1]`. Si intentas acceder a un índice inválido, obtienes `undefined`.
+
+El ejemplo de `frutas = ["Manzana", "Banana", "Pera"]` sirve para mostrar dos cosas: cómo declarar un vector y cómo consultar su tamaño con `frutas.length`. Ahí se ve que `length` no es decoración; es la forma de saber cuántos elementos hay realmente dentro del arreglo. En Python sería lo mismo que usar `len(lista)`.
+
+El material también muestra acceso directo a posiciones concretas con `arreglo[0]`, `arreglo[2]` y `arreglo[arreglo.length - 1]`. Esa parte es importante porque enseña la relación entre índice y posición real. El quinto elemento no está en `5`, sino en `4`, porque el conteo arranca en cero. Ese detalle parece pequeño, pero es el tipo de error que hace llorar a medio curso cuando el arreglo “no funciona”.
+
+# Recorrer y manipular vectores
+
+El documento insiste en que, para hacer asignaciones o lecturas/escrituras sobre un vector, conviene usar **estructuras repetitivas**. La razón es técnica: los bucles permiten recorrer cada índice de forma ordenada y automática, sin escribir una instrucción manual para cada posición. Esa recomendación aparece claramente cuando se explica el vector de 5 números y el uso de `PARA o FOR` para pedir datos y luego revisarlos uno por uno.
+
+El ejemplo de la tabla de 5 muestra el patrón clásico: se define un tamaño fijo, se cargan los datos con un bucle y luego se vuelve a recorrer el vector para evaluar cuáles cumplen una condición, en este caso ser mayores que 100. Eso ya no es solo “guardar datos”; es **procesarlos**. Ahí empieza la programación útil de verdad.
+
+# Métodos comunes de un vector
+
+La sección también enumera métodos muy prácticos. 
+
+- `indexOf()` busca la posición de un valor
+- `join()` convierte el arreglo en texto
+- `push()` agrega al final
+- `pop()` elimina el último 
+- `sort()` ordena 
+- `shift()` elimina el primero
+
+La lógica general es esta: no solo guardas datos, también los transformas.
+
+Esto es muy parecido a trabajar con una lista en Python: a veces la usas como almacén, a veces como cola, a veces como texto, y a veces como conjunto de datos que debes ordenar antes de analizar. El documento te está entrenando justamente para pensar en el arreglo como una estructura viva, no como una caja estática.
+
+# Matrices
+[[2_SDLC_sofware.pdf#search=Matrice|SDLC_sofware, p.564]]
+Las **matrices** se presentan como arreglos de más de una dimensión. El texto las explica de forma muy clara: una matriz puede verse como un vector cuyos elementos son otros vectores. Eso significa que ya no accedes con un solo índice, sino con dos coordenadas, como fila y columna.
+
+El ejemplo con alimentos ilustra esa idea: una estructura tipo tabla con filas y columnas, codificada en JavaScript como un arreglo de arreglos. Esto es exactamente lo que en programación luego usarías para representar tablas, calificaciones, inventarios, horarios o cualquier dato bidimensional. Si el vector era una lista, la matriz ya es una hoja de cálculo sin maquillaje.
+
+# Registros
+
+Los **registros** aparecen como una colección de datos de diferente tipo relacionados entre sí. Aquí ya no todos los elementos son homogéneos: un registro puede mezclar nombre, correo, edad y saldo. Esa mezcla es importante porque modela mejor datos reales de personas, productos o clientes.
+
+El documento codifica los registros como un arreglo de arreglos, donde cada fila contiene la información completa de una persona. Además, para recorrerlos usa **dos ciclos `for` anidados**: uno recorre cada registro y el otro recorre los campos dentro de ese registro. Esa técnica es clave porque te enseña a atravesar estructuras bidimensionales de forma sistemática.
+
+# Programación modular 
+
+es una forma de construir software **dividiendo el programa en partes pequeñas, independientes y reutilizables** llamadas módulos.
+
+Un módulo puede ser una **función**, una **clase**, un **archivo** o una **sección lógica** del programa. La idea es simple: en vez de escribir un bloque gigante e inmanejable, separas el problema en piezas que hacen una sola cosa y la hacen bien. Eso mejora lectura, mantenimiento, pruebas y reutilización.
+
+En Python sería como pasar de un script lleno de líneas sueltas a algo así:
+
+- una función para validar datos,
+- otra para calcular,
+- otra para mostrar resultados,
+- y si crece mucho, cada grupo en su propio archivo.
+
+Eso es programación modular: **hacer que el programa tenga estructura**, como una casa por habitaciones y no como una sola habitación con todo tirado en el piso.
+
+Sus ventajas principales son claridad, menos errores, mejor organización y facilidad para cambiar una parte sin romper todo. En el libro normalmente aparece porque es un paso natural entre aprender algoritmos básicos y empezar a diseñar programas más serios.
+
+📦 mi-proyecto-web/
+┃
+┣ 📂 assets/                (Módulo de Recursos Estáticos)
+┃ ┣ 📂 imagenes/            (Solo fotos, logos, iconos)
+┃ ┗ 📂 fuentes/             (Tipografías del sistema)
+┃
+┣ 📂 css/                   (Módulo de Estilos)
+┃ ┣ 📜 estilos-base.css     (Estilos globales)
+┃ ┗ 📜 tienda.css           (Solo estilos del diseño de la tienda)
+┃
+┣ 📂 js/                    (Módulo de Lógica de Programación)
+┃ ┣ 📜 carrito.js           (Código que maneja el carrito de compras)
+┃ ┗ 📜 usuarios.js          (Código que maneja el registro y login)
+┃
+┣ 📜 index.html             (Página principal / Estructura del sitio)
+┗ 📜 tienda.html            (Página de productos)
+
+# **Listas:** 
+Colecciones lineales de elementos en las que el orden de inserción se respeta. En POO, se implementan mediante clases como ArrayList o LinkedList, cada una con características particulares (García & Mendoza, 2022).
+- Es la estructura más común. Funcionan como una fila de sillas numeradas donde el orden importa.
+
+	- _Ejemplo en el código:_ `ArrayList` (muy usada en JAVA) o `LinkedList`.
 		    
 		- _Uso práctico:_ Mostrar el catálogo de productos de una tienda virtual, donde quieres mantener el orden en el que se agregaron.
 		
@@ -83,9 +164,10 @@
 				  ```
 
 
-2. **Pilas (Stacks - LIFO):** Estructuras de tipo LIFO (Last In, First Out) que permiten apilar y desapilar elementos. Se utilizan en la implementación de algoritmos recursivos, control de llamadas o deshacer acciones.
+# **Pilas (Stacks - LIFO):**
+Estructuras de tipo LIFO (Last In, First Out) que permiten apilar y desapilar elementos. Se utilizan en la implementación de algoritmos recursivos, control de llamadas o deshacer acciones.
 
-	- El primero en entrar es el primero en salir). Piensa en la fila del banco: el primero que llega es el primero en ser atendido.
+- El primero en entrar es el primero en salir). Piensa en la fila del banco: el primero que llega es el primero en ser atendido.
     
     - _Uso práctico:_ Una cola de impresión. Si mandas a imprimir 3 documentos, la impresora los saca en el orden exacto en que los recibió. También existen las _Priority Queues_, donde alguien puede "colarse" si tiene mayor urgencia.
         
@@ -133,6 +215,8 @@
 			    }
 			}
 		 ```
+	
+	
 	- **Deque**
 		- El nombre **`Deque`** (se pronuncia "deck") significa _Double Ended Queue_ (Cola de doble final). Es como una "Pila Superpoderosa" o una "Cola Flexible".
 
@@ -184,10 +268,11 @@
 			*/			
 			```
 
-3. **Colas (Queues):** Estructuras FIFO (First In, First Out) útiles para gestionar procesos en espera, tareas de impresión o mensajes en sistemas distribuidos. Variantes como PriorityQueue permiten ordenamientos adicionales.
-	-   Piensa en la fila del banco: el primero que llega es el primero en ser atendido.
+# **Colas (Queues):** Estructuras FIFO (First In, First Out) 
+útiles para gestionar procesos en espera, tareas de impresión o mensajes en sistemas distribuidos. Variantes como PriorityQueue permiten ordenamientos adicionales.
+-   Piensa en la fila del banco: el primero que llega es el primero en ser atendido.
 
-		- _Uso práctico:_ Una cola de impresión. Si mandas a imprimir 3 documentos, la impresora los saca en el orden exacto en que los recibió. También existen las _Priority Queues_, donde alguien puede "colarse" si tiene mayor urgencia.
+	- _Uso práctico:_ Una cola de impresión. Si mandas a imprimir 3 documentos, la impresora los saca en el orden exacto en que los recibió. También existen las _Priority Queues_, donde alguien puede "colarse" si tiene mayor urgencia.
 		- Imagina la fila de un banco o la fila para entrar al cine:
 			1. La gente llega y se pone al **final** de la fila.
 			2. El cajero atiende únicamente al que está al **principio**.
@@ -232,11 +317,12 @@
 				```
 
 
-4. **Conjuntos (Sets):** Colecciones que no permiten duplicados. Implementaciones como HashSet o TreeSet ofrecen eficiencia en las operaciones de búsqueda y manipulación de elementos únicos (Hernández & Baquero, 2023). 
+# **Conjuntos (Sets):**
+Colecciones que no permiten duplicados. Implementaciones como HashSet o TreeSet ofrecen eficiencia en las operaciones de búsqueda y manipulación de elementos únicos (Hernández & Baquero, 2023). 
 
-	- Un **Set** es como una bolsa donde echas cosas, pero con una regla mágica: **No se permiten repetidos.**
+- Un **Set** es como una bolsa donde echas cosas, pero con una regla mágica: **No se permiten repetidos.**
 
-		Si intentas meter a "Adriana" dos veces, la bolsa simplemente ignora la segunda entrada. Es la estructura perfecta cuando quieres asegurar que algo sea **único**.
+	- Si intentas meter a "Adriana" dos veces, la bolsa simplemente ignora la segunda entrada. Es la estructura perfecta cuando quieres asegurar que algo sea **único**.
 		
 		1. ¿Cómo funciona en la vida real?
 		
@@ -280,9 +366,10 @@
 		- **HashSet:** El más rápido, pero desordenado.
 		- **TreeSet:** (Aquí se une con el concepto de Árboles). Guarda los elementos **ordenados** (por ejemplo, de la A a la Z), pero es un poquito más lento que el HashSet
 
-5. **Mapas (Maps):** Asociaciones clave-valor también conocidos como Diccionarios que permiten almacenar pares de datos. Ejemplos comunes incluyen HashMap, TreeMap y LinkedHashMap, fundamentales para implementar diccionarios, índices y caches (García & Mendoza, 2022). 
-	- _Uso práctico:_ Imagina un casillero. La _Clave_ es el número de tu carnet, y el _Valor_ es tu mochila. Si le das el número de carnet al mapa (`HashMap`), te devuelve tus datos instantáneamente sin tener que buscar uno por uno. Es vital para relacionar usuarios con sus sesiones activas.
-	- Si el **Set** era una bolsa de elementos únicos, el **Mapa** es como una **agenda telefónica** o un **casillero de gimnasio**.
+# **Mapas (Maps):** 
+Asociaciones clave-valor también conocidos como Diccionarios que permiten almacenar pares de datos. Ejemplos comunes incluyen HashMap, TreeMap y LinkedHashMap, fundamentales para implementar diccionarios, índices y caches (García & Mendoza, 2022). 
+- _Uso práctico:_ Imagina un casillero. La _Clave_ es el número de tu carnet, y el _Valor_ es tu mochila. Si le das el número de carnet al mapa (`HashMap`), te devuelve tus datos instantáneamente sin tener que buscar uno por uno. Es vital para relacionar usuarios con sus sesiones activas.
+- Si el **Set** era una bolsa de elementos únicos, el **Mapa** es como una **agenda telefónica** o un **casillero de gimnasio**.
 		
 	- La regla aquí es el concepto de **Clave/Valor**:
 		
@@ -327,9 +414,10 @@
 				}
 			```
 			
-5. **Arbol:** Los **Árboles** no son solo "otra forma de guardar datos", sino que son la **estrategia de búsqueda** más eficiente que existe. Se les llama "motor" porque muchas estructuras (como el `TreeSet` o el `TreeMap`) los usan por dentro para que todo sea veloz.
+# **Arbol:** 
+Los **Árboles** no son solo "otra forma de guardar datos", sino que son la **estrategia de búsqueda** más eficiente que existe. Se les llama "motor" porque muchas estructuras (como el `TreeSet` o el `TreeMap`) los usan por dentro para que todo sea veloz.
 
-	Imagina que estás buscando una palabra en un diccionario físico de 1,000 páginas:
+- Imagina que estás buscando una palabra en un diccionario físico de 1,000 páginas:
 	
 	- **Forma Lista:** Empiezas en la página 1, luego la 2... hasta la 1,000. (Muy lento).
 	- **Forma Árbol:** Abres el libro por la mitad. ¿Tu palabra empieza con una letra mayor o menor a la que viste? Si es mayor, descartas 500 páginas de un solo golpe. Repites el proceso y en solo **10 saltos** encuentras tu palabra entre 1,000.
@@ -377,11 +465,12 @@
 		```
 		
 
-6. Colecciones genéricas: Permiten trabajar con estructuras de datos parametrizadas por tipo, garantizando la seguridad en tiempo de compilación al evitar errores de tipo en tiempo de ejecución (Vázquez, 2020). 
+# Colecciones genéricas: 
+Permiten trabajar con estructuras de datos parametrizadas por tipo, garantizando la seguridad en tiempo de compilación al evitar errores de tipo en tiempo de ejecución (Vázquez, 2020). 
 
-	- ==son la forma que tiene Java de decir: _"Esta bolsa es solo para un tipo de cosa"_==.
+- ==son la forma que tiene Java de decir: _"Esta bolsa es solo para un tipo de cosa"_==.
 
-		Antes, en las versiones muy viejas de Java, las listas eran como "bolsas negras" donde podías meter cualquier cosa: un String, un número y un objeto `Persona` juntos. El problema era que al sacar algo, no sabías qué era y el programa solía romperse (errores de ejecución).
+	- Antes, en las versiones muy viejas de Java, las listas eran como "bolsas negras" donde podías meter cualquier cosa: un String, un número y un objeto `Persona` juntos. El problema era que al sacar algo, no sabías qué era y el programa solía romperse (errores de ejecución).
 		
 		Las **Genéricas** llegaron para dar orden y seguridad usando los símbolos **`< >`** (llamados "diamante").
 		
@@ -412,14 +501,16 @@
 	// Si intentas agregar un número aquí, Java no te dejará.
 	```
 
-7. Comparación de estructuras: La elección entre estructuras tradicionales y colecciones modernas depende de factores como la eficiencia, la legibilidad y la compatibilidad con algoritmos avanzados.
-	1. es el ==proceso de analizar cuál es la mejor forma de organizar tus datos basándote en dos factores: **tiempo** (qué tan rápido es el programa) y **memoria** (cuánto espacio ocupa)==. 
+# Comparación de estructuras: 
+La elección entre estructuras tradicionales y colecciones modernas depende de factores como la eficiencia, la legibilidad y la compatibilidad con algoritmos avanzados.
+	
+es el ==proceso de analizar cuál es la mejor forma de organizar tus datos basándote en dos factores: **tiempo** (qué tan rápido es el programa) y **memoria** (cuánto espacio ocupa)==. 
 
-		No existe una estructura "perfecta", sino una "adecuada" para cada situación. Por ejemplo, un **ArrayList** es excelente para leer datos rápidamente por su posición, pero un **HashMap** es superior si necesitas buscar un elemento específico sin recorrer toda la lista. 
+- No existe una estructura "perfecta", sino una "adecuada" para cada situación. Por ejemplo, un **ArrayList** es excelente para leer datos rápidamente por su posición, pero un **HashMap** es superior si necesitas buscar un elemento específico sin recorrer toda la lista. 
 		
-		Tabla Comparativa de Estructuras en Java
+	Tabla Comparativa de Estructuras en Java
 		
-		Esta tabla resume cómo se comportan las herramientas que hemos visto según la tarea que necesites realizar
+	Esta tabla resume cómo se comportan las herramientas que hemos visto según la tarea que necesites realizar
 		
 |Estructura|¿Permite Repetidos?|¿Mantiene el Orden?|¿Para qué es mejor?|Desventaja principal|
 |---|---|---|---|---|
@@ -431,8 +522,9 @@
 |**Stack (Pila)**|Sí|LIFO (Inverso)|Deshacer acciones o retroceder.|Solo accedes al último que entró.|
 |**Queue (Cola)**|Sí|FIFO (Llegada)|Gestionar turnos y procesos.|Solo accedes al primero que llegó.|
 
-- ¿Cómo elegir? (El criterio de "Big O")
-	En programación profesional se usa la **Notación Big O** para comparar la eficiencia: 
+# ¿Cómo elegir? (El criterio de "Big O")
+	
+- En programación profesional se usa la **Notación Big O** para comparar la eficiencia: 
 	
 	- **O(1) (Constante):** Es la más rápida. No importa si tienes 10 o 10 millones de datos, tarda lo mismo (ej. `get` en un ArrayList o `put` en un HashMap).
 	
@@ -459,12 +551,14 @@
 		// ¡Solo cambias el motor y el resto del código sigue igual!
 		List<Paciente> lista = new LinkedList<>(); 
 		```
-8. **For-Each (o For mejorado)**
-	1. El `for` clásico (`for i=0...`) tiene un problema: **es muy manual**. Tienes que gestionar el índice `i`, revisar que no te pases del tamaño (`size`) y luego sacar el objeto con `get(i)`. Es fácil equivocarse y que el programa explote.
 
-		El **For-Each** dice: _"Java, tú sabes cuántos elementos hay, solo dame el objeto de cada vuelta"_.
+# **For-Each (o For mejorado)**
+
+ El `for` clásico (`for i=0...`) tiene un problema: **es muy manual**. Tienes que gestionar el índice `i`, revisar que no te pases del tamaño (`size`) y luego sacar el objeto con `get(i)`. Es fácil equivocarse y que el programa explote.
+
+- El **For-Each** dice: _"Java, tú sabes cuántos elementos hay, solo dame el objeto de cada vuelta"_
 		
-		- **Más legible:** Se lee como "Para cada **Paciente p** dentro de **lista**...".
+	- **Más legible:** Se lee como "Para cada **Paciente p** dentro de **lista**...".
 		- **Más seguro:** Es imposible que te pases del índice (no hay `IndexOutOfBoundsException`).
 		
 		- **La lógica del For-Each**
