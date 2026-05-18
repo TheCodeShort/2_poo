@@ -4,6 +4,12 @@
 [[2_SDLC_sofware.pdf#search=Diagramas de flujo|SDLC_sofware, p.497]]
 
 [[2_SDLC_sofware.pdf#search=Ejemplo estructura de control secuencial|SDLC_sofware, p.511]]
+
+
+[ Casos de Uso ] ──> Dan origen a ──> [ 1. Modelo Conceptual ] ──> Evoluciona a ──> [ 2. Modelo Lógico ] 
+   (Qué hace la app)                                      (Qué datos existen)                                      (Cómo se estructuran)
+
+
 # 1_**Clasificación y Taxonomía de los Diagramas UML**
 ![[1_clasi_diagram.png|697]]
 

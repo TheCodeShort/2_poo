@@ -6,7 +6,7 @@
       {
         "id": "317cf3e75bafb280",
         "type": "tabs",
-        "dimension": 45.34591194968554,
+        "dimension": 45.34591194968553,
         "children": [
           {
             "id": "7e48ae02f6024522",
@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "11_pruebas.md",
+                "file": "4_UML.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "11_pruebas"
+              "title": "4_UML"
             }
           }
         ]
@@ -27,7 +27,7 @@
       {
         "id": "611b800ab657c67d",
         "type": "tabs",
-        "dimension": 54.65408805031446,
+        "dimension": 54.65408805031447,
         "children": [
           {
             "id": "9af41fbdb86bf1da",
@@ -36,10 +36,10 @@
               "type": "pdf",
               "state": {
                 "file": "2_1_archivos/2_SDLC_sofware.pdf",
-                "page": 794,
-                "left": -15,
-                "top": 136,
-                "zoom": 1.0012254901960784
+                "page": 682,
+                "left": -170,
+                "top": 230,
+                "zoom": 0.8
               },
               "icon": "lucide-file-text",
               "title": "2_SDLC_sofware"
@@ -102,7 +102,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 286.5
+    "width": 286.5,
+    "collapsed": true
   },
   "right": {
     "id": "437685b2ded1e5ae",
@@ -210,24 +211,24 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "9af41fbdb86bf1da",
+  "active": "7e48ae02f6024522",
   "lastOpenFiles": [
-    "11_pruebas.md",
     "2_1_archivos/2_SDLC_sofware.pdf",
+    "4_UML.md",
+    "8_SDLC.md",
+    "7_bases_de_datos.md",
+    "11_pruebas.md",
     "10_Internet y la web.md",
     "2_Conceptos_poo.md",
     "1_Conceptos_poo.md",
     "5_estructuras de datos avanzadas.md",
     "0_0_conseptos_de_codigo.md",
     "9_Programación y algoritmia básica.md",
-    "4_UML.md",
-    "8_SDLC.md",
     "51_ayudas.md",
     "6_Patrones de diseño.md",
     "1_imagenes/image_7c8f91ea.png.crdownload",
     "1_imagenes/25_patrones_diseño.png",
     "1_imagenes/image_6066d275.png.crdownload",
-    "7_bases_de_datos.md",
     "1_imagenes/24_db_reglas_sql.png",
     "1_imagenes/image_715c4f61.png.crdownload",
     "1_imagenes/23_db_normalizacion.png",

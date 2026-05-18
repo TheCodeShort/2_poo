@@ -605,15 +605,15 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 
 	- ## Las tres herramientas principales
 
-|Herramienta|Qué representa|Para qué sirve|
-|---|---|---|
-|**Diagrama de casos de uso**|Funciones del sistema y actores que las ejecutan|Identificar funcionalidades y quién interactúa con ellas|
-|**Historias de usuario**|Necesidades breves vistas desde el usuario|Capturar requisitos de forma simple y ágil|
-|**Storyboard**|Secuencia visual de interacción o proceso|Mostrar cómo se usará el sistema paso a paso|
+| Herramienta                                                                                               | Qué representa                                   | Para qué sirve                                           |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------- |
+| **Diagrama de casos de uso**[[2_SDLC_sofware.pdf#search=Diagrama de casos de uso\|2_SDLC_sofware, p.188]] | Funciones del sistema y actores que las ejecutan | Identificar funcionalidades y quién interactúa con ellas |
+| **Historias de usuario**[[2_SDLC_sofware.pdf#search=Historias de usuario\|2_SDLC_sofware, p.143]]         | Necesidades breves vistas desde el usuario       | Capturar requisitos de forma simple y ágil               |
+| **Storyboard**                                                                                            | Secuencia visual de interacción o proceso        | Mostrar cómo se usará el sistema paso a paso             |
 
-1. **Diagrama de casos de uso**[[2_SDLC_sofware.pdf#search=Diagrama de casos de uso|SDLC_sofware, p.66]] [[2_SDLC_sofware.pdf#search=Diagrama de casos de uso|SDLC_sofware, p.129]]
+### **Diagrama de casos de uso**[[2_SDLC_sofware.pdf#search=Diagrama de casos de uso|SDLC_sofware, p.66]] [[2_SDLC_sofware.pdf#search=Diagrama de casos de uso|SDLC_sofware, p.129]]  [[2_SDLC_sofware.pdf#search=Especificación de casos de uso|2_SDLC_sofware, p.138]]
 
-	- El documento explica que este diagrama se usa al inicio del proyecto para visualizar **qué funcionalidades debe permitir el software** y **quiénes podrán ejecutarlas**. Sus componentes básicos son el **actor** y el **caso de uso**; el actor representa al usuario o rol, y el caso de uso representa una función del sistema. Además, no basta con dibujarlo: también debe incluirse la **documentación del caso de uso**, donde se detalla el flujo entre actor y sistema.
+- El documento explica que este diagrama se usa al inicio del proyecto para visualizar **qué funcionalidades debe permitir el software** y **quiénes podrán ejecutarlas**. Sus componentes básicos son el **actor** y el **caso de uso**; el actor representa al usuario o rol, y el caso de uso representa una función del sistema. Además, no basta con dibujarlo: también debe incluirse la **documentación del caso de uso**, donde se detalla el flujo entre actor y sistema.
 
 	- ### En simple
 		
@@ -634,9 +634,9 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 		
 	- ![[15_caos_uso.png]]
 
-2. **Historias de usuario** [[2_SDLC_sofware.pdf#search=Historias de usuario|SDLC_sofware, p.202]]
+### **Historias de usuario** [[2_SDLC_sofware.pdf#search=Historias de usuario|SDLC_sofware, p.202]]
 
-	El documento dice que las historias de usuario se usan en métodos ágiles y son una **descripción breve de una funcionalidad tal como la percibe el usuario**. La estructura que propone Scrum es:
+- El documento dice que las historias de usuario se usan en métodos ágiles y son una **descripción breve de una funcionalidad tal como la percibe el usuario**. La estructura que propone Scrum es:
 	
 	```md
 	Como <rol>
@@ -702,9 +702,9 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 
 ---
 
-3. **Storyboard**
+### **Storyboard**
 
-	- El storyboard se presenta como un **prototipo visual**: una secuencia de imágenes que muestra cómo avanza un proceso o interacción dentro del sistema. El documento dice que permite crear vistas tempranas de manera rápida y barata, como si fuera un cómic que explica la experiencia del usuario. También resalta que ayuda a validar escenarios, es fácil de entender para el usuario y facilita incorporar cambios durante la validación.
+- El storyboard se presenta como un **prototipo visual**: una secuencia de imágenes que muestra cómo avanza un proceso o interacción dentro del sistema. El documento dice que permite crear vistas tempranas de manera rápida y barata, como si fuera un cómic que explica la experiencia del usuario. También resalta que ayuda a validar escenarios, es fácil de entender para el usuario y facilita incorporar cambios durante la validación.
 
 	 - En simple
 	
@@ -736,7 +736,17 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 		- Idea clave
 		
 			Si la **elicitación** es “sacar la información”, estas herramientas son la forma de **dejarla bien atrapada y visible** para que el equipo no trabaje a ciegas. En términos prácticos, son la materia prima del análisis y del diseño.
-			
+### caso de purna 
+
+[[2_SDLC_sofware.pdf#search=Principales elementos para redactar un caso de prueba|2_SDLC_sofware, p.719]]
+[[2_SDLC_sofware.pdf#search=Generación de casos de prueba|2_SDLC_sofware, p.293]]
+[[2_SDLC_sofware.pdf#search=Documentos de caso de pruebas|2_SDLC_sofware, p.745]]
+
+### caso de uso 
+**casos de uso no describen el sistema antiguo**. Al contrario, ==los casos de uso describen cómo va a reaccionar el **sistema NUEVO** que vas a programar paso a paso==
+[[2_SDLC_sofware.pdf#search=Plantilla de casos de uso|2_SDLC_sofware, p.139]]
+[[2_SDLC_sofware.pdf#search=Documentación ca|2_SDLC_sofware, p.69]]
+
 - # Comparación 
 
 |Aspecto|Caso de uso|Historia de usuario|Storyboard|
@@ -756,9 +766,9 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 
 
 
-- ## Técnicas de análisis y especificación de requisitos [[2_SDLC_sofware.pdf#search=Especificación y análisis de requisitos|SDLC_sofware, p.129]]
-	
-	- es **ingeniería de requisitos pura**, y es la parte donde el documento deja de “capturar información” y empieza a **ordenarla, priorizarla y dejarla lista para especificarla formalmente**. El propio material la ubica después de la elicitación y antes de la especificación, y dice que aquí se trabaja el análisis de requisitos: **priorización, descomposición funcional y matriz de trazabilidad**, además de estándares para redactarlos bien.
+ ### Técnicas de análisis y especificación de requisitos [[2_SDLC_sofware.pdf#search=Especificación y análisis de requisitos|SDLC_sofware, p.129]]
+[[2_SDLC_sofware.pdf#search=La especificación de requisitos a través de marcos de trabajo ágiles|2_SDLC_sofware, p.92]]
+- es **ingeniería de requisitos pura**, y es la parte donde el documento deja de “capturar información” y empieza a **ordenarla, priorizarla y dejarla lista para especificarla formalmente**. El propio material la ubica después de la elicitación y antes de la especificación, y dice que aquí se trabaja el análisis de requisitos: **priorización, descomposición funcional y matriz de trazabilidad**, además de estándares para redactarlos bien.
 
 	- ### Qué hace esta sección en el proceso completo
 
@@ -1016,7 +1026,7 @@ La Ingeniería de Requisitos no vive sola; es la **Fase de Análisis** dentro de
 	- guardar,
 	- reportar.
 
-- ## IEEE 830 y IEEE 29148
+- ## IEEE 830 y IEEE 29148 [[2_SDLC_sofware.pdf#search=Estructura base de un documento|2_SDLC_sofware, p.89]]
 
 	Estos son marcos para **especificar bien** los requisitos.
 	
