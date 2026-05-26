@@ -6,7 +6,6 @@
       {
         "id": "317cf3e75bafb280",
         "type": "tabs",
-        "dimension": 45.34591194968553,
         "children": [
           {
             "id": "7e48ae02f6024522",
@@ -14,35 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4_UML.md",
+                "file": "0_0_conseptos_de_codigo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4_UML"
-            }
-          }
-        ]
-      },
-      {
-        "id": "611b800ab657c67d",
-        "type": "tabs",
-        "dimension": 54.65408805031447,
-        "children": [
-          {
-            "id": "9af41fbdb86bf1da",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "2_1_archivos/2_SDLC_sofware.pdf",
-                "page": 682,
-                "left": -170,
-                "top": 230,
-                "zoom": 0.8
-              },
-              "icon": "lucide-file-text",
-              "title": "2_SDLC_sofware"
+              "title": "0_0_conseptos_de_codigo"
             }
           }
         ]
@@ -102,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 286.5,
-    "collapsed": true
+    "width": 286.5
   },
   "right": {
     "id": "437685b2ded1e5ae",
@@ -213,18 +188,20 @@
   },
   "active": "7e48ae02f6024522",
   "lastOpenFiles": [
-    "2_1_archivos/2_SDLC_sofware.pdf",
+    "11_pruebas.md",
+    "50_proyecto.md",
+    "51_ayudas.md",
+    "2_1_archivos/2_guia_completa_SDLC.pdf",
     "4_UML.md",
+    "2_1_archivos/2_SDLC_sofware.pdf",
     "8_SDLC.md",
     "7_bases_de_datos.md",
-    "11_pruebas.md",
     "10_Internet y la web.md",
     "2_Conceptos_poo.md",
     "1_Conceptos_poo.md",
     "5_estructuras de datos avanzadas.md",
     "0_0_conseptos_de_codigo.md",
     "9_Programación y algoritmia básica.md",
-    "51_ayudas.md",
     "6_Patrones de diseño.md",
     "1_imagenes/image_7c8f91ea.png.crdownload",
     "1_imagenes/25_patrones_diseño.png",
@@ -239,7 +216,6 @@
     "1_imagenes/19_db_red.png",
     "1_imagenes/18_db_jerarquica.png",
     "3_conseptos_poo.md",
-    "50_proyecto.md",
     "2_1_archivos/1_poo.pdf",
     "Pasted image 20260510230834.png.md",
     "Pasted image 20260510223638.png.md",
@@ -249,7 +225,6 @@
     "1_imagenes/ChatGPT Image 10 may 2026, 12_55_32.png.crdownload",
     "1_imagenes/unnamed.png.crdownload",
     "2_2_informacion_ayuda/G5 - Programación Orientada a Objetos 2.pdf",
-    "2_2_informacion_ayuda/G4 - Programación Orientada a Objetos 2.pdf",
     "0_codigo_practica.md",
     "1_conceptos.md",
     "2_conceptos.md",
