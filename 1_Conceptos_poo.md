@@ -1,8 +1,17 @@
+```table-of-contents
+title: Conceptos POO
+minDepth: 1
+maxDepth: 3
+listStyle: number
+```
+
+
+
+
 ![[1_poo_1.png]]
 
-
 [[2_SDLC_sofware.pdf#search=Conceptos básicos programación orientada a objetos|SDLC_sofware, p.596]]
-# 5_Clases (plano)
+# 1_Clases (plano)
 son los planos del objeto el molde si fuera un balón tendríamos todo lo que hace posible fabricar este balón dentro de esta clase  
 ```java
 // Esta es la CLASE (el molde)
@@ -12,7 +21,7 @@ class Auto {
 }
 
 ```
-# 6_ Objeto (instancia)
+# 2_ Objeto (instancia)
 es la clase cobrando vida si fuera un balón bueno ese balo seria el objeto ya fabricado para llamarlo en este caso en JAVA se usa 
 ```java
 class Venta{
@@ -20,7 +29,7 @@ class Venta{
 	Auto miCoche = new Auto();
 }
 ```
-# 7_Atributos y Métodos 
+# 3_Atributos y Métodos 
 ## Atributos (¿que es?) 
 son las variable que guardan información pero que a su vez es una descripción de ese balón como la variable  ```coloBalon```,   ```formaBalon```, ```logoBalon```
 ```java
@@ -29,7 +38,7 @@ class Auto{
 	String marca;
 	}
 ```
-## Métodos (¿que hace?)
+## 1_Métodos (¿que hace?)
 son las funciones que el objeto puede realizar o acciones como ```rebotar()```, ```inyectarAire()``` 
 ```java
 class Auto{
@@ -39,17 +48,17 @@ class Auto{
 	}
 ```
 	
-## Encapsulamiento (escudo de los datos)
+## 2_Encapsulamiento (escudo de los datos)
 en nuestros objetos no queremos que nadie cambie cosas importantes de los atributos osea que nadie pueda llegar un cambiarlo por un error o por maldad un dato, que podrían cambiar en el balón tendríamos ```colorBalon``` si esta en fabricación por 3 días pero en el día 2 lo modifican la producción sale mal   
 
-# 8_Herencia: La Relación "Es Un" [[1_poo.pdf#search=A. Introducción a la Herencia|1_poo, p.6]]
+# 4_Herencia: La Relación "Es Un" [[1_poo.pdf#search=A. Introducción a la Herencia|1_poo, p.6]]
 
-La herencia permite que una **Subclase** (hija) herede atributos y comportamientos de una **Superclase** (padre).
+La herencia permite que una **Subclase** (hija) ==herede atributos y comportamientos== de una **Superclase** (padre).
 
 - **¿Para qué sirve?** Para **reutilizar código**. No escribes lo mismo diez veces; lo escribes una vez en el padre y todos los hijos lo tienen.
 - **Ejemplo Real:** Si tienes la clase `Empleado`, todos tienen `nombre` y `ID`. El `Gerente` y el `Operario` **heredan** eso, pero el `Gerente` puede tener un atributo extra como `bonoLogros`  en otras palabras gracias a la herencia podemos reutilizar y optimizar el código
 - **Regla de Oro:** Solo usa herencia si puedes decir "El B es un A". (Un Perro **es un** Animal).
-### Ejemplo de Herencia en Java
+## 1_Ejemplo de Herencia en Java
 Imagina que tenemos una clase padre llamada `Empleado` (el ADN base) y una clase hija llamada `Gerente` (la especialización).
 ```java	
 	// 1. Clase Padre (Superclase)
