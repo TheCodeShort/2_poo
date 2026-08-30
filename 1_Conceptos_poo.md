@@ -61,46 +61,64 @@ La herencia permite que una **Subclase** (hija) ==herede atributos y comportamie
 ## 1_Ejemplo de Herencia en Java
 Imagina que tenemos una clase padre llamada `Empleado` (el ADN base) y una clase hija llamada `Gerente` (la especialización).
 ```java	
-	// 1. Clase Padre (Superclase)
-class Empleado {
-    String nombre;
-    double salarioBase;
+// Clase base "Abstracta": Es un molde incompleto
+public abstract class Personaje {
+    private String nombre;
 
-    // Método que heredarán todos
-    void mostrarInformacion() {
-        System.out.println("Empleado: " + nombre + " | Salario: $" + salarioBase);
+    public Personaje(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    // MÉTODO ABSTRACTO: No tiene cuerpo { }. Es una obligación para las hijas.
+    public abstract void atacar();
+}
+
+public class Guerrero extends Personaje {
+    public Guerrero(String nombre) {
+        super(nombre);
+    }
+
+    @Override
+    public void atacar() {
+        System.out.println(getNombre() + " ataca con una espada pesada! ⚔️");
     }
 }
 
-// 2. Clase Hija (Subclase) usando 'extends'
-class Gerente extends Empleado {
-    double bono;
+public class Mago extends Personaje {
+    public Mago(String nombre) {
+        super(nombre);
+    }
 
-    // Método específico de Gerente
-    void administrar() {
-        System.out.println(nombre + " está coordinando al equipo...");
+    @Override
+    public void atacar() {
+        System.out.println(getNombre() + " lanza un hechizo de fuego! 🔥");
     }
 }
 
-// 3. Ejecución (El mundo real)
 public class Main {
     public static void main(String[] args) {
-        // Creamos un objeto de la clase hija
-        Gerente miJefe = new Gerente();
-        
-        // ¡Atención! 'nombre' y 'salarioBase' no están en Gerente, 
-        // pero los puede usar porque los HEREDÓ de Empleado.
-        miJefe.nombre = "Ana Martínez";
-        miJefe.salarioBase = 3500.0;
-        miJefe.bono = 500.0;
+        // REGLA 1: Esto daría ERROR si lo descomentas:
+        // Personaje p = new Personaje("Genérico"); 
 
-        miJefe.mostrarInformacion(); // Método heredado
-        miJefe.administrar();        // Método propio
+        // REGLA 2: Podemos crear una lista de "Personajes" genéricos...
+        Personaje[] equipo = {
+            new Guerrero("Aragorn"),
+            new Mago("Gandalf")
+        };
+
+        // ... y hacer que todos ataquen sin saber exactamente qué son.
+        for (Personaje p : equipo) {
+            p.atacar(); // Java sabe mágicamente a qué método llamar en tiempo de ejecución
+        }
     }
 }
 ```
 
-# 9_Polimorfismo: "Muchas Formas" [[1_poo.pdf#search=B. Concepto de Polimorfismo Básico|1_poo, p.6]]
+# 5_Polimorfismo: "Muchas Formas" [[1_poo.pdf#search=B. Concepto de Polimorfismo Básico|1_poo, p.6]]
 
 Es la capacidad de un objeto de responder de forma distinta a una misma instrucción. Se logra principalmente mediante la **Sobrescritura de métodos (Overriding)**
 
@@ -145,7 +163,7 @@ Polimorfismo es heredar métodos  pero no se puede cambiar el nombre al método 
 - **Hijo (Perro):** `hacerSonido()` -> Código: `System.out.println("Guau!");`
 - **Hijo (Gato):** `hacerSonido()` -> Código: `System.out.println("Miau!");`
 con los atributos no es buena practica hacerlo 
-# 10_Relaciones entre Clases [[1_poo.pdf#search=C. Relaciones entre Clases|1_poo, p.6]]
+# 6_Relaciones entre Clases [[1_poo.pdf#search=C. Relaciones entre Clases|1_poo, p.6]]
 
 No todo es herencia. A veces las clases simplemente se conocen o se necesitan. Según tus apuntes, hay tres niveles de "amistad" entre objetos:
 
@@ -154,13 +172,13 @@ No todo es herencia. A veces las clases simplemente se conocen o se necesitan. S
 | **Asociación**  | "Tiene un". Son independientes. | Débil  | Un `Profesor` tiene un `Curso`. Si el curso acaba, el profesor sigue existiendo                                    |
 | **Agregación**  | Relación Todo-Parte.            | Media  | Un `Equipo` tiene `Jugadores`. Si el equipo desaparece, los jugadores pueden irse a otro                           |
 | **Composición** | Relación de vida o muerte.      | Fuerte | Una `Oficina` tiene una `Dirección`. Si destruyes la oficina en el sistema, la dirección ya no tiene sentido sola  |
-1. **Asociación: "La Amistad" (Relación Débil)**
-	Es una conexión simple donde dos clases se conocen y se comunican, pero **cada una tiene su propia vida**.
-	
-	- **La Analogía:** Un **Médico** y un **Paciente**. El médico atiende a muchos pacientes, y el paciente ve a varios médicos. Si el médico se jubila, el paciente sigue existiendo. Si el paciente se muda, el médico sigue trabajando.
-	- **En el Código:** Una clase tiene una variable que hace referencia a la otra.
-	- **Multiplicidad:** Puede ser 1 a 1, 1 a muchos, o muchos a muchos (como un profesor y sus alumnos).
-		```java
+## 1_Asociación: "La Amistad" (Relación Débil)
+Es una conexión simple donde dos clases se conocen y se comunican, pero **cada una tiene su propia vida**.
+
+- **La Analogía:** Un **Médico** y un **Paciente**. El médico atiende a muchos pacientes, y el paciente ve a varios médicos. Si el médico se jubila, el paciente sigue existiendo. Si el paciente se muda, el médico sigue trabajando.
+- **En el Código:** Una clase tiene una variable que hace referencia a la otra.
+- **Multiplicidad:** Puede ser 1 a 1, 1 a muchos, o muchos a muchos (como un profesor y sus alumnos).
+	```java
 		// Clase Paciente: Existe de forma independiente
 		class Paciente {
 		    private String nombre;
@@ -207,8 +225,7 @@ No todo es herencia. A veces las clases simplemente se conocen o se necesitan. S
 		        System.out.println("El doctor ya no está, pero el paciente sigue siendo: " + pacienteWill.getNombre());
 		    }
 		}
-
-		```
+	```
 
 	Por qué esto es Asociación:
 	
@@ -218,156 +235,155 @@ No todo es herencia. A veces las clases simplemente se conocen o se necesitan. S
 	
 	Esta relación es la más común porque permite que tu código sea flexible. Los objetos colaboran pero no están "atados" de por vida.
 	
-2. **Agregación: "El Equipo" (Relación Media)**
+## 2_Agregación: "El Equipo" (Relación Media)
 
-	Es una relación de tipo **"tiene un"** o **"forma parte de"**. Una clase es un "contenedor" de otras, pero las partes pueden existir fuera de ese contenedor.
-	
-	- **La Analogía:** Un **Equipo de Fútbol** y sus **Jugadores**. El equipo _agrupa_ a los jugadores. Si el club desaparece (la clase equipo se destruye), los jugadores no desaparecen; simplemente se van a otro equipo.
-	- **Diferencia clave:** El "todo" (equipo) necesita a las "partes" (jugadores) para funcionar, pero no es su dueño absoluto.
-	
-		```java
-		import java.util.ArrayList;
-		import java.util.List;
-		
-		// La "Parte": Existe por sí sola
-		class Jugador {
-		    private String nombre;
-		
-		    public Jugador(String nombre) {
-		        this.nombre = nombre;
-		    }
-		
-		    public String getNombre() { return nombre; }
-		}
-		
-		// El "Todo" (Contenedor): Agrupa a las partes
-		class Equipo {
-		    private String nombreEquipo;
-		    private List<Jugador> jugadores; // Agregación: El equipo TIENE jugadores
-		
-		    public Equipo(String nombreEquipo) {
-		        this.nombreEquipo = nombreEquipo;
-		        this.jugadores = new ArrayList<>();
-		    }
-		
-		    // Método para agregar jugadores al equipo
-		    public void contratar(Jugador j) {
-		        jugadores.add(j);
-		    }
-		
-		    public void mostrarPlantilla() {
-		        System.out.println("Equipo: " + nombreEquipo);
-		        for (Jugador j : jugadores) {
-		            System.out.println("- " + j.getNombre());
-		        }
-		    }
-		}
-		
-		// --- CLASE PRINCIPAL ---
-		public class Main {
-		    public static void main(String[] args) {
-		        // 1. Creamos a los jugadores PRIMERO (independientes)
-		        Jugador p1 = new Jugador("Lionel Messi");
-		        Jugador p2 = new Jugador("Cristiano Ronaldo");
-		
-		        // 2. Creamos el equipo
-		        Equipo dreamTeam = new Equipo("Galácticos FC");
-		
-		        // 3. AGREGAMOS los jugadores al equipo
-		        dreamTeam.contratar(p1);
-		        dreamTeam.contratar(p2);
-		
-		        dreamTeam.mostrarPlantilla();
-		
-		        // 4. PRUEBA DE FUEGO: ¿Qué pasa si el equipo desaparece?
-		        System.out.println("\n--- El equipo se disuelve ---");
-		        dreamTeam = null; 
-		
-		        // Los jugadores SIGUEN VIVOS en la memoria porque fueron creados fuera
-		        System.out.println("El equipo ya no existe, pero el jugador sigue vivo: " + p1.getNombre());
-		    }
-		}
+Es una relación de tipo **"tiene un"** o **"forma parte de"**. Una clase es un "contenedor" de otras, pero las partes pueden existir fuera de ese contenedor.
 
-		```
+- **La Analogía:** Un **Equipo de Fútbol** y sus **Jugadores**. El equipo _agrupa_ a los jugadores. Si el club desaparece (la clase equipo se destruye), los jugadores no desaparecen; simplemente se van a otro equipo.
+- **Diferencia clave:** El "todo" (equipo) necesita a las "partes" (jugadores) para funcionar, pero no es su dueño absoluto.
+	
+	```java
+	import java.util.ArrayList;
+	import java.util.List;
+	
+	// La "Parte": Existe por sí sola
+	class Jugador {
+		private String nombre;
+	
+		public Jugador(String nombre) {
+			this.nombre = nombre;
+		}
+	
+		public String getNombre() { return nombre; }
+	}
+	
+	// El "Todo" (Contenedor): Agrupa a las partes
+	class Equipo {
+		private String nombreEquipo;
+		private List<Jugador> jugadores; // Agregación: El equipo TIENE jugadores
+	
+		public Equipo(String nombreEquipo) {
+			this.nombreEquipo = nombreEquipo;
+			this.jugadores = new ArrayList<>();
+		}
+	
+		// Método para agregar jugadores al equipo
+		public void contratar(Jugador j) {
+			jugadores.add(j);
+		}
+	
+		public void mostrarPlantilla() {
+			System.out.println("Equipo: " + nombreEquipo);
+			for (Jugador j : jugadores) {
+				System.out.println("- " + j.getNombre());
+			}
+		}
+	}
+	
+	// --- CLASE PRINCIPAL ---
+	public class Main {
+		public static void main(String[] args) {
+			// 1. Creamos a los jugadores PRIMERO (independientes)
+			Jugador p1 = new Jugador("Lionel Messi");
+			Jugador p2 = new Jugador("Cristiano Ronaldo");
+	
+			// 2. Creamos el equipo
+			Equipo dreamTeam = new Equipo("Galácticos FC");
+	
+			// 3. AGREGAMOS los jugadores al equipo
+			dreamTeam.contratar(p1);
+			dreamTeam.contratar(p2);
+	
+			dreamTeam.mostrarPlantilla();
+	
+			// 4. PRUEBA DE FUEGO: ¿Qué pasa si el equipo desaparece?
+			System.out.println("\n--- El equipo se disuelve ---");
+			dreamTeam = null; 
+	
+			// Los jugadores SIGUEN VIVOS en la memoria porque fueron creados fuera
+			System.out.println("El equipo ya no existe, pero el jugador sigue vivo: " + p1.getNombre());
+		}
+	}
+
+	```
 
 	- **Sentido de Pertenencia:** En la _Asociación_ (Médico-Paciente) era un encuentro casual en un método. En la **Agregación**, el objeto `Jugador` se vuelve parte de un atributo (`List<Jugador>`) del `Equipo`. El equipo "contiene" a los jugadores.
 	- **Ciclo de Vida:** Los objetos se pasan por referencia al constructor o a un método (como `contratar`). El `Equipo` no creó a los jugadores con un `new Jugador()` dentro de su propio código; solo los recibió.
 	- **Independencia Final:** Al igual que en la asociación, si borras el equipo, los jugadores no se borran (no hay `null` en cascada).
 
 
-3. **Composición: "El Cuerpo Humano" (Relación Fuerte)**
+## 3_Composición: "El Cuerpo Humano" (Relación Fuerte)**
 
-	Es una relación de dependencia total. Aquí, las partes **no tienen sentido** ni pueden existir sin el "todo".
-	
-	- **La Analogía:** Un **Libro** y sus **Páginas**. Si tú quemas el libro (destruyes el objeto principal), las páginas dejan de existir como parte de ese libro. No puedes tener las páginas de "Harry Potter" flotando por ahí sin el libro al que pertenecen.
-	-  La relación entre una **Oficina** y su **Dirección**. Si eliminas la oficina del sistema, esa instancia específica de "dirección" asociada a ella ya no tiene razón de ser.
-	- Imagina que una `Casa` tiene una `Habitación`. Si destruyes la casa, no tiene sentido que la habitación quede flotando en el aire en medio de la calle.
-	
-	```java
-	// La "Parte": Depende totalmente de la casa
-	class Habitacion {
-	    private String tipo;
-	
-	    public Habitacion(String tipo) {
-	        this.tipo = tipo;
-	    }
-	    //Metodo para devolver el nombre
-	    public String getTipo() { return tipo; }
-	}
-	
-	// El "Todo" (Contenedor): Es el DUEÑO absoluto
-	class Casa {
-	    private Habitacion cocina; // Composición
-	
-	    public Casa() {
-	        // CLAVE DE COMPOSICIÓN: 
-	        // La parte se crea AQUÍ ADENTRO. 
-	        // La habitación nace cuando la casa nace.
-	        this.cocina = new Habitacion("Cocina Integral");
-	    }
-		//Metodo que imprime la informacion 
-	    public void mostrarDetalles() {
-	        System.out.println("Esta casa tiene una: " + cocina.getTipo());
-	    }
-	}
-	
-	// --- CLASE PRINCIPAL ---
-	public class Urbanizacion {
-	    public static void main(String[] args) {
-	        // Creamos la casa
-	        Casa miCasa = new Casa();
-	        miCasa.mostrarDetalles();
-	
-	        // PRUEBA DE FUEGO (Destrucción):
-	        System.out.println("--- Demoliendo la casa... ---");
-	        miCasa = null; 
-	
-	        // En este punto, el objeto 'cocina' que estaba dentro de 'miCasa'
-	        // es inaccesible. El Recolector de Basura de Java lo borrará de la  memoria
-	        // porque no puede existir sin su casa.
-	    }
-	} 
+Es una relación de dependencia total. Aquí, las partes **no tienen sentido** ni pueden existir sin el "todo".
 
-	```
-	1. **Creación Interna:** Nota que en el `main` **nunca** hicimos `new Habitacion()`. La habitación fue creada por la `Casa` en su constructor.
-	2. **Privacidad Total:** El mundo exterior no sabe que la habitación existe a menos que la casa se lo diga. La habitación es "propiedad privada" de la casa.
-	3. **Dependencia de Vida:** Si la variable `miCasa` pasa a ser `null`, la `cocina` se pierde para siempre. No hay forma de "mudar" esa cocina a otra casa porque nació y murió con la estructura original.
-	
-	⚖️ Resumen de las 3 relaciones para que no las olvides: ^947696
-	
+- **La Analogía:** Un **Libro** y sus **Páginas**. Si tú quemas el libro (destruyes el objeto principal), las páginas dejan de existir como parte de ese libro. No puedes tener las páginas de "Harry Potter" flotando por ahí sin el libro al que pertenecen.
+-  La relación entre una **Oficina** y su **Dirección**. Si eliminas la oficina del sistema, esa instancia específica de "dirección" asociada a ella ya no tiene razón de ser.
+- Imagina que una `Casa` tiene una `Habitación`. Si destruyes la casa, no tiene sentido que la habitación quede flotando en el aire en medio de la calle.
+
+```java
+// La "Parte": Depende totalmente de la casa
+class Habitacion {
+	private String tipo;
+
+	public Habitacion(String tipo) {
+		this.tipo = tipo;
+	}
+	//Metodo para devolver el nombre
+	public String getTipo() { return tipo; }
+}
+
+// El "Todo" (Contenedor): Es el DUEÑO absoluto
+class Casa {
+	private Habitacion cocina; // Composición
+
+	public Casa() {
+		// CLAVE DE COMPOSICIÓN: 
+		// La parte se crea AQUÍ ADENTRO. 
+		// La habitación nace cuando la casa nace.
+		this.cocina = new Habitacion("Cocina Integral");
+	}
+	//Metodo que imprime la informacion 
+	public void mostrarDetalles() {
+		System.out.println("Esta casa tiene una: " + cocina.getTipo());
+	}
+}
+
+// --- CLASE PRINCIPAL ---
+public class Urbanizacion {
+	public static void main(String[] args) {
+		// Creamos la casa
+		Casa miCasa = new Casa();
+		miCasa.mostrarDetalles();
+
+		// PRUEBA DE FUEGO (Destrucción):
+		System.out.println("--- Demoliendo la casa... ---");
+		miCasa = null; 
+
+		// En este punto, el objeto 'cocina' que estaba dentro de 'miCasa'
+		// es inaccesible. El Recolector de Basura de Java lo borrará de la  memoria
+		// porque no puede existir sin su casa.
+	}
+} 
+
+```
+1. **Creación Interna:** Nota que en el `main` **nunca** hicimos `new Habitacion()`. La habitación fue creada por la `Casa` en su constructor.
+2. **Privacidad Total:** El mundo exterior no sabe que la habitación existe a menos que la casa se lo diga. La habitación es "propiedad privada" de la casa.
+3. **Dependencia de Vida:** Si la variable `miCasa` pasa a ser `null`, la `cocina` se pierde para siempre. No hay forma de "mudar" esa cocina a otra casa porque nació y murió con la estructura original.
+
+⚖️ Resumen de las 3 relaciones para que no las olvides: ^947696
+
 - **Asociación:** Se saludan (Médico - Paciente).
 - **Agregación:** Están juntos pero pueden separarse (Equipo - Jugador).
 - **Composición:** Si uno muere, el otro también (Casa - Habitación). ^c6918f
 
-# 11_El IDE (Integrated Development Environment)
+# 7_El IDE (Integrated Development Environment)
 
 Un IDE **(Entorno de Desarrollo Integrado)** no es un simple editor de texto (como el Bloc de notas); es un **entorno integral**.
 
 - **La Analogía:** Es como una **cabina de avión**. Tienes el volante (editor), los radares que te avisan de fallos (corrector de errores en tiempo real), el motor (compilador) y la caja negra (depurador).
 - **IntelliJ IDEA:** Es el estándar de oro para Java. Es muy inteligente (de ahí su nombre); "entiende" tu código y te sugiere mejoras.
 - **VS Code:** Es más ligero y versátil, funciona con casi cualquier lenguaje mediante extensiones.
-
-# 12_Flujo de Compilación (El traductor)
+# 8_Flujo de Compilación (El traductor)
 
 Java es un lenguaje de **alto nivel**, lo que significa que es fácil de leer para nosotros, pero imposible para el procesador.
 
@@ -377,7 +393,7 @@ Java es un lenguaje de **alto nivel**, lo que significa que es fácil de leer pa
     3. La **JVM (Java Virtual Machine)** toma ese Bytecode y lo ejecuta en cualquier computadora.
 - **¿Por qué es importante?** Porque esto permite que Java sea "escribe una vez, ejecuta donde sea".
 
-# 13_ Git: El Control de Versiones (La Máquina del Tiempo)
+# 9_ Git: El Control de Versiones (La Máquina del Tiempo)
 
 El documento lo describe como algo "vital". Git es el estándar de la industria para gestionar el código.
 
@@ -386,14 +402,14 @@ El documento lo describe como algo "vital". Git es el estándar de la industria 
     - **Repository (Repo):** La carpeta del proyecto vigilada por Git.
     - **Commit:** Una "foto" de tu código en un momento específico con un mensaje explicativo.
     - **Branch (Rama):** Un universo paralelo donde puedes probar una función nueva sin dañar la versión principal que ya funciona.
-# 14_Tipos Primitivos vs. Objetos (El contenido vs. El envase) [[1_poo.pdf#search=2) Conceptos Clave|1_poo, p.10]]
+# 10_Tipos Primitivos vs. Objetos (El contenido vs. El envase) [[1_poo.pdf#search=2) Conceptos Clave|1_poo, p.10]]
 
 Antes de guardar mil objetos, debemos entender el dato más simple.
-
+## 1_Tipo de datos
 - **Primitivos (`int`, `double`, `boolean`):** Son valores puros. Ocupan muy poca memoria. Es como tener una moneda suelta en el bolsillo.
-- **Wrappers (Objetos como `Integer` o `String`):** Son clases que envuelven al primitivo para darle "superpoderes" (métodos). Es como tener esa moneda dentro de un monedero con etiquetas.
+- **Wrappers (Objetos como `Integer` o `String`):** Son clases que envuelven (Wrappe) al primitivo para darle "superpoderes" (métodos). Es como tener esa moneda dentro de un monedero con etiquetas.
 
-### **Arreglos (Arrays): Los Casilleros Estáticos**
+## 2_Arreglos (Arrays): Los Casilleros Estáticos
 
 Imagina una estantería de madera atornillada a la pared.
 
@@ -401,7 +417,7 @@ Imagina una estantería de madera atornillada a la pared.
 - **Uso:** Son ultra rápidos porque la computadora sabe exactamente dónde empieza y termina cada espacio.
 - **En Java:** `String[] nombres = new String[10];`
 
-### Listas (ArrayList): El Acordeón Dinámico
+## 3_Listas (ArrayList): El Acordeón Dinámico
 
 Aquí es donde la POO se pone interesante. Una lista es un objeto que administra a otros objetos.
 
@@ -429,7 +445,7 @@ for (String item : inventario) {
 - **El problema:** A veces, borrar un elemento mientras recorres una lista con un `for` tradicional causa errores (como quitarle un escalón a alguien mientras sube la escalera).
 - **La solución (Iterador):** Es un objeto especial cuya única misión es ir de uno en uno preguntando: _"¿Hay alguien más adelante?"_ (`hasNext`) y _"Pásame al siguiente"_ (`next`). Es la forma más segura de recorrer estructuras de datos complejas.
 
-# 15_Modularidad y Reutilización [[1_poo.pdf#search=2) Conceptos Clave|1_poo, p.18]]
+# 11_Modularidad y Reutilización [[1_poo.pdf#search=2) Conceptos Clave|1_poo, p.18]]
 
 La **Modularidad** es el principio de "Divide y Vencerás". Consiste en separar un sistema en partes independientes (módulos) que se comunican entre sí,  esto se logra mediante **Paquetes** y **Bibliotecas**.
 
@@ -501,7 +517,7 @@ La **Modularidad** es el principio de "Divide y Vencerás". Consiste en separar 
 		    - **Qué hay aquí:** Clases personalizadas para cuando algo sale mal (Ej: `UsuarioNoEncontradoException`). 
 
 
-# 17_El Ciclo de Vida del Software (SDLC)
+# 12_El Ciclo de Vida del Software (SDLC)
 
 Es el camino que recorre una idea hasta convertirse en un producto real. El documento destaca que no se trata solo de programar, sino de seguir fases:
 
