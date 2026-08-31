@@ -6,8 +6,6 @@ listStyle: number
 ```
 
 
-
-
 ![[1_poo_1.png]]
 
 [[2_SDLC_sofware.pdf#search=Conceptos básicos programación orientada a objetos|SDLC_sofware, p.596]]
@@ -30,7 +28,7 @@ class Venta{
 }
 ```
 # 3_Atributos y Métodos 
-## Atributos (¿que es?) 
+## 1_Atributos (¿que es?) 
 son las variable que guardan información pero que a su vez es una descripción de ese balón como la variable  ```coloBalon```,   ```formaBalon```, ```logoBalon```
 ```java
 class Auto{
@@ -38,7 +36,7 @@ class Auto{
 	String marca;
 	}
 ```
-## 1_Métodos (¿que hace?)
+## 2_Métodos (¿que hace?)
 son las funciones que el objeto puede realizar o acciones como ```rebotar()```, ```inyectarAire()``` 
 ```java
 class Auto{
@@ -48,7 +46,7 @@ class Auto{
 	}
 ```
 	
-## 2_Encapsulamiento (escudo de los datos)
+## 3_Encapsulamiento (escudo de los datos)
 en nuestros objetos no queremos que nadie cambie cosas importantes de los atributos osea que nadie pueda llegar un cambiarlo por un error o por maldad un dato, que podrían cambiar en el balón tendríamos ```colorBalon``` si esta en fabricación por 3 días pero en el día 2 lo modifican la producción sale mal   
 
 # 4_Herencia: La Relación "Es Un" [[1_poo.pdf#search=A. Introducción a la Herencia|1_poo, p.6]]
@@ -438,7 +436,7 @@ for (String item : inventario) {
 }
 ```
 
-### El Iterador: El "Puntero" Inteligente
+### 1_El Iterador: El "Puntero" Inteligente
 
 ¿Cómo recorres una lista sin perderte?
 
@@ -555,13 +553,13 @@ Aquí es donde aplicamos todo lo que hemos estudiado:
     - La línea de asociación se convierte en un atributo `private List<Paciente> pacientes;`
     - El caso de uso "Ver Ficha" se convierte en un método `public void verFicha(Paciente p)`
 
-# 18_CRUD [[1_poo.pdf#search=1) Definición|1_poo, p.29]]
+# 13_CRUD [[1_poo.pdf#search=1) Definición|1_poo, p.29]]
 
-Es el acrónimo que describe las cuatro operaciones fundamentales que puedes hacer con la información en cualquier sistema: `**C**reate, **R**ead, **U**pdate y **D**elete.
+Es el acrónimo que describe las cuatro operaciones fundamentales que puedes hacer con la información en cualquier sistema: `C-reate, R-ead, U.pdate y D-elete.
 
 Si la POO es la estructura (el edificio), el CRUD es el **movimiento de los habitantes** (los datos).
 
-🛠️ ¿Qué significa cada letra? (Con ejemplos en Java)
+## 1_¿Qué significa cada letra? (Con ejemplos en Java)
 
 Imagina que estamos gestionando una lista de `Estudiantes` en tu universidad:
 
@@ -572,7 +570,7 @@ Imagina que estamos gestionando una lista de `Estudiantes` en tu universidad:
 |**U**|**Update**|Cambiar la dirección o el teléfono del alumno.|`estudiante.setTelefono("555-0123");`|
 |**D**|**Delete**|Dar de baja a un alumno que se graduó.|`lista.remove(estudiante);`|
 
-💡 ¿Por qué es tan importante para tu formación?
+## 2_¿Por qué es tan importante para tu formación?
 
 1. **Es el estándar de la industria:** Casi cualquier aplicación que uses hoy (Instagram, Amazon, WhatsApp) es, en el fondo, un "CRUD Gigante".
     - Instagram:  `Creas un post (C), lees el feed (R), editas el pie de foto (U) o borras una historia (D).`
@@ -598,120 +596,116 @@ public class EstudianteService {
     public void eliminar(int id) { baseDatos.remove(id); }
 }
 ```
-# 19_Abstracción, Interfaz y Clase Abstracta
+# 14_Abstracción, Interfaz y Clase Abstracta
 
-^77d6df
+## 1_¿Qué es la Abstracción?**
 
-1. **¿Qué es la Abstracción?**
+Es el proceso de **ignorar los detalles internos** y concentrarse solo en **lo que hace** un objeto.
 
-	Es el proceso de **ignorar los detalles internos** y concentrarse solo en **lo que hace** un objeto.
+- **La esencia:** Es extraer las características esenciales de algo.
+- **El ejemplo del coche:** Para usar un coche, tú te "abstraes" del sistema de inyección de combustible. Solo te importa la "interfaz" (volante, pedales)
 	
-	- **La esencia:** Es extraer las características esenciales de algo.
-	- **El ejemplo del coche:** Para usar un coche, tú te "abstraes" del sistema de inyección de combustible. Solo te importa la "interfaz" (volante, pedales)
-	
-2. **¿Qué relación tiene con la Interface?**
+## 2_¿Qué relación tiene con la Interface?*
 
-	La relación es de **Concepto vs. Herramienta**:
-	
-	- **Abstracción es el concepto:** Es la idea de ocultar la complejidad.
-	- **Interface es la herramienta:** Es el mecanismo técnico que usamos en Java para aplicar esa abstracción.
-	 ```texto
+La relación es de **Concepto vs. Herramienta**:
+
+- **Abstracción es el concepto:** Es la idea de ocultar la complejidad.
+- **Interface es la herramienta:** Es el mecanismo técnico que usamos en Java para aplicar esa abstracción.
+	```texto
 	 Una **Interface** es una **Abstracción Total**. ¿Por qué? Porque en una interfaz no hay ni una sola línea de código sobre "cómo" se hacen las cosas. Solo hay una lista de "qué" se debe hacer.
-	 ```
+	```
 
-	1.  Para explicarlo con la máxima coherencia, imagina que una **Interface** es un **Manual de Funciones** de un cargo en una empresa. El manual dice: "El empleado debe `firmarDocumento()`", pero no dice si lo firma con bolígrafo azul, negro o de forma digital.
+Para explicarlo con la máxima coherencia, imagina que una **Interface** es un **Manual de Funciones** de un cargo en una empresa. El manual dice: "El empleado debe `firmarDocumento()`", pero no dice si lo firma con bolígrafo azul, negro o de forma digital.
 	
-		**clave técnica:** los métodos en una interfaz son **abstractos por definición**, lo que significa que **no tienen cuerpo** (no tienen las llaves `{ }` con código dentro). Solo son la "firma" del método.
-		1. La Interfaz es un "Contrato de Comportamiento"
-			
-			Si tú creas la interfaz `Volable`, sería **incoherente** aplicársela a la clase `Perro`.
-			
-			- **La Coherencia:** Antes de programar, tú analizas: _"¿Qué tienen en común un Avión, un Pájaro y un Superhéroe?"_. La respuesta es: _"Todos vuelan"_.
-			- **La Interfaz:** Creas `interface Volable { void despegar(); }`.
-			
-		2. Tenemos un sistema que envía mensajes. Queremos **abstraer** el envío para que al programa principal no le importe si es un SMS o un Email.
-		```java
-				// Esto es 100% abstracto. No hay lógica, solo promesas.
-		public interface Notificador {
-		    // El método termina en ";" porque NO tiene cuerpo.
-		    void enviar(String mensaje); 
-		}
-		```
-		
-	2. se implementa (**El como**)
-		Aquí es donde la **Coherencia** entra en juego. Diferentes clases firman el contrato y deciden cómo cumplirlo.
-		```java
-			public class NotificadorEmail implements Notificador {
-			    @Override
-			    public void enviar(String mensaje) {
-			        // Aquí SÍ hay código. Cada clase decide su "cómo".
-			        System.out.println("Conectando al servidor SMTP..Enviando Email: " + mensaje);
-			    }
+### 1_clave técnica 
+los métodos en una interfaz son **abstractos por definición**, lo que significa que **no tienen cuerpo** (no tienen las llaves `{ }` con código dentro). Solo son la "firma" del método.
+#### 1_La Interfaz es un "Contrato de Comportamiento"
+	
+Si tú creas la interfaz `Volable`, sería **incoherente** aplicársela a la clase `Perro`.
+
+- **La Coherencia:** Antes de programar, tú analizas: _"¿Qué tienen en común un Avión, un Pájaro y un Superhéroe?"_. La respuesta es: _"Todos vuelan"_.
+- **La Interfaz:** Creas `interface Volable { void despegar(); }`.
+	
+## 3_Ejemplo
+Tenemos un sistema que envía mensajes. Queremos **abstraer** el envío para que al programa principal no le importe si es un SMS o un Email.
+```java
+		// Esto es 100% abstracto. No hay lógica, solo promesas.
+public interface Notificador {
+	// El método termina en ";" porque NO tiene cuerpo.
+	void enviar(String mensaje); 
+}
+```
+	
+1. se implementa (**El como**)
+	Aquí es donde la **Coherencia** entra en juego. Diferentes clases firman el contrato y deciden cómo cumplirlo.
+	```java
+		public class NotificadorEmail implements Notificador {
+			@Override
+			public void enviar(String mensaje) {
+				// Aquí SÍ hay código. Cada clase decide su "cómo".
+				System.out.println("Conectando al servidor SMTP..Enviando Email: " + mensaje);
 			}
-		
-			public class NotificadorSMS implements Notificador {
-			    @Override
-			    public void enviar(String mensaje) {
-			        System.out.println("Conectando a la red móvil... Enviando SMS: " + mensaje);
-		    }
 		}
-				
+	
+		public class NotificadorSMS implements Notificador {
+			@Override
+			public void enviar(String mensaje) {
+				System.out.println("Conectando a la red móvil... Enviando SMS: " + mensaje);
+		}
+	}
+			
+	```
+	
+2. el poder de las **Abstracción (El uso)**
+	- ```java
+ppublic class SistemaPrincipal {
+	public static void main(String[] args) {
+		// Usamos la Interface como tipo de dato (Abstracción)
+		Notificador miServicio;
+
+		// Mañana puedo cambiar esto por SMS y el resto del código no cambia
+		miServicio = new NotificadorEmail(); 
+		
+		// Llamamos al método. El sistema no sabe si es mail o sms, 
+		// solo sabe que "Notificador" garantiza que el método existe.
+		miServicio.enviar("¡Hola, tienes una actualización!");
+	}
+}
 		```
 		
-	3. el poder de las **Abstracción (El uso)**
-		- ```java
-	public class SistemaPrincipal {
-	    public static void main(String[] args) {
-	        // Usamos la Interface como tipo de dato (Abstracción)
-	        Notificador miServicio;
+
+## 4_Obligación vs. Libertad (El poder del "Cómo")
+
+La interfaz **te obliga** a usar los métodos, pero te da libertad absoluta en el **código interno**.
+
+- **La Obligación:** Si firmas el contrato `Volable`, **tienes** que tener el método `despegar()`. Si no lo pones, Java te dará un error rojo y no te dejará seguir.
+- **La Libertad:** El `Avión` despega usando turbinas, el `Pájaro` batiendo alas. El "cómo" es privado de cada clase (Alta Cohesión), pero el "qué" es estándar (Bajo Acoplamiento).
+
+1. La Coherencia evita las "Interfaces Monstruo"
+
+	Si pones demasiados métodos en una interfaz (ej. una interfaz `Acciones` que tenga `volar()`, `nadar()`, `ladrar()`), pierdes la coherencia.
 	
-	        // Mañana puedo cambiar esto por SMS y el resto del código no cambia
-	        miServicio = new NotificadorEmail(); 
-	        
-	        // Llamamos al método. El sistema no sabe si es mail o sms, 
-	        // solo sabe que "Notificador" garantiza que el método existe.
-	        miServicio.enviar("¡Hola, tienes una actualización!");
-	    }
-	}
-			```
-			
-	1. El Contrato (La Interface)
-	
-		Aquí aplicamos la **Abstracción Total**. Solo definimos el **QUÉ**.
-	
-	
-	2. Obligación vs. Libertad (El poder del "Cómo")
-	
-		La interfaz **te obliga** a usar los métodos, pero te da libertad absoluta en el **código interno**.
-		
-		- **La Obligación:** Si firmas el contrato `Volable`, **tienes** que tener el método `despegar()`. Si no lo pones, Java te dará un error rojo y no te dejará seguir.
-		- **La Libertad:** El `Avión` despega usando turbinas, el `Pájaro` batiendo alas. El "cómo" es privado de cada clase (Alta Cohesión), pero el "qué" es estándar (Bajo Acoplamiento).
-	
-	3. La Coherencia evita las "Interfaces Monstruo"
-	
-		Si pones demasiados métodos en una interfaz (ej. una interfaz `Acciones` que tenga `volar()`, `nadar()`, `ladrar()`), pierdes la coherencia.
-		
-		- Un pez se vería obligado a implementar `ladrar()`, lo cual es un error de diseño (Baja Cohesión).
-		- **La solución profesional:** Crear interfaces pequeñas y coherentes (`Nadable`, `Ladrable`). Así, cada clase solo firma los contratos que realmente puede cumplir.
+	- Un pez se vería obligado a implementar `ladrar()`, lo cual es un error de diseño (Baja Cohesión).
+	- **La solución profesional:** Crear interfaces pequeñas y coherentes (`Nadable`, `Ladrable`). Así, cada clase solo firma los contratos que realmente puede cumplir.
 
 
-3. **Clase Abstracta**
-	1. **¿Cuál es su función principal?**
+## 5_Clase Abstracta**
+### 1_¿Cuál es su función principal?
 
-		Su función es **obligar a la estandarización**. Permite que varias clases distintas compartan atributos y comportamientos comunes en un solo lugar (ahorrando código), pero asegurando que nadie pueda crear un objeto "genérico" que no tenga sentido en la vida real.
-		
-		**¿En qué momento se usaría? (Ejemplo en tu Hospital)**
-		
-		En hospital, supongamos que tienes las clases `Médico`, `Enfermero` y `Administrativo`.
-		
-		1. **El problema:** Todos tienen un `ID`, un `Nombre` y todos `CobrarSueldo()`. Podrías crear una clase llamada **`Personal`**.
-		2. **El porqué de lo abstracto:** ¿Tiene sentido que en tu base de datos exista alguien que sea simplemente "Personal"? No. Alguien es médico o es administrativo, pero nadie es "solo personal".
-		3. **La solución:** Declaras la clase `Personal` como **Abstracta**.
-		    - **Atributos comunes:** `nombre`, `legajo`.
-		    - **Método abstracto:** `trabajar()`. (Cada quien trabaja de forma distinta, así que no escribes el código aquí).
+Su función es **obligar a la estandarización**. Permite que varias clases distintas compartan atributos y comportamientos comunes en un solo lugar (ahorrando código), pero asegurando que nadie pueda crear un objeto "genérico" que no tenga sentido en la vida real.
+
+### 2_¿En qué momento se usaría? (Ejemplo en tu Hospital)
+
+En hospital, supongamos que tienes las clases `Médico`, `Enfermero` y `Administrativo`.
+
+1. **El problema:** Todos tienen un `ID`, un `Nombre` y todos `CobrarSueldo()`. Podrías crear una clase llamada **`Personal`**.
+2. **El porqué de lo abstracto:** ¿Tiene sentido que en tu base de datos exista alguien que sea simplemente "Personal"? No. Alguien es médico o es administrativo, pero nadie es "solo personal".
+3. **La solución:** Declaras la clase `Personal` como **Abstracta**.
+	- **Atributos comunes:** `nombre`, `legajo`.
+	- **Método abstracto:** `trabajar()`. (Cada quien trabaja de forma distinta, así que no escribes el código aquí).
 
 
-**¿Cuándo elegir una Clase Abstracta sobre una Interfaz?**
+### 3_¿Cuándo elegir una Clase Abstracta sobre una Interfaz?
 
 |Característica|Clase Abstracta|Interfaz|
 |---|---|---|
@@ -724,103 +718,98 @@ Usarías una clase abstracta cuando tienes varias clases que comparten muchas ca
 - **Método Abstracto:** Es una **promesa**. Prometes que todas las clases hijas tendrán ese método, pero no les dices cómo hacerlo.
 - **Obligación:** Al heredar de una clase abstracta, el hijo está **obligado** a "rellenar" esos métodos abstractos (usando `@Override`), a menos que el hijo también sea una clase abstracta.
 
-- **Ejemplo para verlo claro (El Hospital):**
+### 4_**Ejemplo para verlo claro (El Hospital):**
 
-	Imagina la Clase Abstracta **`PersonalHospital`**:
-	
-	1. **Método Normal:** `ficharEntrada()`. El código es el mismo para todos: poner el dedo en el lector. Como ya está programado en la clase abstracta, el Médico y el Enfermero **no tienen que hacer nada**, ya saben fichar.
-	2. **Método Abstracto:** `realizarTarea()`. El hospital sabe que todo el personal "realiza una tarea", pero no puede programar una sola para todos.
-	    - **Obliga** al `Médico` a escribir su versión (ej. "Operar").
-	    - **Obliga** al `Enfermero` a escribir la suya (ej. "Curar heridas").
-	
-	**En resumen:**
-	
-	- La **Interfaz** te obliga a hacer **todo** desde cero.
-	- La **Clase Abstracta** te regala el código que es igual para todos (métodos normales) pero te **obliga** a programar lo que es único de cada uno (métodos abstractos).
-	
-	**¿Ves la diferencia?** Una te da "herramientas ya hechas" y la otra solo te da una "lista de tareas vacía".
+Imagina la Clase Abstracta **`PersonalHospital`**:
 
-1. **La Interfaz (El Contrato Puro)**
+1. **Método Normal:** `ficharEntrada()`. El código es el mismo para todos: poner el dedo en el lector. Como ya está programado en la clase abstracta, el Médico y el Enfermero **no tienen que hacer nada**, ya saben fichar.
+2. **Método Abstracto:** `realizarTarea()`. El hospital sabe que todo el personal "realiza una tarea", pero no puede programar una sola para todos.
+	- **Obliga** al `Médico` a escribir su versión (ej. "Operar").
+	- **Obliga** al `Enfermero` a escribir la suya (ej. "Curar heridas").
 
-	Aquí no hay nada programado. Solo decimos que quien sea "Certificable" debe saber generar un reporte.
-	
-	java
-	
-	```java
-	interface Certificable {
-	    void generarReporte(); // No hay llaves {}, solo el nombre. Obligatorio programarlo.
+**En resumen:**
+
+- La **Interfaz** te obliga a hacer **todo** desde cero.
+- La **Clase Abstracta** te regala el código que es igual para todos (métodos normales) pero te **obliga** a programar lo que es único de cada uno (métodos abstractos).
+
+**¿Ves la diferencia?** Una te da "herramientas ya hechas" y la otra solo te da una "lista de tareas vacía".
+
+#### 1_La Interfaz (El Contrato Puro)**
+
+Aquí no hay nada programado. Solo decimos que quien sea "Certificable" debe saber generar un reporte.
+
+java
+
+```java
+interface Certificable {
+	void generarReporte(); // No hay llaves {}, solo el nombre. Obligatorio programarlo.
+}
+```
+
+
+#### 2_La Clase Abstracta (El "Molde" con Regalos)
+
+Aquí mezclamos cosas que ya funcionan con cosas que obligamos a programar.
+
+```java
+pulic abstract class PersonalHospital {
+	String nombre;
+
+	// REGALO: Este método ya funciona para todos. No hay que volver a programarlo.
+	void ficharEntrada() {
+		System.out.println(nombre + " ha fichado entrada a las 8:00 AM.");
 	}
-	```
-	
 
-2. **La Clase Abstracta (El "Molde" con Regalos)**
+	// OBLIGACIÓN: Cada uno trabaja de forma distinta. No tiene código {}.
+	abstract void realizarTarea(); 
+}
+```
 
-	Aquí mezclamos cosas que ya funcionan con cosas que obligamos a programar.
+
+#### 3_Las Clases Hijas (El Polimorfismo)
+
+Ahora creamos al **Médico**, que aprovecha el regalo de fichar pero cumple con su tarea específica.
+
+```java
+class Medico extends PersonalHospital implements Certificable {
 	
-	java
-	
-	```java
-	pulic abstract class PersonalHospital {
-	    String nombre;
-	
-	    // REGALO: Este método ya funciona para todos. No hay que volver a programarlo.
-	    void ficharEntrada() {
-	        System.out.println(nombre + " ha fichado entrada a las 8:00 AM.");
-	    }
-	
-	    // OBLIGACIÓN: Cada uno trabaja de forma distinta. No tiene código {}.
-	    abstract void realizarTarea(); 
+	// Cumple con la obligación de la Clase Abstracta
+	@Override
+	void realizarTarea() {
+		System.out.println("El médico está operando...");
 	}
-	```
-	
 
-3. Las Clases Hijas (El Polimorfismo)
-
-	Ahora creamos al **Médico**, que aprovecha el regalo de fichar pero cumple con su tarea específica.
-	
-	java
-	
-	```java
-	class Medico extends PersonalHospital implements Certificable {
-	    
-	    // Cumple con la obligación de la Clase Abstracta
-	    @Override
-	    void realizarTarea() {
-	        System.out.println("El médico está operando...");
-	    }
-	
-	    // Cumple con la obligación de la Interfaz
-	    @Override
-	    public void generarReporte() {
-	        System.out.println("Generando reporte médico de cirugía.");
-	    }
+	// Cumple con la obligación de la Interfaz
+	@Override
+	public void generarReporte() {
+		System.out.println("Generando reporte médico de cirugía.");
 	}
-	```
-	
+}
+```
 
-4. ¿Cómo se usa esto? (La prueba de fuego)
 
-	Mira cómo el Médico usa lo que le regalaron y lo que él mismo programó:
-	
-	java
-	
-	```java
-	public class Main {
-	    public static void main(String[] args) {
-	        // PersonalHospital p = new PersonalHospital(); // <--- ESTO DARÍA ERROR (Es abstracta)
-	
-	        Medico drHouse = new Medico();
-	        drHouse.nombre = "Gregory House";
-	
-	        drHouse.ficharEntrada();  // Usa el código regalado de la Clase Abstracta
-	        drHouse.realizarTarea();   // Usa su propio código (Polimorfismo)
-	        drHouse.generarReporte(); // Cumple con la Interfaz
-	    }
+#### 4_¿Cómo se usa esto? (La prueba de fuego)
+
+Mira cómo el Médico usa lo que le regalaron y lo que él mismo programó:
+
+
+```java
+public class Main {
+	public static void main(String[] args) {
+		// PersonalHospital p = new PersonalHospital(); // <--- ESTO DARÍA ERROR (Es abstracta)
+
+		Medico drHouse = new Medico();
+		drHouse.nombre = "Gregory House";
+
+		drHouse.ficharEntrada();  // Usa el código regalado de la Clase Abstracta
+		drHouse.realizarTarea();   // Usa su propio código (Polimorfismo)
+		drHouse.generarReporte(); // Cumple con la Interfaz
 	}
-	```
+}
+```
 
 	
-**Diferencias clave en el código:**
+### 5_Diferencias clave en el código
 
 1. **`extends`** (Clase Abstracta): Solo puedes heredar de **una**. Es tu familia.
 2. **`implements`** (Interfaz): Puedes implementar **muchas**. Son habilidades extra.
