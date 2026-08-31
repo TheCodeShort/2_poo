@@ -1,36 +1,46 @@
+```table-of-contents
+title: Conceptos POO
+minDepth: 1
+maxDepth: 6
+listStyle: number
+```
+
 [[1_poo.pdf#search=tema: Principios Avanzados de Programación Orientada a Objetos|1_poo, p.33]]
 # 1_Cohesión: "Hacer una sola cosa y hacerla bien"[[1_poo.pdf#search=Los principios avanzados|1_poo, p.33]]
-^86881c
+
 La cohesión mide qué tan enfocada está una clase. Una clase con **Alta Cohesión** es como un **especialista**: si tienes un "Chef", él solo cocina; no limpia el piso ni arregla la electricidad.
 
 - **En el código:** Si tu clase `Factura` solo calcula totales y aplica descuentos, tiene cohesión alta. Si esa misma clase también intenta conectarse a la base de datos y enviar correos, tiene **Baja Cohesión** (se vuelve una "Clase Dios" que hace de todo y es difícil de arreglar).
 - **Beneficio:** Es más fácil de probar y modificar sin romper cosas ajenas.
-- **Mucha Cohesión = BUENO (Súper Pro):** Significa que tu clase está muy enfocada. Si la clase se llama `Calculadora`, solo calcula. Es fácil de arreglar porque sabes exactamente dónde buscar el fallo.
-	1. Separamos las responsabilidades en expertos de una sola cosa.
-		```java
-			class CalculadoraSalario {
-			    void calcular(Empleado e) { ... }
-			}
-				class EmpleadoRepository {
-				    void guardar(Empleado e) { ... }
-				}
-				
-				class ServicioEmail {
-				    void enviarEmail(String mensaje) { ... }
-			}
-		```
-		
-- **Baja Cohesión = MALO:** Es cuando una clase "hace de todo" (lo que tú llamabas "mucha cohesión"). Si la clase `Factura` calcula el precio, lo guarda en la base de datos y además imprime un PDF, es un caos. Si falla el PDF, ¡podrías romper el cálculo del dinero sin querer!
-	1. Esta clase hace demasiadas cosas que no tienen que ver entre sí.
-		```java
-		class GestorEmpleado {
-			void calcularSalario() { ... }
-			void guardarEnBaseDeDatos() { ... }
-			void enviarEmailDeBienvenida() { ... }
-		}
-		```
-# 2_Acoplamiento: "Qué tan pegados están los cables"
+## 1_Mucha Cohesión = BUENO (Súper Pro):
+Significa que tu clase está muy enfocada. Si la clase se llama `Calculadora`, solo calcula. Es fácil de arreglar porque sabes exactamente dónde buscar el fallo.
 
+1. Separamos las responsabilidades en expertos de una sola cosa.
+```java
+	class CalculadoraSalario {
+		void calcular(Empleado e) { ... }
+	}
+		class EmpleadoRepository {
+			void guardar(Empleado e) { ... }
+		}
+		
+		class ServicioEmail {
+			void enviarEmail(String mensaje) { ... }
+	}
+```
+		
+## 2_Baja Cohesión = MALO
+- Es cuando una clase "hace de todo" (lo que tú llamabas "mucha cohesión"). Si la clase `Factura` calcula el precio, lo guarda en la base de datos y además imprime un PDF, es un caos. Si falla el PDF, ¡podrías romper el cálculo del dinero sin querer!
+1. Esta clase hace demasiadas cosas que no tienen que ver entre sí.
+	```java
+	class GestorEmpleado {
+		void calcularSalario() { ... }
+		void guardarEnBaseDeDatos() { ... }
+		void enviarEmailDeBienvenida() { ... }
+	}
+	```
+# 2_Acoplamiento: "Qué tan pegados están los cables"
+[[1_Conceptos_poo#6_Relaciones entre Clases 1_poo.pdf search=C. Relaciones entre Clases 1_poo, p.6 2_Conceptos_poo 2_Acoplamiento "Qué tan pegados están los cables"]]
 El acoplamiento mide la dependencia entre clases. Buscamos siempre un **Bajo Acoplamiento** 
 
 - **La Analogía:** Imagina los audífonos de un avión antiguo que tenían dos entradas raras. Si se rompen, solo puedes comprar esos. Eso es **Alto Acoplamiento**. En cambio, los audífonos con entrada USB o Bluetooth tienen **Bajo Acoplamiento**: puedes conectarlos a cualquier dispositivo porque usan un estándar (una interfaz).
@@ -97,34 +107,35 @@ El acoplamiento mide la dependencia entre clases. Buscamos siempre un **Bajo Aco
 
 - **Ejemplo del documento:** Si una persona intenta pagar y falla, el sistema debería lanzar una excepción como `PagoRechazadoException`. Esto le muestra un mensaje amable al usuario en lugar de cerrar la aplicación.
 
-1. No es un error de sintaxis (escribir mal una palabra), es un **error en tiempo de ejecución**.
+## 1_No es un error de sintaxis (escribir mal una palabra), es un **error en tiempo de ejecución**.
 
 - **La Analogía:** Estás siguiendo una receta (tu programa) y dice "agrega dos huevos". Vas a la nevera y no hay huevos. La receta no está mal escrita, pero la realidad impidió continuar.
 - **En el Código:** Intentar dividir por cero, abrir un archivo que no existe o conectar a una base de datos sin internet.
 
-2. La Estructura de Seguridad: `try-catch-finally`
+## 2_La Estructura de Seguridad: try-catch-finally
 
-	Este es el protocolo de emergencia de Java:
-	
-	- **`try` (El Experimento):** Metes aquí el código "peligroso" que podría fallar. _"Intenta abrir este archivo"_.
-	- **`catch` (La Red de Seguridad):** Si el código en el `try` falla, el programa salta aquí en lugar de cerrarse. _"Si no hay archivo, avísale al usuario y usa uno por defecto"_.
-	- **`finally` (La Limpieza):** Este bloque se ejecuta **siempre**, haya habido error o no. Es vital para cerrar conexiones o liberar memoria. _"No importa si hubo huevos o no, apaga la estufa al terminar"_.
+Este es el protocolo de emergencia de Java:
 
-3. Jerarquía y Tipos de Excepciones
+- **`try` (El Experimento):** Metes aquí el código "peligroso" que podría fallar. _"Intenta abrir este archivo"_.
+- **`catch` (La Red de Seguridad):** Si el código en el `try` falla, el programa salta aquí en lugar de cerrarse. _"Si no hay archivo, avísale al usuario y usa uno por defecto"_.
+- **`finally` (La Limpieza):** Este bloque se ejecuta **siempre**, haya habido error o no. Es vital para cerrar conexiones o liberar memoria. _"No importa si hubo huevos o no, apaga la estufa al terminar"_.
 
-	Java organiza los errores como una **Herencia** (aplicando lo que vimos en la Temática 3):
-	
-	- **Checked Exceptions (Verificadas):** El compilador te obliga a manejarlas (ej. leer un archivo). Es como si Java te dijera: "Sé que esto puede fallar, dime qué harás si pasa".
-	- **Unchecked Exceptions (No verificadas):** Errores de lógica (ej. acceder a una posición de un arreglo que no existe). Suelen ser culpa del programador.
+## 3_Jerarquía y Tipos de Excepciones
 
-4. Excepciones Personalizadas
+Java organiza los errores como una **Herencia** (aplicando lo que vimos en la Temática 3):
 
-	A veces, los errores estándar de Java (`IOException`, `NullPointerException`) no son suficientes para tu negocio.
-	
-	- **Ejemplo:** En un sistema bancario, si alguien intenta retirar más dinero del que tiene, no es un error de sistema, es un error de negocio. Creas una clase `SaldoInsuficienteException` que hereda de `Exception`. Esto hace que tu código sea mucho más legible y profesional.
+- **Checked Exceptions (Verificadas):** El compilador te obliga a manejarlas (ej. leer un archivo). Es como si Java te dijera: "Sé que esto puede fallar, dime qué harás si pasa".
+- **Unchecked Exceptions (No verificadas):** Errores de lógica (ej. acceder a una posición de un arreglo que no existe). Suelen ser culpa del programador.
+
+## 4_Excepciones Personalizadas
+
+A veces, los errores estándar de Java (`IOException`, `NullPointerException`) no son suficientes para tu negocio.
+
+- **Ejemplo:** En un sistema bancario, si alguien intenta retirar más dinero del que tiene, no es un error de sistema, es un error de negocio. Creas una clase `SaldoInsuficienteException` que hereda de `Exception`. Esto hace que tu código sea mucho más legible y profesional.
 
 ```java
-public void realizarRetiro(double cantidad) throws SaldoInsuficienteException {
+public void realizarRetiro(double cantidad) 
+throws SaldoInsuficienteException {
     try {
         if (cantidad > saldoActual) {
             // Lanzamos nuestra propia excepción personalizada
@@ -145,215 +156,185 @@ public void realizarRetiro(double cantidad) throws SaldoInsuficienteException {
 
 El documento menciona que, aunque no están en el sílabo detallado, los **Principios SOLID** son la base teórica para lograr esa alta cohesión y bajo acoplamiento  Son 5 reglas de oro:
 
-- **SOLID:** No es "Qué" escribir, sino "Cómo" organizar
-	1. **S ingle Responsibility (Responsabilidad Única)** Una clase, una sola tarea como la [[2_Conceptos_poo#^86881c]] .
-		 - Una clase debe tener una, y solo una, razón para cambiar". Esto significa que si mañana cambias el formato de tus reportes, no deberías tener que tocar la clase que calcula los salarios.
+## 1_SOLID 
+ No es "Qué" escribir, sino "Cómo" organizar
+## 1_S ingle Responsibility (Responsabilidad Única)
+
+Una clase, una sola tarea como la. Una clase debe tener una, y solo una, razón para cambiar". Esto significa que si mañana cambias el formato de tus reportes, no deberías tener que tocar la clase que calcula los salarios es como exigir alta cohesión [[2_Conceptos_poo#1_Cohesión "Hacer una sola cosa y hacerla bien" 1_poo.pdf search=Los principios avanzados 1_poo, p.33]].
 		 
-	2. **O pen/Closed (Abierto a extensión, cerrado a modificación)**  El código debe estar **abierto** para extenderse (añadir funciones) pero **cerrado** para modificarse (no romper lo que ya sirve).
-		- Las entidades de software (clases, módulos, funciones) deben estar **abiertas para la extensión**, pero **cerradas para la modificación**
-		- si necesitas añadir una nueva funcionalidad, deberías poder hacerlo **agregando código nuevo**, no cambiando el código que ya escribiste, probaste y funciona.
-		- ###### Ejemplo =>
-			- Imagina que tienes una clase que calcula descuentos. Cada vez que llega un nuevo tipo de cliente, tienes que entrar a la clase y añadir un `if`.
-				- ```java
-				  class CalculadorDescuento {
-					    public double aplicarDescuento(String tipoCliente, double total) {
-					        if (tipoCliente.equals("VIP")) {
-					            return total * 0.80;
-					        } else if (tipoCliente.equals("PREMIUM")) { // <-- Tuviste que MODIFICAR la clase
-					            return total * 0.90;
-					        }
-					        return total;
-					    }
-					}
-				  ```
-			- **_Problema:_** Cada vez que hay un nuevo descuento, modificas código viejo. Si te equivocas en un signo, rompes los descuentos que ya funcionaban.
+## 2_O pen/Closed (Abierto a extensión, cerrado a modificación)
+El código debe estar **abierto** para extenderse (añadir funciones) pero **cerrado** para modificarse (no romper lo que ya sirve).
+- Las entidades de software (clases, módulos, funciones) deben estar **abiertas para la extensión**, pero **cerradas para la modificación**
+- si necesitas añadir una nueva funcionalidad, deberías poder hacerlo **agregando código nuevo**, no cambiando el código que ya escribiste, probaste y funciona.
+#### Ejemplo
+Imagina que tienes una clase que calcula descuentos. Cada vez que llega un nuevo tipo de cliente, tienes que entrar a la clase y añadir un `if`.
+- ```java
+  class CalculadorDescuento {
+		public double aplicarDescuento(String tipoCliente, double total) {
+			if (tipoCliente.equals("VIP")) {
+				return total * 0.80;
+			} else if (tipoCliente.equals("PREMIUM")) { // <-- Tuviste que MODIFICAR la clase
+				return total * 0.90;
+			}
+			return total;
+		}
+	}
+  ```
+**Problema:** Cada vez que hay un nuevo descuento, modificas código viejo. Si te equivocas en un signo, rompes los descuentos que ya funcionaban.
 			
-			- Aquí es donde ocurre la magia. Cerramos la clase principal y la abrimos mediante una interfaz.
-				- ```java
-				  // 1. Definimos el "contrato" (Abierto a extensión)
-					interface Descuento {
-						double aplicar(double total);
-					}
-					
-					// 2. Creamos clases para cada caso nuevo (Sin tocar lo anterior)
-					class DescuentoVIP implements Descuento {
-						public double aplicar(double total) { return total * 0.80; }
-					}
-					
-					class DescuentoPremium implements Descuento {
-						public double aplicar(double total) { return total * 0.90; }
-					}
-					
-					// 3. La clase principal está CERRADA. No cambia nunca, solo recibe "descuentos".
-					class ProcesadorDePedido {
-						public void procesar(double total, Descuento descuento) {
-							double totalFinal = descuento.aplicar(total);
-							System.out.println("Total con descuento: " + totalFinal);
-						}
-					} 
-				  ```
-				  
-			- Si mañana llega el "Descuento de Navidad", no tocas `ProcesadorDePedido`. Simplemente creas una clase nueva `DescuentoNavidad` que implemente la interfaz y listo. **Cero riesgo de romper código antiguo.** 
+Aquí es donde ocurre la magia. Cerramos la clase principal y la abrimos mediante una interfaz.
+```java
+// 1. Definimos el "contrato" (Abierto a extensión)
+interface Descuento {
+	double aplicar(double total);
+}
 
-	3. **L iskov Substitution (Sustitución de sub-clases)** Si tienes una clase hija, esta debe poder reemplazar al padre sin que el programa explote.
-		- Si una clase `B` hereda de una clase `A`, entonces deberíamos poder usar objetos de la clase `B` en cualquier lugar donde usemos objetos de la clase `A` **sin que el programa se rompa o se comporte raro**
-		- En palabras simples: Una clase hija debe ser capaz de hacer **todo** lo que el padre hace, cumpliendo las expectativas. No debe "mentir" sobre sus capacidades.
+// 2. Creamos clases para cada caso nuevo (Sin tocar lo anterior)
+class DescuentoVIP implements Descuento {
+	public double aplicar(double total) { return total * 0.80; }
+}
+
+class DescuentoPremium implements Descuento {
+	public double aplicar(double total) { return total * 0.90; }
+}
+
+// 3. La clase principal está CERRADA. No cambia nunca, solo recibe "descuentos".
+class ProcesadorDePedido {
+	public void procesar(double total, Descuento descuento) {
+		double totalFinal = descuento.aplicar(total);
+		System.out.println("Total con descuento: " + totalFinal);
+	}
+} 
+```
+				  
+ Si mañana llega el "Descuento de Navidad", no tocas `ProcesadorDePedido`. Simplemente creas una clase nueva `DescuentoNavidad` que implemente la interfaz y listo. **Cero riesgo de romper código antiguo.** 
+
+## 3_L iskov Substitution (Sustitución de sub-clases)
+ Si tienes una clase hija, esta debe poder reemplazar al padre sin que el programa explote.
+- Si una clase `B` hereda de una clase `A`, entonces deberíamos poder usar objetos de la clase `B` en cualquier lugar donde usemos objetos de la clase `A` **sin que el programa se rompa o se comporte raro**
+- En palabras simples: Una clase hija debe ser capaz de hacer **todo** lo que el padre hace, cumpliendo las expectativas. No debe "mentir" sobre sus capacidades.
+
+### 1_Ejemplo
+```java
+	class Ave {
+		void volar() {
+			System.out.println("Estoy volando...");
+		}
+	}
+	
+	class Avestruz extends Ave {
+		@Override
+		void volar() {
+// ¡ERROR! El avestruz no puede volar. 
+// Lanzar una excepción aquí rompe el programa de quien esperaba que el ave volara.
+			throw new RuntimeException("No puedo volar, soy un avestruz");
+		}
+	}
+	
+	// El desastre en el código principal:
+	void hacerVolar(Ave ave) {
+		ave.volar(); // Si le pasas un Avestruz, el programa EXPLOTA.
+	}
+```
+## 4_I nterface Segregation (Muchos contratos pequeños mejor que uno gigante)
+Mejor muchas interfaces pequeñas que una gigante.
+- Un cliente no debe ser obligado a depender de interfaces que no utiliza.
+- En cristiano: Es mejor tener **muchas interfaces pequeñas y específicas** que una sola interfaz gigante y genérica. No obligues a una clase a implementar métodos "vacíos" o que no tienen sentido para ella
+### 1_Ejemplo 
+Aquí obligamos a todo trabajador a saber programar y cocinar.
+```java
+  interface Trabajador {
+		void programar();
+		void cocinar();
+	}
+	
+	class Programador implements Trabajador {
+		public void programar() { System.out.println("Escribiendo código");}
 		
-			- **Ejemplo**
-				- ```java
-					class Ave {
-					    void volar() {
-					        System.out.println("Estoy volando...");
-					    }
-					}
-					
-					class Avestruz extends Ave {
-					    @Override
-					    void volar() {
-					        // ¡ERROR! El avestruz no puede volar. 
-					        // Lanzar una excepción aquí rompe el programa de quien esperaba que el ave volara.
-					        throw new RuntimeException("No puedo volar, soy un avestruz");
-					    }
-					}
-					
-					// El desastre en el código principal:
-					void hacerVolar(Ave ave) {
-					    ave.volar(); // Si le pasas un Avestruz, el programa EXPLOTA.
-					}
+// PROBLEMA: El programador NO cocina, pero la interfaz lo obliga a poner el método
+		public void cocinar() { 
+			/* Método vacío o lanza error: ¡Mala práctica! */ 
+		}
+	}
+```
 
-				  ```
-				  
-			- Para cumplir con Liskov, no debemos forzar a las clases a heredar comportamientos que no pueden cumplir. Usamos **Interfaces** para separar las habilidades.
-				- ```java
-					class Ave {
-					    void comer() {
-					        System.out.println("Comiendo...");
-					    }
-					}
-					
-					interface AveVoladora {
-					    void volar();
-					}
-					
-					class Gorrion extends Ave implements AveVoladora {
-					    public void volar() { System.out.println("El gorrión vuela"); }
-					}
-					
-					class Avestruz extends Ave {
-					    // El avestruz solo hereda lo que SÍ puede hacer (comer).
-					    // No implementa AveVoladora.
-					}
+Dividimos la interfaz gigante en interfaces especialistas.
+```java
+  // Interfaces pequeñas y específicas
+interface ProgramadorHabilidad {
+	void programar();
+}
 
-				  ```
+interface CocineroHabilidad {
+	void cocinar();
+}
+
+// Cada clase toma SOLO lo que necesita
+class DesarrolladorJava implements ProgramadorHabilidad {
+	public void programar() {
+		System.out.println("Programando en Java...");
+	}
+}
+
+class Chef implements CocineroHabilidad {
+	public void cocinar() {
+		System.out.println("Preparando una lasaña...");
+	}
+}
+```
 	
-	4. **I nterface Segregation (Muchos contratos pequeños mejor que uno gigante)** Mejor muchas interfaces pequeñas que una gigante.
-		- Un cliente no debe ser obligado a depender de interfaces que no utiliza.
-		- En cristiano: Es mejor tener **muchas interfaces pequeñas y específicas** que una sola interfaz gigante y genérica. No obligues a una clase a implementar métodos "vacíos" o que no tienen sentido para ella
-		- **Ejemplo:** 
-			- Aquí obligamos a todo trabajador a saber programar y cocinar.
-				- ```java
-				  interface Trabajador {
-					    void programar();
-					    void cocinar();
-					}
-					
-					class Programador implements Trabajador {
-					    public void programar() { System.out.println("Escribiendo código");}
-					    
-					    // PROBLEMA: El programador NO cocina, pero la interfaz lo obliga a poner el método
-					    public void cocinar() { 
-					        /* Método vacío o lanza error: ¡Mala práctica! */ 
-					    }
-					}
+## 5_D ependency Inversion (Depender de ideas, no de cosas concretas)
+Aquí entran las **Interfaces y el Acoplamiento**. No dependas de clases concretas, depende de abstracciones (contratos), es como exigir **Bajo Acoplamiento** [[2_Conceptos_poo#2_Acoplamiento "Qué tan pegados están los cables"]].
+- Las clases de alto nivel (la lógica importante) no deben depender de clases de bajo nivel (detalles como la base de datos o una librería específica). Ambas deben depender de **abstracciones** (interfaces).
+- Las abstracciones no deben depender de los detalles. Los detalles deben depender de las abstracciones.
+### 1_Ejemplo
+Aquí la clase `Tienda` está "amarrada" a `PayPal`. Si `PayPal` falla o queremos cambiarlo, la `Tienda` deja de funcionar.
+- ```java
+	class PayPal {
+		void procesarPago() { System.out.println("Pagando con PayPal..."); }
+	}
 	
-				  ```
-				  
-			- Dividimos la interfaz gigante en interfaces especialistas.
-				- ```java
-				  // Interfaces pequeñas y específicas
-				interface ProgramadorHabilidad {
-					void programar();
-				}
-				
-				interface CocineroHabilidad {
-					void cocinar();
-				}
-				
-				// Cada clase toma SOLO lo que necesita
-				class DesarrolladorJava implements ProgramadorHabilidad {
-					public void programar() {
-						System.out.println("Programando en Java...");
-					}
-				}
-				
-				class Chef implements CocineroHabilidad {
-					public void cocinar() {
-						System.out.println("Preparando una lasaña...");
-					}
-				}
-				  ```
-			
-	5. **D ependency Inversion (Depender de ideas, no de cosas concretas)** Aquí entran las **Interfaces y el Acoplamiento**. No dependas de clases concretas, depende de abstracciones (contratos).
-		- Las clases de alto nivel (la lógica importante) no deben depender de clases de bajo nivel (detalles como la base de datos o una librería específica). Ambas deben depender de **abstracciones** (interfaces).
-		- Las abstracciones no deben depender de los detalles. Los detalles deben depender de las abstracciones.
-		- **Ejemplo:**
-			- Aquí la clase `Tienda` está "amarrada" a `PayPal`. Si `PayPal` falla o queremos cambiarlo, la `Tienda` deja de funcionar.
-				- ```java
-					class PayPal {
-					    void procesarPago() { System.out.println("Pagando con PayPal..."); }
-					}
-					
-					class Tienda {
-					    private PayPal pago = new PayPal(); // <-- ERROR: Dependencia directa
-					
-					    void realizarVenta() {
-					        pago.procesarPago();
-					    }
-					}
-			
-				  ```
-				  
-			- Introducimos una **interfaz** en medio. Ahora la `Tienda` no sabe qué banco usas, solo sabe que usa un `MetodoPago`.
-				- ```java
-				  // 1. La Abstracción (El Enchufe)
-					interface MetodoPago {
-					    void pagar();
-					}
-					
-					// 2. Los Detalles (Las Lámparas)
-					class PayPal implements MetodoPago {
-					    public void pagar() { System.out.println("Usando PayPal..."); }
-					}
-					
-					class Tarjeta implements MetodoPago {
-					    public void pagar() { System.out.println("Usando Tarjeta..."); }
-					}
-					
-					// 3. Clase de Alto Nivel (La Tienda)
-					class Tienda {
-					    private MetodoPago metodo; // <-- Depende de la interfaz, no de la clase real
-					
-					    // Inyectamos la dependencia (le pasamos el objeto ya creado)
-					    Tienda(MetodoPago metodo) {
-					        this.metodo = metodo;
-					    }
-					
-					    void realizarVenta() {
-					        metodo.pagar();
-					    }
-					}
+	class Tienda {
+		private PayPal pago = new PayPal(); // <-- ERROR: Dependencia directa
+	
+		void realizarVenta() {
+			pago.procesarPago();
+		}
+	}
 
-				  ```
+  ```
+  
+Introducimos una **interfaz** en medio. Ahora la `Tienda` no sabe qué banco usas, solo sabe que usa un `MetodoPago`.
+```java
+  // 1. La Abstracción (El Enchufe)
+	interface MetodoPago {
+		void pagar();
+	}
+	
+	// 2. Los Detalles (Las Lámparas)
+	class PayPal implements MetodoPago {
+		public void pagar() { System.out.println("Usando PayPal..."); }
+	}
+	
+	class Tarjeta implements MetodoPago {
+		public void pagar() { System.out.println("Usando Tarjeta..."); }
+	}
+	
+	// 3. Clase de Alto Nivel (La Tienda)
+	class Tienda {
+		private MetodoPago metodo; // <-- Depende de la interfaz, no de la clase real
+	
+// Inyectamos la dependencia (le pasamos el objeto ya creado)
+		Tienda(MetodoPago metodo) {
+			this.metodo = metodo;
+		}
+	
+		void realizarVenta() {
+			metodo.pagar();
+		}
+	}
+```
 
    Si la POO es el material de construcción (ladrillos, cemento), SOLID es el **código de ética del arquitecto**.
-	- Puedes construir una casa que se mantenga en pie (que el código funcione), pero sin SOLID, quizás para cambiar una ventana tengas que derribar toda una pared.
-	- Con SOLID, cambiar esa ventana es tan fácil como quitar un tornillo.
-
-
-
-
-
-
-
-1. calcular el IMC DE UNA PERSONA 
-2. que nos deje hacer sacar la hipotenusa de un triangulo rectángulo rectángulo  
+- Puedes construir una casa que se mantenga en pie (que el código funcione), pero sin SOLID, quizás para cambiar una ventana tengas que derribar toda una pared.
+- Con SOLID, cambiar esa ventana es tan fácil como quitar un tornillo.

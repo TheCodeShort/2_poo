@@ -1,7 +1,7 @@
 ```table-of-contents
 title: Conceptos POO
 minDepth: 1
-maxDepth: 3
+maxDepth: 6
 listStyle: number
 ```
 
@@ -161,7 +161,7 @@ Polimorfismo es heredar métodos  pero no se puede cambiar el nombre al método 
 - **Hijo (Perro):** `hacerSonido()` -> Código: `System.out.println("Guau!");`
 - **Hijo (Gato):** `hacerSonido()` -> Código: `System.out.println("Miau!");`
 con los atributos no es buena practica hacerlo 
-# 6_Relaciones entre Clases [[1_poo.pdf#search=C. Relaciones entre Clases|1_poo, p.6]]
+# 6_Relaciones entre Clases [[1_poo.pdf#search=C. Relaciones entre Clases|1_poo, p.6]] [[2_Conceptos_poo#2_Acoplamiento "Qué tan pegados están los cables"]] 
 
 No todo es herencia. A veces las clases simplemente se conocen o se necesitan. Según tus apuntes, hay tres niveles de "amistad" entre objetos:
 
@@ -170,7 +170,7 @@ No todo es herencia. A veces las clases simplemente se conocen o se necesitan. S
 | **Asociación**  | "Tiene un". Son independientes. | Débil  | Un `Profesor` tiene un `Curso`. Si el curso acaba, el profesor sigue existiendo                                    |
 | **Agregación**  | Relación Todo-Parte.            | Media  | Un `Equipo` tiene `Jugadores`. Si el equipo desaparece, los jugadores pueden irse a otro                           |
 | **Composición** | Relación de vida o muerte.      | Fuerte | Una `Oficina` tiene una `Dirección`. Si destruyes la oficina en el sistema, la dirección ya no tiene sentido sola  |
-## 1_Asociación: "La Amistad" (Relación Débil)
+## 1_Asociación: "La Amistad" (Relación Débil) - (Acoplamiento Muy Bajo)
 Es una conexión simple donde dos clases se conocen y se comunican, pero **cada una tiene su propia vida**.
 
 - **La Analogía:** Un **Médico** y un **Paciente**. El médico atiende a muchos pacientes, y el paciente ve a varios médicos. Si el médico se jubila, el paciente sigue existiendo. Si el paciente se muda, el médico sigue trabajando.
@@ -233,7 +233,7 @@ Es una conexión simple donde dos clases se conocen y se comunican, pero **cada 
 	
 	Esta relación es la más común porque permite que tu código sea flexible. Los objetos colaboran pero no están "atados" de por vida.
 	
-## 2_Agregación: "El Equipo" (Relación Media)
+## 2_Agregación: "El Equipo" (Relación Media) - (Acoplamiento Moderado)
 
 Es una relación de tipo **"tiene un"** o **"forma parte de"**. Una clase es un "contenedor" de otras, pero las partes pueden existir fuera de ese contenedor.
 
@@ -310,7 +310,7 @@ Es una relación de tipo **"tiene un"** o **"forma parte de"**. Una clase es un 
 	- **Independencia Final:** Al igual que en la asociación, si borras el equipo, los jugadores no se borran (no hay `null` en cascada).
 
 
-## 3_Composición: "El Cuerpo Humano" (Relación Fuerte)**
+## 3_Composición: "El Cuerpo Humano" (Relación Fuerte) - (Acoplamiento Alto, pero controlado)
 
 Es una relación de dependencia total. Aquí, las partes **no tienen sentido** ni pueden existir sin el "todo".
 
