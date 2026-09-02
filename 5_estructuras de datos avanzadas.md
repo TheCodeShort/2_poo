@@ -1,3 +1,10 @@
+```table-of-contents
+title: Conceptos POO
+minDepth: 1
+maxDepth: 6
+listStyle: number
+```
+
 [[2_SDLC_sofware.pdf#search=Estructura de datos|SDLC_sofware, p.527]]
 # Qué es 
 
@@ -33,7 +40,6 @@ La lógica general es esta: no solo guardas datos, también los transformas.
 Esto es muy parecido a trabajar con una lista en Python: a veces la usas como almacén, a veces como cola, a veces como texto, y a veces como conjunto de datos que debes ordenar antes de analizar. El documento te está entrenando justamente para pensar en el arreglo como una estructura viva, no como una caja estática.
 
 # Matrices
-[[2_SDLC_sofware.pdf#search=Matrice|SDLC_sofware, p.564]]
 Las **matrices** se presentan como arreglos de más de una dimensión. El texto las explica de forma muy clara: una matriz puede verse como un vector cuyos elementos son otros vectores. Eso significa que ya no accedes con un solo índice, sino con dos coordenadas, como fila y columna.
 
 El ejemplo con alimentos ilustra esa idea: una estructura tipo tabla con filas y columnas, codificada en JavaScript como un arreglo de arreglos. Esto es exactamente lo que en programación luego usarías para representar tablas, calificaciones, inventarios, horarios o cualquier dato bidimensional. Si el vector era una lista, la matriz ya es una hoja de cálculo sin maquillaje.
