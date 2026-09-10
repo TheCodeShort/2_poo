@@ -824,3 +824,38 @@ public class Main {
 	- **La acción:** La clase hija dice: "Yo soy una versión especializada de mi padre; recibo su herencia (código hecho) y completo lo que falta".
 	- **En UML:** Se usa una línea **continua** con una flecha de triángulo vacío.
 
+
+
+# 15_Programación modular 
+
+es una forma de construir software **dividiendo el programa en partes pequeñas, independientes y reutilizables** llamadas módulos.
+
+Un módulo puede ser una **función**, una **clase**, un **archivo** o una **sección lógica** del programa. La idea es simple: en vez de escribir un bloque gigante e inmanejable, separas el problema en piezas que hacen una sola cosa y la hacen bien. Eso mejora lectura, mantenimiento, pruebas y reutilización.
+
+En Python sería como pasar de un script lleno de líneas sueltas a algo así:
+
+- una función para validar datos,
+- otra para calcular,
+- otra para mostrar resultados,
+- y si crece mucho, cada grupo en su propio archivo.
+
+Eso es programación modular: **hacer que el programa tenga estructura**, como una casa por habitaciones y no como una sola habitación con todo tirado en el piso.
+
+Sus ventajas principales son claridad, menos errores, mejor organización y facilidad para cambiar una parte sin romper todo. En el libro normalmente aparece porque es un paso natural entre aprender algoritmos básicos y empezar a diseñar programas más serios.
+
+📦 mi-proyecto-web/
+┃
+┣ 📂 assets/                (Módulo de Recursos Estáticos)
+┃ ┣ 📂 imagenes/            (Solo fotos, logos, iconos)
+┃ ┗ 📂 fuentes/             (Tipografías del sistema)
+┃
+┣ 📂 css/                   (Módulo de Estilos)
+┃ ┣ 📜 estilos-base.css     (Estilos globales)
+┃ ┗ 📜 tienda.css           (Solo estilos del diseño de la tienda)
+┃
+┣ 📂 js/                    (Módulo de Lógica de Programación)
+┃ ┣ 📜 carrito.js           (Código que maneja el carrito de compras)
+┃ ┗ 📜 usuarios.js          (Código que maneja el registro y login)
+┃
+┣ 📜 index.html             (Página principal / Estructura del sitio)
+┗ 📜 tienda.html            (Página de productos)
