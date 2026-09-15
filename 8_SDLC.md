@@ -1,7 +1,5 @@
 ![[2_sdlc.png|697]]
 # 1_**Teoría General de Sistemas (TGS)**
-[[2_SDLC_sofware.pdf#search=Análisis|SDLC_sofware, p.488]]
-[[2_SDLC_sofware.pdf#search=Diseño|SDLC_sofware, p.489]]
 
 es la base "invisible" de cualquier software. Antes de escribir una sola línea de código en tu app, la TGS te obliga a pensar en **cómo encaja tu app en el mundo real.**
 

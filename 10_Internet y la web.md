@@ -1,4 +1,4 @@
-[[2_SDLC_sofware.pdf#search=Conceptos, tecnologías y arquitectura para el desarrollo web|2_SDLC_sofware, p.614]]
+
 # Internet y la web: idea general
 
 El arranque de esta sección explica que las aplicaciones web actuales son más interactivas, rápidas, seguras y fáciles de usar, y que eso solo es posible por una infraestructura sólida de hardware y redes. La web no aparece por magia: depende de una base técnica que permite mover información entre dispositivos y servir aplicaciones y servicios.

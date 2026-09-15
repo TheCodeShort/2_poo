@@ -1,4 +1,3 @@
-[[2_SDLC_sofware.pdf#search=rogramación y algoritmia básica|SDLC_sofware, p.457]]
 
 ## Introducción a la algoritmia
 

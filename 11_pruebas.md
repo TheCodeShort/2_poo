@@ -1,4 +1,3 @@
-[[2_SDLC_sofware.pdf#search=Aplicación de pruebas de “software”|2_SDLC_sofware, p.731]]
 
 ## 1) Introducción del módulo
 
